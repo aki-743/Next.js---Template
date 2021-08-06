@@ -23,19 +23,9 @@ module.exports = {
       tb: { max: "960px" }
     },
     colors: {
-      black: colors.black,
-      current: "currentColor",
-      gray: colors.gray,
-      green: colors.green,
-      google: "#c6594b",
-      indigo: colors.indigo,
-      main: "#1976d2",
-      pink: colors.pink,
       transparent: "transparent",
       red: colors.rose,
-      white: colors.white,
-      yellow: colors.yellow,
-      link: "#0366d6"
+      background: "#f5f5f5"
     },
     extend: {}
   },
