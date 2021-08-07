@@ -5,7 +5,8 @@ import { StylesProvider } from "@material-ui/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Theme } from "../components";
 import "../styles/global.css";
-import "../styles/_app.tsx";
+import "../styles/palette.css";
+import Head from "next/head";
 
 const CustomApp = ({ Component, pageProps }: AppProps): JSX.Element => {
     useEffect(() => {
@@ -16,12 +17,17 @@ const CustomApp = ({ Component, pageProps }: AppProps): JSX.Element => {
     }, []);
 
     return (
-        <StylesProvider injectFirst>
-            <ThemeProvider theme={Theme}>
-                <CssBaseline />
-                <Component {...pageProps} />
-            </ThemeProvider>
-        </StylesProvider>
+        <>
+            <Head>
+                <title>ナリテ.</title>
+            </Head>
+            <StylesProvider injectFirst>
+                <ThemeProvider theme={Theme}>
+                    <CssBaseline />
+                    <Component {...pageProps} />
+                </ThemeProvider>
+            </StylesProvider>
+        </>
     );
 };
 

@@ -18,14 +18,18 @@ module.exports = {
   },
   theme: {
     screens: {
-      sm: { max: "560px" },
-      md: { max: "769px" },
-      tb: { max: "960px" }
+      sm: { max: "599px" },
+      md: { max: "960px" },
+      tablet: { max: "1024px" }
     },
     colors: {
       transparent: "transparent",
-      red: colors.rose,
-      background: "#f5f5f5"
+      background: "#f5f5f5",
+      white: "#fff",
+      red: "red",
+      main: "#ffe0b2",
+      google: "#c6594b",
+      facebook: "#3b5998"
     },
     extend: {}
   },
