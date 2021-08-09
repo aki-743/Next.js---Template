@@ -17,6 +17,7 @@ const colors = {
     secondary: "bg-secondary",
     google: "bg-google",
     facebook: "bg-facebook",
+    twitter: "bg-twitter",
     warn: "bg-warn",
     default: "bg-default",
 };

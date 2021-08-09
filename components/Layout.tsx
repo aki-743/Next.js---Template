@@ -1,7 +1,20 @@
 import { ContainerProps } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
 import Head from "next/head";
 import { Header } from "./";
-import { CustomContainer, Footer } from "./";
+import { CustomContainer, CustomLoading, CustomSnackbar, Footer } from "./";
+
+const useStyles = makeStyles({
+    main: {
+        backgroundColor: "#f5f5f5",
+        minHeight: "calc(100vh - 136px)",
+        "& > div": {
+            padding: "40px",
+            minHeight: "inherit",
+            backgroundColor: "#fff",
+        },
+    },
+});
 
 type Props = {
     children: ContainerProps["children"];
@@ -11,7 +24,15 @@ type Props = {
     subTitle?: string;
 };
 
-const Layout: React.FC<Props> = ({ children, containerMaxWidth, footerRequired=true, headerRequired = true, subTitle }) => {
+const Layout: React.FC<Props> = ({
+    children,
+    containerMaxWidth,
+    footerRequired = true,
+    headerRequired = true,
+    subTitle,
+}) => {
+    const classes = useStyles();
+
     return (
         <>
             <Head>
@@ -20,9 +41,11 @@ const Layout: React.FC<Props> = ({ children, containerMaxWidth, footerRequired=t
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
             {headerRequired && <Header />}
-            <main className="bg-background">
+            <main className={classes.main}>
                 <CustomContainer maxWidth={containerMaxWidth}>{children}</CustomContainer>
             </main>
+            <CustomLoading />
+            <CustomSnackbar />
             {footerRequired && <Footer />}
         </>
     );

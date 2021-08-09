@@ -1,6 +1,7 @@
 const colors = require("tailwindcss/colors.js");
 
 module.exports = {
+  mode: "jit",
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   preserveHtmlElements: false,
@@ -26,10 +27,13 @@ module.exports = {
       transparent: "transparent",
       background: "#f5f5f5",
       white: "#fff",
+      black: "#000",
+      green: colors.green,
       red: "red",
       main: "#ffe0b2",
       google: "#c6594b",
-      facebook: "#3b5998"
+      facebook: "#3b5998",
+      twitter: "#00acee"
     },
     extend: {}
   },

@@ -4,21 +4,27 @@ import Link from "next/link";
 const useStyles = makeStyles({
     root: {
         color: "#0366d6",
+        "&:hover": {
+            textDecoration: "underline"
+        }
     },
 });
 
 type Props = {
     label: string;
     path: string;
+    className?: string;
 };
 
-const CustomLink: React.FC<Props> = ({ label, path }) => {
+const CustomLink: React.FC<Props> = ({ label, path, className }) => {
     const classes = useStyles();
 
     return (
-        <Link href={path}>
-            <a className={classes.root}>{label}</a>
-        </Link>
+        <div className={`mb-[5px] ${className}`}>
+            <Link href={path}>
+                <a className={classes.root}>{label}</a>
+            </Link>
+        </div>
     );
 };
 

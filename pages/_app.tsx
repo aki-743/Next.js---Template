@@ -5,10 +5,16 @@ import { StylesProvider } from "@material-ui/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Theme } from "../components";
 import "../styles/global.css";
-import "../styles/palette.css";
 import Head from "next/head";
+import { Provider } from 'react-redux'
+import { persistStore } from 'redux-persist'
+import { PersistGate } from 'redux-persist/integration/react'
+import { useStore } from '../store'
 
 const CustomApp = ({ Component, pageProps }: AppProps): JSX.Element => {
+    const store = useStore()
+    const persistor = persistStore(store)
+
     useEffect(() => {
         const jssStyles: Element | null = document.querySelector("#jss-server-side");
         if (jssStyles) {
@@ -17,17 +23,19 @@ const CustomApp = ({ Component, pageProps }: AppProps): JSX.Element => {
     }, []);
 
     return (
-        <>
-            <Head>
-                <title>ナリテ.</title>
-            </Head>
-            <StylesProvider injectFirst>
-                <ThemeProvider theme={Theme}>
-                    <CssBaseline />
-                    <Component {...pageProps} />
-                </ThemeProvider>
-            </StylesProvider>
-        </>
+        <Provider store={store}>
+            <PersistGate persistor={persistor}>
+                <Head>
+                    <title>ナリテ.</title>
+                </Head>
+                <StylesProvider injectFirst>
+                    <ThemeProvider theme={Theme}>
+                        <CssBaseline />
+                        <Component {...pageProps} />
+                    </ThemeProvider>
+                </StylesProvider>
+            </PersistGate>
+        </Provider>
     );
 };
 
