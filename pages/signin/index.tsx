@@ -1,7 +1,7 @@
 import { Search } from '@trejgun/material-ui-icons-google';
 import { ChangeEvent, useState } from 'react';
 import { CustomButton, CustomDivider, CustomImage, CustomLink, Layout, TextInput } from '../../components';
-import Logo from '../assets/images/logo.jpeg';
+import Logo from '../../assets/images/logo.jpeg';
 import { Facebook, Twitter } from '@material-ui/icons';
 import { useDispatch } from 'react-redux';
 
