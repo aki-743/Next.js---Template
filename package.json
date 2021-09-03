@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "export": "next export",
+    "build": "next build && next export",
     "start": "next start",
     "prettier": "prettier --write ./pages/**/*.{tsx} ./components/**/*.{ts,tsx} ./store/**/*.{ts} ./common/*.ts",
     "type-check": "tsc"
