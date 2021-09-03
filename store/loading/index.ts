@@ -1,31 +1,22 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
-export type Loading = {
+export type LoadingState = {
   open: boolean
 }
 
-export type LoadingState = {
-  loading: Loading
-}
-
-export type UpdateLoadingPayload = Loading
-
 const initialState: LoadingState = {
-  loading: {
-    open: false
-  },
+  open: false
 }
 
 export const loadingSlice = createSlice({
   name: 'loading',
   initialState,
-  // HACK: reducerは肥大化したらファイル分けたくなるかも
   reducers: {
-    toggleLoading(state, action: PayloadAction<UpdateLoadingPayload>) {
-      state.loading = action.payload
+    open(state) {
+      return { ...state, open: true }
     },
-    reset(): LoadingState {
-      return initialState
+    reset() {
+      return { ...initialState }
     },
   },
 })

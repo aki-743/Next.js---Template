@@ -1,33 +1,36 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-export type Snackbar = {
-  open: boolean;
-  message: string;
-}
-
 export type SnackbarState = {
-  snackbar: Snackbar
+  /** スナックバーの状態 */
+  open: boolean;
+  /** スナックバーで表示するメッセージ */
+  message: string;
+  /** スナックバーをすぐに表示するか */
+  immediately: boolean;
 }
 
-export type UpdateSnackbarPayload = Snackbar
+export type UpdateSnackbarPayload = {
+  message: string;
+};
 
 const initialState: SnackbarState = {
-  snackbar: {
     open: false,
-    message: ""
-  },
+    message: "",
+    immediately: false,
 }
 
 export const SnackbarSlice = createSlice({
   name: 'snackbar',
   initialState,
-  // HACK: reducerは肥大化したらファイル分けたくなるかも
   reducers: {
-    handleSnackbar(state, action: PayloadAction<UpdateSnackbarPayload>) {
-      state.snackbar = action.payload
+    openSnackbar(state, action: PayloadAction<UpdateSnackbarPayload>) {
+      return { ...state, open: true, mesage: action.payload.message }
+    },
+    immediatelyOpenSnackbar(state, action: PayloadAction<UpdateSnackbarPayload>) {
+      return { ...state, open: true, mesage: action.payload.message, immediately: true }
     },
     reset(): SnackbarState {
-      return initialState
+      return { ...initialState }
     },
   },
 })
