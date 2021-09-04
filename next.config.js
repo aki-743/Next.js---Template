@@ -1,6 +1,7 @@
 module.exports = {
-    images: {
-      loader: 'imgix',
-      path: './pages',
-    },
-  }
+  env: {},
+  images: {
+    loader: 'imgix',
+    path: './pages',
+  },
+}
