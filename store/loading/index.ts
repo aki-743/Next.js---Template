@@ -15,7 +15,7 @@ export const loadingSlice = createSlice({
     open(state) {
       return { ...state, open: true }
     },
-    reset() {
+    close() {
       return { ...initialState }
     },
   },

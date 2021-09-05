@@ -15,6 +15,7 @@
     "@material-ui/styles": "^4.11.4",
     "@reduxjs/toolkit": "^1.6.1",
     "@trejgun/material-ui-icons-google": "0.0.3",
+    "axios": "^0.21.3",
     "firebase": "^8.9.0",
     "next": "latest",
     "react": "^17.0.2",

@@ -2,7 +2,6 @@ import {
     configureStore,
     getDefaultMiddleware,
     combineReducers,
-    EnhancedStore,
 } from '@reduxjs/toolkit'
 import { loadingSlice } from './loading'
 import {
