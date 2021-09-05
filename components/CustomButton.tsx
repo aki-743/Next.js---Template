@@ -3,18 +3,19 @@ import { ReactNode } from 'react';
 import { MaterialColor } from '../interfaces';
 
 type Props = {
-  label: string;
-  color: MaterialColor;
+  label?: string;
+  color?: MaterialColor;
   className?: string;
   disabled?: boolean;
   fullWidth?: boolean;
   startIcon?: ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 const colors = {
   main: 'bg-main',
-  secondary: 'bg-secondary',
+  'main-light': 'bg-main-light',
+  'main-dark': 'bg-main-dark',
   google: 'bg-google',
   facebook: 'bg-facebook',
   twitter: 'bg-twitter',

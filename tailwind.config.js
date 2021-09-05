@@ -31,6 +31,8 @@ module.exports = {
       green: colors.green,
       red: "red",
       main: "#ffe0b2",
+      'main-light': '#6ff9ff',
+      'main-dark': '#0095a8',
       google: "#c6594b",
       facebook: "#3b5998",
       twitter: "#00acee"

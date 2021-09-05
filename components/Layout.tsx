@@ -13,6 +13,9 @@ const useStyles = makeStyles({
       minHeight: 'inherit',
       backgroundColor: '#fff',
     },
+    '& > div > *': {
+      marginBottom: '20px',
+    },
   },
 });
 

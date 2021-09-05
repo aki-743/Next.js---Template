@@ -11,7 +11,7 @@ const CustomLoading: React.FC = () => {
 
   // レンダリング毎にローディングの状態をリセット
   useEffect(() => {
-    dispatch(loadingSlice.actions.reset());
+    dispatch(loadingSlice.actions.close());
   }, []);
 
   return (

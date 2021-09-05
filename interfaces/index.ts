@@ -1,5 +1,5 @@
 // Materil-uiに使う色
-export type MaterialColor = "main" | "secondary" | "google" | "facebook" | "twitter" | "warn" | "default";
+export type MaterialColor = "main" | "main-light" | "main-dark" | "google" | "facebook" | "twitter" | "warn" | "default";
 
 // Drawerのメニューリスト
 export type DrawerObject = {
