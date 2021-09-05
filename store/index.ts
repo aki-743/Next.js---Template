@@ -42,8 +42,6 @@ const rootReducer = combineReducers({
     snackbar: SnackbarSlice.reducer
 })
 
-export type RootState = ReturnType<typeof rootReducer>
-
 const persistConfig = {
     key: 'p-next-test',
     version: 1,
@@ -51,13 +49,14 @@ const persistConfig = {
 }
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-export const useStore = (): EnhancedStore => {
-    return configureStore({
-        reducer: persistedReducer,
-        middleware: getDefaultMiddleware({
-            serializableCheck: {
-                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-            },
-        }),
-    })
-}
+export const store = configureStore({
+    reducer: persistedReducer,
+    middleware: getDefaultMiddleware({
+        serializableCheck: {
+            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+    }),
+})
+
+export type RootState = ReturnType<typeof rootReducer>
+export type AppDispatch = typeof store.dispatch
