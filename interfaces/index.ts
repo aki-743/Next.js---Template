@@ -5,6 +5,11 @@ export type MaterialColor = "main" | "main-light" | "main-dark" | "google" | "fa
 export type DrawerObject = {
     text: string;
     icon: JSX.Element;
+    /** 認証を必要とするか */
+    requireAuth?: boolean;
+    requireAuthValue?: boolean;
+    /** Dividerを必要とするか */
+    requireDivider?: boolean;
     onClick: () => void;
 };
 

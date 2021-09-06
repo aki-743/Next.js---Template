@@ -61,7 +61,7 @@
     ]
   },
   "license": "MIT",
-  "name": "narite-subscription",
+  "name": "next.js---template",
   "description": "This is a really simple project that shows the usage of Next.js with TypeScript.",
   "version": "1.0.0",
   "main": "postcss.config.js",

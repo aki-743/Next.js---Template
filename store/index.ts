@@ -14,7 +14,8 @@ import {
     REGISTER,
 } from 'redux-persist'
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
-import { SnackbarSlice } from './snackbar'
+import { snackbarSlice } from './snackbar'
+import { userSlice } from './user'
 
 // HACK: `redux-persist failed to create sync storage. falling back to noop storage.`の対応
 // https://github.com/vercel/next.js/discussions/15687#discussioncomment-45319
@@ -38,7 +39,8 @@ const storage =
 
 const rootReducer = combineReducers({
     loading: loadingSlice.reducer,
-    snackbar: SnackbarSlice.reducer
+    snackbar: snackbarSlice.reducer,
+    user: userSlice.reducer
 })
 
 const persistConfig = {

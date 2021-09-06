@@ -19,7 +19,7 @@ const initialState: SnackbarState = {
     immediately: false,
 }
 
-export const SnackbarSlice = createSlice({
+export const snackbarSlice = createSlice({
   name: 'snackbar',
   initialState,
   reducers: {
