@@ -1,6 +1,6 @@
 import { TextField } from '@material-ui/core';
 import { ChangeEvent, useCallback, useState } from 'react';
-import { validateEmail, validatePassowrd } from '../common/validate';
+import { validateEmail, validateFunctionObj, validatePassowrd } from '../common/validate';
 
 type Props = {
   label?: string;
@@ -13,15 +13,6 @@ type Props = {
   limit?: number;
   isRequired?: boolean;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-};
-
-type ValidateFunctionObj = {
-  [key: string]: (value: string) => boolean;
-};
-
-const validateFunctionObj: ValidateFunctionObj = {
-  email: validateEmail,
-  password: validatePassowrd,
 };
 
 const TextInput: React.FC<Props> = ({ label, value, type, fullWidth, disabled, multiline, rows, limit, isRequired, onChange }) => {

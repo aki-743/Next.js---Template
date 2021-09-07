@@ -98,7 +98,10 @@ const Header: React.FC = () => {
   return (
     <AppBar position="static" color="secondary">
       <Toolbar>
-        <Image src={Logo} alt="narite logo" width={50} height={50} placeholder="blur" />
+        {/* ロゴを表示する場合 */}
+        {/* <Image src={Logo} alt="narite logo" width={50} height={50} placeholder="blur" /> */}
+        {/* テキストの場合 */}
+        {process.env.TITLE}
         <Typography variant="h6" className={classes.title}></Typography>
         <IconButton aria-label="menu" onClick={toggleDrawer(true)}>
           <Menu />

@@ -25,7 +25,7 @@ const CustomApp = ({ Component, pageProps }: AppProps): JSX.Element => {
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <Head>
-          <title>ナリテ.</title>
+          <title>{process.env.TITLE}</title>
         </Head>
         <StylesProvider injectFirst>
           <ThemeProvider theme={Theme}>

@@ -48,6 +48,15 @@ export const validatePassowrd = (password: string): boolean => {
   return regex.test(password);
 };
 
+type ValidateFunctionObj = {
+  [key: string]: (value: string) => boolean;
+};
+
+export const validateFunctionObj: ValidateFunctionObj = {
+  email: validateEmail,
+  password: validatePassowrd,
+};
+
 export const checkValueFormat = (postData: PostData): boolean => {
   let isDefect = false;
   Object.keys(postData).forEach((key) => {
