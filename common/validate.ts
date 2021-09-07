@@ -1,11 +1,15 @@
 import { PostData } from "../interfaces";
 
+/****************************************************************/
+/** キー名に対するフォーマット */
+/****************************************************************/
+
 const formats = {
   'admin_password1': { min: 8, max: 64, type: 'string' },
   'admin_password2': { min: 8, max: 64, type: 'string' },
   'env': { min: 1, max: 10, type: 'string' },
   'store_name': { min: 1, max: 100, type: 'string' },
-  'oid': { min: 1, max: 20, type: 'string'},
+  'oid': { min: 1, max: 20, type: 'string' },
   'email': { min: 1, max: 100, type: 'string' },
   'representative': { min: 1, max: 100, type: 'string' },
   'phone': { min: 1, max: 20, type: 'string' },
@@ -19,9 +23,13 @@ const formats = {
   'prd_stripe_secret_key': { min: 0, max: 100, type: 'string' },
 }
 
+/****************************************************************/
+/** キー名に対するバリデーションのエラーメッセージ */
+/****************************************************************/
+
 const keyErrorMessages = {
   'admin_password1': '管理者パスワード１に不備がございます',
-  'admin_password2': '管理者パスワード１に不備がございます',
+  'admin_password2': '管理者パスワード２に不備がございます',
   'env': '環境変数に不備がございます',
   'store_name': '店名に不備がございます',
   'oid': 'オーナーIDに不備がございます',
@@ -38,6 +46,10 @@ const keyErrorMessages = {
   'prd_stripe_secret_key': '開発環境用のストライプシークレットキーに不備がございます',
 }
 
+/****************************************************************/
+/** タイプにおける正規表現 */
+/****************************************************************/
+
 export const validateEmail = (email: string): boolean => {
   const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   return regex.test(email);
@@ -48,27 +60,25 @@ export const validatePassowrd = (password: string): boolean => {
   return regex.test(password);
 };
 
-type ValidateFunctionObj = {
-  [key: string]: (value: string) => boolean;
-};
-
-export const validateFunctionObj: ValidateFunctionObj = {
+/** タイプに対する正規表現関数 */
+export const validateFunctionObj = {
   email: validateEmail,
   password: validatePassowrd,
-};
+} as {[key: string]: (value: string) => boolean};
 
-export const checkValueFormat = (postData: PostData): boolean => {
-  let isDefect = false;
+/****************************************************************/
+/** 非同期処理にポストデータのバリデーション */
+/****************************************************************/
+
+export const checkValueFormat = (postData: PostData) => {
   Object.keys(postData).forEach((key) => {
-      const format = formats[key]
-      if (!format) {
-        alert('フォーマットが定義されていません');
-        isDefect = true;
-      }
-      const length = postData[key]?.toString()?.length;
-      if (!(length >= format.min && length <= format.max && typeof postData[key] === format.type)) {
-          alert(keyErrorMessages[key]);
-      }
+    const format = formats[key]
+    if (!format) {
+      throw { type: 'validate', message: 'フォーマットが定義されていません' }
+    }
+    const length = postData[key]?.toString()?.length;
+    if (!(length >= format.min && length <= format.max && typeof postData[key] === format.type)) {
+      throw { type: 'validate', message: keyErrorMessages[key] }
+    }
   })
-  return isDefect;
 }

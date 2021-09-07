@@ -24,11 +24,27 @@ type APIResponse = {
     }
 };
 
-/** 関数名に対応したAPIのパス */
-const apiPaths = {
-    'sfsp-admin-login': '/admin/login',
-    'sfsp-admin-register-owner': '/admin/register-owner',
+/****************************************************************/
+/** dispatchにおけるエラーハンドリング */
+/****************************************************************/
+
+const errorHandlingDispatch = (error) => {
+    console.error('dispatch error:', error)
+    console.error('error type:', error.type)
+    console.error('error message:', error.message)
+
+    switch (error.type) {
+        case 'validate':
+            alert(error.message)
+            break
+        default:
+            break;
+    }
 }
+
+/****************************************************************/
+/** 非同期処理におけるエラーハンドリング */
+/****************************************************************/
 
 const errorHandling400 = (type: string) => {
     switch (type) {
@@ -66,6 +82,16 @@ const lambdaErrorHandling = (errorRes: APIResponse) => {
     }
 }
 
+/****************************************************************/
+/** 関数名に対応するリクエスト */
+/****************************************************************/
+
+/** 関数名に対応したAPIのパス */
+const apiPaths = {
+    'sfsp-admin-login': '/admin/login',
+    'sfsp-admin-register-owner': '/admin/register-owner',
+}
+
 /**
  * REST-API の POST メソッドを実行する
  *
@@ -77,9 +103,7 @@ type RequestAdminApi = (postData: PostData, functionName: string) => Promise<API
 
 const requestAdminApi: RequestAdminApi = async (postData, functionName) => {
     // 文字数制限やタイプが間違っていないか
-    if (checkValueFormat(postData)) {
-        return;
-    }
+    checkValueFormat(postData)
     return await axios.post(`${apiPaths[functionName]}`, {
         ...postData,
         env: process.env.USER_BRANCH
@@ -93,11 +117,14 @@ const requestAdminApi: RequestAdminApi = async (postData, functionName) => {
                 return null;
             }
         })
-        .catch(() => {
-            alert('エラーが発生しました');
-            return null;
+        .catch((error) => {
+            throw error;
         })
 }
+
+/****************************************************************/
+/** ログイン */
+/****************************************************************/
 
 /**
  * 管理者のパスワードが一致しているかの確認
@@ -120,7 +147,7 @@ export const adminLogin: AdminLogin = (password1, passsword2) => async (dispatch
             // dispatch(userSlice.actions.login({ ...postData }))
         }
     } catch (error) {
-        alert('エラーが発生しました')
+        errorHandlingDispatch(error)
     } finally {
         dispatch(loadingSlice.actions.close())
     }
