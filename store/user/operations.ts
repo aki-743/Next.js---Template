@@ -1,6 +1,8 @@
 import axios from "axios";
-import { adminSlice } from ".";
+import { userSlice } from ".";
 import { AppDispatch } from "..";
+import { checkValueFormat } from "../../common/validate";
+import { PostData } from "../../interfaces";
 import { loadingSlice } from "../loading";
 
 axios.defaults.baseURL = process.env.REST_API_ENDPOINT;
@@ -24,7 +26,8 @@ type APIResponse = {
 
 /** 関数名に対応したAPIのパス */
 const apiPaths = {
-    'sfsp-admin-login': '/admin/login'
+    'sfsp-admin-login': '/admin/login',
+    'sfsp-admin-register-owner': '/admin/register-owner',
 }
 
 const errorHandling400 = (type: string) => {
@@ -70,9 +73,13 @@ const lambdaErrorHandling = (errorRes: APIResponse) => {
  * @param {string} functionKey　呼び出す関数名
  */
 
-type RequestAdminApi = (postData: Object, functionName: string) => Promise<APIResponse | null>;
+type RequestAdminApi = (postData: PostData, functionName: string) => Promise<APIResponse | null>;
 
 const requestAdminApi: RequestAdminApi = async (postData, functionName) => {
+    // 文字数制限やタイプが間違っていないか
+    if (checkValueFormat(postData)) {
+        return;
+    }
     return await axios.post(`${apiPaths[functionName]}`, {
         ...postData,
         env: process.env.USER_BRANCH
@@ -110,7 +117,7 @@ export const adminLogin: AdminLogin = (password1, passsword2) => async (dispatch
         };
         const res = await requestAdminApi(postData, 'sfsp-admin-login');
         if (res) {
-            dispatch(adminSlice.actions.login({ ...postData }))
+            // dispatch(userSlice.actions.login({ ...postData }))
         }
     } catch (error) {
         alert('エラーが発生しました')

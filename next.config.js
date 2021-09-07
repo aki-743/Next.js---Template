@@ -1,7 +1,5 @@
 module.exports = {
-  env: {},
-  images: {
-    loader: 'imgix',
-    path: './pages',
+  env: {
+    REST_API_ENDPOINT: process.env.REST_API_ENDPOINT,
   },
 }
