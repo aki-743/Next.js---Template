@@ -70,7 +70,7 @@ export const validateFunctionObj = {
 /** 非同期処理にポストデータのバリデーション */
 /****************************************************************/
 
-export const checkValueFormat = (postData: PostData) => {
+export const checkValueFormat = (postData: PostData): void => {
   Object.keys(postData).forEach((key) => {
     const format = formats[key];
     if (!format) {
