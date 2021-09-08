@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Alert } from '@material-ui/lab';
-import { SnackbarSlice } from '../store/snackbar';
+import { snackbarSlice } from '../store/snackbar';
 import { Snackbar } from '@material-ui/core';
 import { snackbarSelector } from '../store/snackbar/selector';
 
@@ -9,28 +9,28 @@ const CustomSnackbar: React.FC = () => {
   const dispatch = useDispatch();
   const snackbar = useSelector(snackbarSelector);
   const [open, setOpen] = useState(false),
-    [message, setMessage] = useState("");
+    [message, setMessage] = useState('');
 
   const handleClose = () => {
-    dispatch(SnackbarSlice.actions.reset());
+    dispatch(snackbarSlice.actions.reset());
   };
 
   // レンダリング毎にスナックバーの状態をリセット
   useEffect(() => {
     if (snackbar.open) {
       setOpen(true);
-      setMessage(snackbar.message)
+      setMessage(snackbar.message);
     }
-    dispatch(SnackbarSlice.actions.reset());
+    dispatch(snackbarSlice.actions.reset());
   }, []);
 
   useEffect(() => {
     if (snackbar.immediately && snackbar.open) {
       setOpen(true);
-      setMessage(snackbar.message)
-    dispatch(SnackbarSlice.actions.reset());
+      setMessage(snackbar.message);
+      dispatch(snackbarSlice.actions.reset());
     }
-  }, [snackbar])
+  }, [snackbar]);
 
   return (
     <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>

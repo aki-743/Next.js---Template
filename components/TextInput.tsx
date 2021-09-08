@@ -1,6 +1,6 @@
 import { TextField } from '@material-ui/core';
 import { ChangeEvent, useCallback, useState } from 'react';
-import { validateEmail, validateFunctionObj, validatePassowrd } from '../common/validate';
+import { validateFunctionObj } from '../common/validate';
 
 type Props = {
   label?: string;
@@ -33,14 +33,14 @@ const TextInput: React.FC<Props> = ({ label, value, type, fullWidth, disabled, m
     }
 
     if (limit) {
-      console.log(e.target.value.length > limit)
+      console.log(e.target.value.length > limit);
       if (e.target.value.length > limit) {
         setError(true);
-        setErrorMessage('文字数制限を超えています')
+        setErrorMessage('文字数制限を超えています');
         /** ここでreturnしないとisRequiredで上書きされる */
         return;
       } else {
-        setError(false)
+        setError(false);
       }
     }
 
@@ -48,31 +48,35 @@ const TextInput: React.FC<Props> = ({ label, value, type, fullWidth, disabled, m
     if (isRequired) {
       if (e.target.value.length === 0) {
         setError(true);
-        setErrorMessage('必須項目です')
+        setErrorMessage('必須項目です');
       } else {
-        setError(false)
+        setError(false);
       }
     }
   }, []);
 
   return (
     <div>
-    <TextField
-      label={isRequired ? `${label}（必須）` : label}
-      value={value}
-      fullWidth={fullWidth}
-      type={type || 'text'}
-      error={error}
-      variant="outlined"
-      disabled={disabled}
-      multiline={multiline}
-      rows={rows || 1}
-      onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
-    />
-    <div className="flex justify-between">
-      <div className='text-red'>{error && errorMessage}</div>
-      {limit && <div>{value.length} / {limit}</div>}
-    </div>
+      <TextField
+        label={isRequired ? `${label}（必須）` : label}
+        value={value}
+        fullWidth={fullWidth}
+        type={type || 'text'}
+        error={error}
+        variant="outlined"
+        disabled={disabled}
+        multiline={multiline}
+        rows={rows || 1}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
+      />
+      <div className="flex justify-between">
+        <div className="text-red">{error && errorMessage}</div>
+        {limit && (
+          <div>
+            {value.length} / {limit}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { Divider, Drawer, DrawerProps, List, ListItem, ListItemIcon, ListItemText, makeStyles } from '@material-ui/core';
-import { Fragment, KeyboardEventHandler, MouseEventHandler } from 'react';
+import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import { DrawerList, DrawerObject } from '../interfaces';
 import { isLoginedSelector } from '../store/user/selector';
@@ -32,19 +32,19 @@ const CustomDrawer: React.FC<Props> = ({ anchor, open, toggleDrawer, drawerList 
             <Fragment key={index}>
               {menus.map((menu) => (
                 <>
-                {/* // 認証が必要な場合 */}
+                  {/* // 認証が必要な場合 */}
                   {menu.requireAuth ? (
-                  menu.requireAuthValue === isLogined && (
-                  <ListItem button onClick={menu.onClick}>
-                    <ListItemIcon>{menu.icon}</ListItemIcon>
-                    <ListItemText primary={menu.text} />
-                  </ListItem>
-                  )
+                    menu.requireAuthValue === isLogined && (
+                      <ListItem button onClick={menu.onClick}>
+                        <ListItemIcon>{menu.icon}</ListItemIcon>
+                        <ListItemText primary={menu.text} />
+                      </ListItem>
+                    )
                   ) : (
-                  <ListItem button onClick={menu.onClick}>
-                    <ListItemIcon>{menu.icon}</ListItemIcon>
-                    <ListItemText primary={menu.text} />
-                  </ListItem>
+                    <ListItem button onClick={menu.onClick}>
+                      <ListItemIcon>{menu.icon}</ListItemIcon>
+                      <ListItemText primary={menu.text} />
+                    </ListItem>
                   )}
                   {menu.requireDivider && <Divider />}
                 </>

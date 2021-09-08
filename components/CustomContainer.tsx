@@ -1,4 +1,4 @@
-import { Container, ContainerProps, makeStyles } from '@material-ui/core';
+import { Container, ContainerProps } from '@material-ui/core';
 
 const CustomContainer: React.FC<ContainerProps> = ({ children, maxWidth }) => {
   return (
