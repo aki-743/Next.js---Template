@@ -46,6 +46,11 @@
     "tabWidth": 2,
     "trailingComma": "all"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "styles/**/*.css": [
       "prettier --write --parser css"
