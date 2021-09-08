@@ -1,6 +1,6 @@
 export { default as Complete } from './Complete';
 export { default as CustomButton } from './CustomButton';
-export {default as CustomCheckbox } from './CustomCheckbox';
+export { default as CustomCheckbox } from './CustomCheckbox';
 export { default as CustomContainer } from './CustomContainer';
 export { default as CustomDivider } from './CustomDivider';
 export { default as CustomDrawer } from './CustomDrawer';

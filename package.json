@@ -55,13 +55,13 @@
     }
   },
   "lint-staged": {
-    "styles/**/*.css": [
+    "*.@(css)": [
       "prettier --write --parser css"
     ],
-      "*.@(ts|tsx)": [
-        "npm run lint",
-        "npm run format"
-      ]
+    "*.@(ts|tsx)": [
+      "npm run lint",
+      "npm run format"
+    ]
   },
   "license": "MIT",
   "name": "next.js---template",
