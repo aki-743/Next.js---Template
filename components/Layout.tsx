@@ -5,47 +5,47 @@ import { Header } from './';
 import { CustomContainer, CustomLoading, CustomSnackbar, Footer } from './';
 
 const useStyles = makeStyles({
-  main: {
-    backgroundColor: '#f5f5f5',
-    minHeight: 'calc(100vh - 136px)',
-    '& > div': {
-      padding: '40px',
-      minHeight: 'inherit',
-      backgroundColor: '#fff',
+    main: {
+        backgroundColor: '#f5f5f5',
+        minHeight: 'calc(100vh - 136px)',
+        '& > div': {
+            padding: '40px',
+            minHeight: 'inherit',
+            backgroundColor: '#fff',
+        },
+        '& > div > *': {
+            marginBottom: '20px',
+        },
     },
-    '& > div > *': {
-      marginBottom: '20px',
-    },
-  },
 });
 
 type Props = {
-  children: ContainerProps['children'];
-  containerMaxWidth?: ContainerProps['maxWidth'];
-  footerRequired?: boolean;
-  headerRequired?: boolean;
-  subTitle?: string;
+    children: ContainerProps['children'];
+    containerMaxWidth?: ContainerProps['maxWidth'];
+    footerRequired?: boolean;
+    headerRequired?: boolean;
+    subTitle?: string;
 };
 
 const Layout: React.FC<Props> = ({ children, containerMaxWidth, footerRequired = true, headerRequired = true, subTitle }) => {
-  const classes = useStyles();
+    const classes = useStyles();
 
-  return (
-    <>
-      <Head>
-        <title>ナリテ. - {subTitle}</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      {headerRequired && <Header />}
-      <main className={classes.main}>
-        <CustomContainer maxWidth={containerMaxWidth}>{children}</CustomContainer>
-      </main>
-      <CustomLoading />
-      <CustomSnackbar />
-      {footerRequired && <Footer />}
-    </>
-  );
+    return (
+        <>
+            <Head>
+                <title>ナリテ. - {subTitle}</title>
+                <meta charSet="utf-8" />
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
+            {headerRequired && <Header />}
+            <main className={classes.main}>
+                <CustomContainer maxWidth={containerMaxWidth}>{children}</CustomContainer>
+            </main>
+            <CustomLoading />
+            <CustomSnackbar />
+            {footerRequired && <Footer />}
+        </>
+    );
 };
 
 export default Layout;

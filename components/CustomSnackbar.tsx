@@ -6,39 +6,39 @@ import { Snackbar } from '@material-ui/core';
 import { snackbarSelector } from '../store/snackbar/selector';
 
 const CustomSnackbar: React.FC = () => {
-  const dispatch = useDispatch();
-  const snackbar = useSelector(snackbarSelector);
-  const [open, setOpen] = useState(false),
-    [message, setMessage] = useState('');
+    const dispatch = useDispatch();
+    const snackbar = useSelector(snackbarSelector);
+    const [open, setOpen] = useState(false),
+        [message, setMessage] = useState('');
 
-  const handleClose = () => {
-    dispatch(snackbarSlice.actions.reset());
-  };
+    const handleClose = () => {
+        dispatch(snackbarSlice.actions.reset());
+    };
 
-  // レンダリング毎にスナックバーの状態をリセット
-  useEffect(() => {
-    if (snackbar.open) {
-      setOpen(true);
-      setMessage(snackbar.message);
-    }
-    dispatch(snackbarSlice.actions.reset());
-  }, []);
+    // レンダリング毎にスナックバーの状態をリセット
+    useEffect(() => {
+        if (snackbar.open) {
+            setOpen(true);
+            setMessage(snackbar.message);
+        }
+        dispatch(snackbarSlice.actions.reset());
+    }, []);
 
-  useEffect(() => {
-    if (snackbar.immediately && snackbar.open) {
-      setOpen(true);
-      setMessage(snackbar.message);
-      dispatch(snackbarSlice.actions.reset());
-    }
-  }, [snackbar]);
+    useEffect(() => {
+        if (snackbar.immediately && snackbar.open) {
+            setOpen(true);
+            setMessage(snackbar.message);
+            dispatch(snackbarSlice.actions.reset());
+        }
+    }, [snackbar]);
 
-  return (
-    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-      <Alert onClose={handleClose} severity="success">
-        {message}
-      </Alert>
-    </Snackbar>
-  );
+    return (
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+            <Alert onClose={handleClose} severity="success">
+                {message}
+            </Alert>
+        </Snackbar>
+    );
 };
 
 export default CustomSnackbar;
