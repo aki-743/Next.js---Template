@@ -33,3 +33,7 @@ export type PostData = {
   prd_stripe_access_key?: string;
   prd_stripe_secret_key?: string;
 };
+
+export type A = {
+  aaaaaaaaaaaaaaaaaaaaaaaa: unko;
+};
