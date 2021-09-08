@@ -1,22 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export type LoadingState = {
-    open: boolean;
+  open: boolean;
 };
 
 const initialState: LoadingState = {
-    open: false,
+  open: false,
 };
 
 export const loadingSlice = createSlice({
-    name: 'loading',
-    initialState,
-    reducers: {
-        open(state) {
-            return { ...state, open: true };
-        },
-        close() {
-            return { ...initialState };
-        },
+  name: 'loading',
+  initialState,
+  reducers: {
+    open(state) {
+      return { ...state, open: true };
     },
+    close() {
+      return { ...initialState };
+    },
+  },
 });

@@ -1,3 +1,1 @@
-export type Unko = {
-    unko: unka;
-};
+export {};

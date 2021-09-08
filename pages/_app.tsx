@@ -12,30 +12,30 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { store } from '../store';
 
 const CustomApp = ({ Component, pageProps }: AppProps): JSX.Element => {
-    const persistor = persistStore(store);
+  const persistor = persistStore(store);
 
-    useEffect(() => {
-        const jssStyles: Element | null = document.querySelector('#jss-server-side');
-        if (jssStyles) {
-            jssStyles.parentElement?.removeChild(jssStyles);
-        }
-    }, []);
+  useEffect(() => {
+    const jssStyles: Element | null = document.querySelector('#jss-server-side');
+    if (jssStyles) {
+      jssStyles.parentElement?.removeChild(jssStyles);
+    }
+  }, []);
 
-    return (
-        <Provider store={store}>
-            <PersistGate persistor={persistor}>
-                <Head>
-                    <title>{process.env.TITLE}</title>
-                </Head>
-                <StylesProvider injectFirst>
-                    <ThemeProvider theme={Theme}>
-                        <CssBaseline />
-                        <Component {...pageProps} />
-                    </ThemeProvider>
-                </StylesProvider>
-            </PersistGate>
-        </Provider>
-    );
+  return (
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <Head>
+          <title>{process.env.TITLE}</title>
+        </Head>
+        <StylesProvider injectFirst>
+          <ThemeProvider theme={Theme}>
+            <CssBaseline />
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </StylesProvider>
+      </PersistGate>
+    </Provider>
+  );
 };
 
 export default CustomApp;

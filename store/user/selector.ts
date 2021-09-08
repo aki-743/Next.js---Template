@@ -4,9 +4,9 @@ import { RootState } from '..';
 export const userSelectorState = (state: RootState) => state.user;
 
 export const userSelector = createSelector(userSelectorState, (user) => {
-    return user;
+  return user;
 });
 
 export const isLoginedSelector = createSelector(userSelector, (user) => {
-    return user.isLogined;
+  return user.isLogined;
 });

@@ -6,19 +6,19 @@ import { Modal } from '@material-ui/core';
 import { loadingSelector } from '../store/loading/selector';
 
 const CustomLoading: React.FC = () => {
-    const dispatch = useDispatch();
-    const loading = useSelector(loadingSelector);
+  const dispatch = useDispatch();
+  const loading = useSelector(loadingSelector);
 
-    // レンダリング毎にローディングの状態をリセット
-    useEffect(() => {
-        dispatch(loadingSlice.actions.close());
-    }, []);
+  // レンダリング毎にローディングの状態をリセット
+  useEffect(() => {
+    dispatch(loadingSlice.actions.close());
+  }, []);
 
-    return (
-        <Modal className="flex items-center justify-center" open={loading.open} aria-labelledby="loading" disableEnforceFocus>
-            <ReactLoading type="spinningBubbles" />
-        </Modal>
-    );
+  return (
+    <Modal className="flex items-center justify-center" open={loading.open} aria-labelledby="loading" disableEnforceFocus>
+      <ReactLoading type="spinningBubbles" />
+    </Modal>
+  );
 };
 
 export default CustomLoading;

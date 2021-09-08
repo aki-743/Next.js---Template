@@ -1,81 +1,82 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "next",
-        "export": "next export",
-        "build": "next build",
-        "start": "next start",
-        "check-types": "tsc --noEmit",
-        "lint": "eslint common/*.ts interfaces/*.ts store/**/*.ts components/**/*.{ts,tsx} pages/**/*.tsx utils/*.ts",
-        "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
-        "format": "prettier --write .",
-        "test-all": "npx yarn-run-all lint check-types lint:fix",
-        "prepare": "npx husky install",
-        "lint-staged": "lint-staged"
-    },
-    "dependencies": {
-        "@material-ui/core": "^4.12.3",
-        "@material-ui/icons": "^4.11.2",
-        "@material-ui/lab": "^4.0.0-alpha.60",
-        "@material-ui/styles": "^4.11.4",
-        "@reduxjs/toolkit": "^1.6.1",
-        "@trejgun/material-ui-icons-google": "0.0.3",
-        "axios": "^0.21.3",
-        "firebase": "^8.9.0",
-        "next": "latest",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "react-loading": "^2.0.3",
-        "react-redux": "^7.2.4",
-        "redux-persist": "^6.0.0"
-    },
-    "devDependencies": {
-        "@types/node": "^12.12.21",
-        "@types/react": "^17.0.2",
-        "@types/react-dom": "^17.0.1",
-        "@types/react-redux": "^7.1.18",
-        "@typescript-eslint/eslint-plugin": "^4.31.0",
-        "@typescript-eslint/parser": "^4.31.0",
-        "autoprefixer": "^10.3.1",
-        "eslint": "^7.32.0",
-        "eslint-config-next": "^11.1.2",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-react": "^7.25.1",
-        "husky": "^6.0.0",
-        "lint-staged": "^11.1.2",
-        "postcss": "^8.3.6",
-        "postcss-cli": "^8.3.1",
-        "prettier": "^2.3.2",
-        "tailwindcss": "^2.2.7",
-        "typescript": "4.0"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "*.@(css)": [
-            "prettier --write --parser css"
-        ],
-        "*.@(ts|tsx)": [
-            "npm run lint",
-            "npm run format"
-        ]
-    },
-    "license": "MIT",
-    "name": "next.js---template",
-    "description": "This is a really simple project that shows the usage of Next.js with TypeScript.",
-    "version": "1.0.0",
-    "main": "postcss.config.js",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/aki-743/Next.js---Template.git"
-    },
-    "keywords": [],
-    "author": "",
-    "bugs": {
-        "url": "https://github.com/aki-743/Next.js---Template/issues"
-    },
-    "homepage": "https://github.com/aki-743/Next.js---Template#readme"
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "export": "next export",
+    "build": "next build",
+    "start": "next start",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint common/*.ts interfaces/*.ts store/**/*.ts components/**/*.{ts,tsx} pages/**/*.tsx utils/*.ts",
+    "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "format": "prettier --write .",
+    "test-all": "npx yarn-run-all lint check-types lint:fix",
+    "prepare": "npx husky install",
+    "lint-staged": "lint-staged"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@material-ui/styles": "^4.11.4",
+    "@reduxjs/toolkit": "^1.6.1",
+    "@trejgun/material-ui-icons-google": "0.0.3",
+    "axios": "^0.21.3",
+    "firebase": "^8.9.0",
+    "next": "latest",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-loading": "^2.0.3",
+    "react-redux": "^7.2.4",
+    "redux-persist": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.21",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "@types/react-redux": "^7.1.18",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "autoprefixer": "^10.3.1",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^11.1.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.25.1",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.1.2",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1",
+    "prettier": "^2.3.2",
+    "tailwindcss": "^2.2.7",
+    "typescript": "4.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.@(css)": [
+      "prettier --write --parser css"
+    ],
+    "*.@(ts|tsx)": [
+      "npm run lint",
+      "npm run check-types",
+      "npm run format"
+    ]
+  },
+  "license": "MIT",
+  "name": "next.js---template",
+  "description": "This is a really simple project that shows the usage of Next.js with TypeScript.",
+  "version": "1.0.0",
+  "main": "postcss.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aki-743/Next.js---Template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/aki-743/Next.js---Template/issues"
+  },
+  "homepage": "https://github.com/aki-743/Next.js---Template#readme"
 }
