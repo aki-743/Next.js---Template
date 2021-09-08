@@ -1,3 +1,4 @@
-."$(dirname "$0")/_/husky.sh"
+#!/bin/sh
+."$(dirmname "$0")/_/husky.sh"
 
 npm run check-types

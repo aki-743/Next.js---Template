@@ -11,7 +11,7 @@
     "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
     "format": "prettier --write .",
     "test-all": "npx yarn-run-all lint check-types lint:fix",
-    "prepare": "husky install",
+    "prepare": "npx husky install",
     "lint-staged": "lint-staged"
   },
   "dependencies": {
