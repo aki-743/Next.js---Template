@@ -1,5 +1,6 @@
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
+import { ReactElement } from 'react';
 
 class MyDocument extends Document {
   render(): JSX.Element {
@@ -23,7 +24,10 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
+      enhanceApp: (App) =>
+        function AppCollect(props): ReactElement {
+          return sheets.collect(<App {...props} />);
+        },
     });
 
   const initialProps = await Document.getInitialProps(ctx);

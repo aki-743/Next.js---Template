@@ -32,12 +32,8 @@ const Signup: React.FC = () => {
     console.log('a');
   };
 
-  const sendEmail = async () => {
-    console.log(1);
-  };
-
   const signUp = async () => {
-    console.log('a');
+    setActiveStep(1);
   };
 
   const registerSubscription = async () => {

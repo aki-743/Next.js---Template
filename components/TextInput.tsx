@@ -20,40 +20,43 @@ const TextInput: React.FC<Props> = ({ label, value, type, fullWidth, disabled, m
     [errorMessage, setErrorMessage] = useState('');
   const validateFunction = validateFunctionObj[type];
 
-  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    onChange(e);
+  const handleChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      onChange(e);
 
-    /** バリデーション */
-    if (validateFunction) {
-      if (validateFunction(e.target.value)) {
-        setError(false);
-      } else {
-        setError(true);
+      /** バリデーション */
+      if (validateFunction) {
+        if (validateFunction(e.target.value)) {
+          setError(false);
+        } else {
+          setError(true);
+        }
       }
-    }
 
-    if (limit) {
-      console.log(e.target.value.length > limit);
-      if (e.target.value.length > limit) {
-        setError(true);
-        setErrorMessage('文字数制限を超えています');
-        /** ここでreturnしないとisRequiredで上書きされる */
-        return;
-      } else {
-        setError(false);
+      if (limit) {
+        console.log(e.target.value.length > limit);
+        if (e.target.value.length > limit) {
+          setError(true);
+          setErrorMessage('文字数制限を超えています');
+          /** ここでreturnしないとisRequiredで上書きされる */
+          return;
+        } else {
+          setError(false);
+        }
       }
-    }
 
-    /** 必須項目が入力されているか */
-    if (isRequired) {
-      if (e.target.value.length === 0) {
-        setError(true);
-        setErrorMessage('必須項目です');
-      } else {
-        setError(false);
+      /** 必須項目が入力されているか */
+      if (isRequired) {
+        if (e.target.value.length === 0) {
+          setError(true);
+          setErrorMessage('必須項目です');
+        } else {
+          setError(false);
+        }
       }
-    }
-  }, []);
+    },
+    [isRequired, limit, onChange, validateFunction],
+  );
 
   return (
     <div>

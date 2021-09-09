@@ -59,21 +59,17 @@
     ],
     "*.@(ts|tsx)": [
       "npm run lint",
-      "npm run check-types",
       "npm run format"
     ]
   },
   "license": "MIT",
   "name": "next.js---template",
-  "description": "This is a really simple project that shows the usage of Next.js with TypeScript.",
+  "description": "next.js template",
   "version": "1.0.0",
   "main": "postcss.config.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aki-743/Next.js---Template.git"
-  },
+  "repository": "git+https://github.com/aki-743/Next.js---Template.git",
   "keywords": [],
-  "author": "",
+  "author": "aki-743 <akimu1273@i.softbank.jp>",
   "bugs": {
     "url": "https://github.com/aki-743/Next.js---Template/issues"
   },

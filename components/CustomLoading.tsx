@@ -12,7 +12,7 @@ const CustomLoading: React.FC = () => {
   // レンダリング毎にローディングの状態をリセット
   useEffect(() => {
     dispatch(loadingSlice.actions.close());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Modal className="flex items-center justify-center" open={loading.open} aria-labelledby="loading" disableEnforceFocus>

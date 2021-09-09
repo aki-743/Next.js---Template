@@ -22,15 +22,7 @@ const CustomSnackbar: React.FC = () => {
       setMessage(snackbar.message);
     }
     dispatch(snackbarSlice.actions.reset());
-  }, []);
-
-  useEffect(() => {
-    if (snackbar.immediately && snackbar.open) {
-      setOpen(true);
-      setMessage(snackbar.message);
-      dispatch(snackbarSlice.actions.reset());
-    }
-  }, [snackbar]);
+  }, [dispatch, snackbar]);
 
   return (
     <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
