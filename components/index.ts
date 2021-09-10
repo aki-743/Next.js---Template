@@ -8,6 +8,7 @@ export { default as CustomImage } from './CustomImage';
 export { default as CustomLink } from './CustomLink';
 export { default as CustomLoading } from './CustomLoading';
 export { default as CustomModal } from './CustomModal';
+export { default as CustomQueryClientProvider } from './CustomQueryClientProvider';
 export { default as CustomSnackbar } from './CustomSnackbar';
 export { default as Footer } from './Footer';
 export { default as Header } from './Header';

@@ -1,4 +1,4 @@
-import { PostData } from '../interfaces';
+import { PostData } from '../interfaces/api';
 
 /****************************************************************/
 /** キー名に対するフォーマット */

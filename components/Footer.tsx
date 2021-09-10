@@ -18,8 +18,7 @@ const Footer: React.FC = () => {
       <CustomContainer>
         <div className="py-3 flex justify-between">
           <div>
-            <h4>ナリテ.</h4>
-            <h4>神奈川県茅ヶ崎市小和田３－６－３小和田ハウス１Ｆ</h4>
+            <h4>{process.env.TITLE}</h4>
           </div>
           <div></div>
         </div>

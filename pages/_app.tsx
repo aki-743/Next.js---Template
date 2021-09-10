@@ -3,7 +3,7 @@ import { AppProps } from 'next/app';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { StylesProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Theme } from '../components';
+import { CustomQueryClientProvider, Theme } from '../components';
 import '../styles/global.css';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
@@ -24,15 +24,17 @@ const CustomApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <Head>
-          <title>{process.env.TITLE}</title>
-        </Head>
-        <StylesProvider injectFirst>
-          <ThemeProvider theme={Theme}>
-            <CssBaseline />
-            <Component {...pageProps} />
-          </ThemeProvider>
-        </StylesProvider>
+        <CustomQueryClientProvider>
+          <Head>
+            <title>{process.env.TITLE}</title>
+          </Head>
+          <StylesProvider injectFirst>
+            <ThemeProvider theme={Theme}>
+              <CssBaseline />
+              <Component {...pageProps} />
+            </ThemeProvider>
+          </StylesProvider>
+        </CustomQueryClientProvider>
       </PersistGate>
     </Provider>
   );

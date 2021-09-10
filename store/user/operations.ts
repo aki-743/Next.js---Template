@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { AppDispatch } from '..';
 import { checkValueFormat } from '../../common/validate';
-import { PostData } from '../../interfaces';
+import { PostData } from '../../interfaces/api';
 import { loadingSlice } from '../loading';
 
 axios.defaults.baseURL = process.env.REST_API_ENDPOINT;

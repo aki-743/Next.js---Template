@@ -25,6 +25,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-loading": "^2.0.3",
+    "react-query": "^3.23.1",
     "react-redux": "^7.2.4",
     "redux-persist": "^6.0.0"
   },
@@ -32,6 +33,7 @@
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
+    "@types/react-query": "^1.2.9",
     "@types/react-redux": "^7.1.18",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.31.0",
@@ -58,8 +60,8 @@
       "prettier --write --parser css"
     ],
     "*.@(ts|tsx)": [
-      "npm run lint",
-      "npm run format"
+      "yarn lint",
+      "yarn format"
     ]
   },
   "license": "MIT",
