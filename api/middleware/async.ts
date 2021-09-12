@@ -68,10 +68,15 @@ export const createAPIResponse = (statusCode: number, type: string, code: 0 | 1,
 
 /** 非同期処理のベースとなるクラス */
 export class AsyncMiddleware {
+  /** 送られてきたポストデータ */
   public postData: PostData;
+  /** 呼び出す関数名 */
   public key: string;
+  /** APIのリクエストオブジェクト */
   public req: NextApiRequest;
+  /** APIのレスポンスオブジェクト */
   public res: NextApiResponse;
+  /** axiosのインスタンス */
   private api: AxiosInstance;
 
   constructor(postData?: PostData, key?: string, req?: NextApiRequest, res?: NextApiResponse) {
