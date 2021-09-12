@@ -22,8 +22,16 @@ h6 {
   line-height: 1.5;
 }
 
-/* Materila-uiのカスタムスタイル */
+.GB-alert {
+  color: red;
+}
 
+.GB-link {
+  color: #0366d6;
+  cursor: pointer;
+}
+
+/* Materila-uiのボタンのテキストフォームをリセット */
 .MuiButtonBase-root {
   text-transform: unset;
 }

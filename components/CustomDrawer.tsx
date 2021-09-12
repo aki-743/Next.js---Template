@@ -1,8 +1,5 @@
 import React from 'react';
 import { Divider, Drawer, DrawerProps, List, ListItem, ListItemIcon, ListItemText, makeStyles } from '@material-ui/core';
-import { useSelector } from 'react-redux';
-import { DrawerList, DrawerObject } from '../interfaces';
-import { isLoginedSelector } from '../store/user/selector';
 
 const useStyles = makeStyles({
   list: {
@@ -13,6 +10,20 @@ const useStyles = makeStyles({
   },
 });
 
+// Drawerのメニューリスト
+export type DrawerObject = {
+  text: string;
+  icon: JSX.Element;
+  /** 認証を必要とするか */
+  requireAuth?: boolean;
+  requireAuthValue?: boolean;
+  /** Dividerを必要とするか */
+  requireDivider?: boolean;
+  onClick: () => void;
+};
+
+export type DrawerList = Array<Array<DrawerObject>>;
+
 type Props = {
   anchor: DrawerProps['anchor'];
   open: boolean;
@@ -22,7 +33,7 @@ type Props = {
 
 const CustomDrawer: React.FC<Props> = ({ anchor, open, toggleDrawer, drawerList }) => {
   const classes = useStyles();
-  const isLogined = useSelector(isLoginedSelector);
+  const isLogined = true;
 
   return (
     <Drawer anchor={anchor} open={open} onClose={toggleDrawer(false)}>

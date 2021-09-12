@@ -2,7 +2,7 @@
 /** 非同期処理におけるエラーハンドリング */
 /****************************************************************/
 
-import { APIResponse } from '../interfaces/api';
+import { APIResponse } from '../api/middleware/async';
 
 const errorHandling400 = (type: string) => {
   switch (type) {
@@ -18,11 +18,20 @@ const errorHandling400 = (type: string) => {
 const errorHandling401 = (type: string) => {
   switch (type) {
     case 'Unauthorized':
-      alert('ログイン情報が間違っています');
-      break;
+      return alert('ログイン情報が間違っています');
+    case 'Empty':
+      alert('ログインしてください');
+      window.location.href = '/';
+      return;
     default:
-      alert('予期せぬエラーが発生しました。時間をおいてから再度お試しください。');
-      break;
+      return alert('予期せぬエラーが発生しました。時間をおいてから再度お試しください。');
+  }
+};
+
+const errorHandling500 = (type: string) => {
+  switch (type) {
+    case 'Internal':
+      return alert('予期せぬエラーが発生しました。時間をおいてから再度お試しください。');
   }
 };
 
@@ -32,10 +41,10 @@ export const lambdaErrorHandling = (errorRes: APIResponse): void => {
   const type = errorRes.type;
   switch (statusCode) {
     case 400:
-      errorHandling400(type);
-      break;
+      return errorHandling400(type);
     case 401:
-      errorHandling401(type);
-      break;
+      return errorHandling401(type);
+    case 500:
+      return errorHandling500(type);
   }
 };

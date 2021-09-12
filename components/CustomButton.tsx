@@ -1,6 +1,8 @@
 import { Button } from '@material-ui/core';
 import { ReactNode } from 'react';
-import { MaterialColor } from '../interfaces';
+
+// Materil-uiに使う色
+export type MaterialColor = 'main' | 'main-light' | 'main-dark' | 'google' | 'facebook' | 'twitter' | 'warn' | 'default';
 
 type Props = {
   label?: string;

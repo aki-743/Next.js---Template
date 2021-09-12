@@ -6,9 +6,9 @@
     "build": "next build",
     "start": "next start",
     "check-types": "tsc --noEmit",
-    "lint": "eslint common/*.ts interfaces/*.ts store/**/*.ts components/**/*.{ts,tsx} pages/**/*.tsx utils/*.ts",
-    "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
-    "format": "prettier --write .",
+    "lint": "eslint **/*.ts **/*.tsx",
+    "lint:fix": "eslint **/*.ts **/*.tsx --fix",
+    "format": "prettier --write **/*.ts **/*.tsx",
     "test-all": "npx yarn-run-all lint check-types lint:fix",
     "prepare": "npx husky install",
     "lint-staged": "lint-staged"
@@ -21,6 +21,7 @@
     "@reduxjs/toolkit": "^1.6.1",
     "@trejgun/material-ui-icons-google": "0.0.3",
     "axios": "^0.21.3",
+    "cookie": "^0.4.1",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -30,6 +31,7 @@
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {
+    "@types/cookie": "^0.4.1",
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",

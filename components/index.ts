@@ -1,4 +1,5 @@
 export { default as Complete } from './Complete';
+export { default as ConfirmTable } from './ConfirmTable';
 export { default as CustomButton } from './CustomButton';
 export { default as CustomCheckbox } from './CustomCheckbox';
 export { default as CustomContainer } from './CustomContainer';

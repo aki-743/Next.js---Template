@@ -1,8 +1,8 @@
-import { PostData } from '../interfaces/api';
-
 /****************************************************************/
 /** キー名に対するフォーマット */
 /****************************************************************/
+
+import { PostData } from '../api/middleware/async';
 
 const formats = {
   admin_password1: { min: 8, max: 64, type: 'string' },
