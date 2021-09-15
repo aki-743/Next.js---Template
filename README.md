@@ -7,27 +7,27 @@ Next.js のテンプレート
 ## package.json の初期化
 
 ```terminal
-yarn init
+$ yarn init
 ```
 
 ## Husky の初期化
 
 ```terminal
-yarn prepare
+$ yarn prepare
 ```
 
 ## パッケージの更新
 
 ```terminal
-yui
+$ yarn upgrade-interactive --latest
 ```
 
 ## Amplify 導入
 
 ```terminal
-ya aws-amplify
+$ yarn add aws-amplify
 
-amplify init
+$ amplify init
 Source Directory Path: .
 Distribution Directory Path: .next
 ```
@@ -35,7 +35,7 @@ Distribution Directory Path: .next
 ### Amplify Hosting
 
 ```terminal
-amplify add hosting
+$ amplify add hosting
 ```
 
 `amplify.yaml`をダウンロードし以下をコピペ
@@ -46,9 +46,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        - 'nvm install v14.15.1'
-        - 'nvm use 14.15.1'
-        - 'yarn install'
+        - 'yarn install --frozen-lockfile'
     build:
       commands:
         - yarn build
@@ -64,7 +62,7 @@ frontend:
 ### Lambda Layer の追加
 
 ```terminal
-amplify add function
+$ amplify add function
 lambda layerを選択
 ```
 
