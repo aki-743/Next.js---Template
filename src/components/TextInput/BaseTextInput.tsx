@@ -1,21 +1,20 @@
 import { TextField } from '@material-ui/core';
 import { ChangeEvent, useCallback, useState } from 'react';
-import { validateFunctionObj } from '../common/validate';
+import { validateFunctionObj } from '../../common/validate';
+import { BaseTextInputProps } from './type';
 
-type Props = {
-  label?: string;
-  value?: string;
-  fullWidth?: boolean;
-  type?: string;
-  disabled?: boolean;
-  multiline?: boolean;
-  rows?: number;
-  limit?: number;
-  isRequired?: boolean;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-};
-
-const TextInput: React.FC<Props> = ({ label, value, type, fullWidth, disabled, multiline, rows, limit, isRequired, onChange }) => {
+const BaseTextInput: React.FC<BaseTextInputProps> = ({
+  label,
+  value,
+  type,
+  fullWidth,
+  disabled,
+  multiline,
+  rows,
+  limit,
+  isRequired,
+  onChange,
+}) => {
   const [error, setError] = useState(false),
     [errorMessage, setErrorMessage] = useState('');
   const validateFunction = validateFunctionObj[type];
@@ -84,4 +83,4 @@ const TextInput: React.FC<Props> = ({ label, value, type, fullWidth, disabled, m
   );
 };
 
-export default TextInput;
+export default BaseTextInput;

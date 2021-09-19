@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core';
+import { BaseLinkProps } from './type';
 import Link from 'next/link';
 
 const useStyles = makeStyles({
@@ -10,13 +11,7 @@ const useStyles = makeStyles({
   },
 });
 
-type Props = {
-  label: string;
-  path: string;
-  className?: string;
-};
-
-const CustomLink: React.FC<Props> = ({ label, path, className }) => {
+const PathLink: React.FC<BaseLinkProps> = ({ label, path, className }) => {
   const classes = useStyles();
 
   return (
@@ -28,4 +23,4 @@ const CustomLink: React.FC<Props> = ({ label, path, className }) => {
   );
 };
 
-export default CustomLink;
+export default PathLink;

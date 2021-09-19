@@ -1,8 +1,10 @@
 import { ContainerProps } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import Head from 'next/head';
-import { Header } from './';
-import { CustomContainer, CustomLoading, CustomSnackbar, Footer } from './';
+import CustomContainer from './CustomContainer';
+import Footer from './Footer';
+// import { CustomContainer, CustomLoading, CustomSnackbar, Footer } from './';
+import Header from './Header';
 
 const useStyles = makeStyles({
   main: {
@@ -41,8 +43,8 @@ const Layout: React.FC<Props> = ({ children, containerMaxWidth, footerRequired =
       <main className={classes.main}>
         <CustomContainer maxWidth={containerMaxWidth}>{children}</CustomContainer>
       </main>
-      <CustomLoading />
-      <CustomSnackbar />
+      {/* <CustomLoading /> */}
+      {/* <CustomSnackbar /> */}
       {footerRequired && <Footer />}
     </>
   );

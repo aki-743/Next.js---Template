@@ -1,8 +1,10 @@
 import { Step, StepLabel, Stepper } from '@material-ui/core';
-import { Facebook, Twitter } from '@material-ui/icons';
-import { Search } from '@trejgun/material-ui-icons-google';
 import { ChangeEvent, useState } from 'react';
-import { Complete, CustomButton, CustomDivider, CustomLink, Layout, TextInput } from '../../components';
+import { Complete, CustomDivider } from '../../components';
+import { PrimaryButton } from '../../components/Button';
+import { Layout } from '../../components/Layout';
+import { PathLink } from '../../components/Link';
+import { BaseTextInput } from '../../components/TextInput';
 
 const Signup: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0),
@@ -23,15 +25,6 @@ const Signup: React.FC = () => {
     setPassword2(event.target.value);
   };
 
-  const signupWithGoogle = async () => {
-    // const provider = new fb.auth.GoogleAuthProvider();
-    // fb.auth().signInWithRedirect(provider);
-  };
-
-  const signinWithFacebook = async () => {
-    console.log('a');
-  };
-
   const signUp = async () => {
     setActiveStep(1);
   };
@@ -48,36 +41,12 @@ const Signup: React.FC = () => {
           <p className="text-center mb-[20px]">
             SNS登録ならパスワードの<strong>入力不要！</strong>
           </p>
-          <CustomButton
-            className="mb-[20px]"
-            label="Googleでサインイン"
-            color="google"
-            fullWidth={true}
-            startIcon={<Search />}
-            onClick={signupWithGoogle}
-          />
-          <CustomButton
-            className="mb-[20px]"
-            label="Faceobookでサインイン"
-            color="facebook"
-            fullWidth={true}
-            startIcon={<Facebook />}
-            onClick={signinWithFacebook}
-          />
-          <CustomButton
-            className="mb-[20px]"
-            label="Twitterでサインイン"
-            color="twitter"
-            fullWidth={true}
-            startIcon={<Twitter />}
-            onClick={signinWithFacebook}
-          />
         </div>
         <CustomDivider />
-        <TextInput label="メールアドレス" value={email} fullWidth={true} onChange={inputEmail} />
+        <BaseTextInput label="メールアドレス" value={email} fullWidth={true} onChange={inputEmail} />
         <br />
-        <CustomButton className="mb-[20px]" label="メールを送信" color="main" fullWidth={true} onClick={registerSubscription} />
-        <CustomLink label="すでにアカウントをお持ちの方はこちらから" path="/signin" />
+        <PrimaryButton className="mb-[20px]" label="メールを送信" fullWidth={true} onClick={registerSubscription} />
+        <PathLink label="すでにアカウントをお持ちの方はこちらから" path="/signin" />
       </>
     );
   };
@@ -87,9 +56,9 @@ const Signup: React.FC = () => {
       <>
         <div>
           <h3 className="mb-[20px] text-center">パスワードの設定</h3>
-          <TextInput label="パスワード" value={password1} fullWidth={true} onChange={inputPassword1} />
-          <TextInput label="確認用パスワード" value={password2} fullWidth={true} onChange={inputPassword2} />
-          <CustomButton label="会員登録" color="main" fullWidth={true} onClick={signUp} />
+          <BaseTextInput label="パスワード" value={password1} fullWidth={true} onChange={inputPassword1} />
+          <BaseTextInput label="確認用パスワード" value={password2} fullWidth={true} onChange={inputPassword2} />
+          <PrimaryButton label="会員登録" fullWidth={true} onClick={signUp} />
         </div>
       </>
     );
@@ -100,7 +69,7 @@ const Signup: React.FC = () => {
       <>
         <div>
           <h3 className="mb-[20px] text-center">サブスクリプションの登録</h3>
-          <CustomButton label="登録する" color="main" fullWidth={true} onClick={signUp} />
+          <PrimaryButton label="登録する" fullWidth={true} onClick={signUp} />
         </div>
       </>
     );

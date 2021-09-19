@@ -1,7 +1,7 @@
 import { AppBar, createStyles, IconButton, makeStyles, Theme, Toolbar, Typography } from '@material-ui/core';
 import { ExitToApp, Menu } from '@material-ui/icons';
 import { useState } from 'react';
-import CustomDrawer, { DrawerList } from './CustomDrawer';
+import CustomDrawer, { DrawerList } from './../CustomDrawer';
 import { useRouter } from 'next/dist/client/router';
 
 const useStyles = makeStyles((theme: Theme) =>
