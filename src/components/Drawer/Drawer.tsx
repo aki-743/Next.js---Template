@@ -31,7 +31,7 @@ type Props = {
   drawerList: DrawerList;
 };
 
-const CustomDrawer: React.FC<Props> = ({ anchor, open, toggleDrawer, drawerList }) => {
+const TDrawer: React.FC<Props> = ({ anchor, open, toggleDrawer, drawerList }) => {
   const classes = useStyles();
   const isLogined = true;
 
@@ -66,4 +66,4 @@ const CustomDrawer: React.FC<Props> = ({ anchor, open, toggleDrawer, drawerList 
   );
 };
 
-export default CustomDrawer;
+export default TDrawer;

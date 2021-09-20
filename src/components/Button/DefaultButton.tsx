@@ -1,7 +1,7 @@
 import { Button } from '@material-ui/core';
 import { BaseButtonProps } from './type';
 
-const BaseButton: React.FC<BaseButtonProps> = ({ label, className, disabled, fullWidth, startIcon, onClick }) => {
+const DefaultButton: React.FC<BaseButtonProps> = ({ label, className, disabled, fullWidth, startIcon, onClick }) => {
   return (
     <Button
       className={`py-3 text-white bg-default ${className}`}
@@ -16,4 +16,4 @@ const BaseButton: React.FC<BaseButtonProps> = ({ label, className, disabled, ful
   );
 };
 
-export default BaseButton;
+export default DefaultButton;

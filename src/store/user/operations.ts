@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { AppDispatch } from '..';
-import { APIResponse, PostData } from '../../api/middleware/async';
 import { lambdaErrorHandling } from '../../common/error';
 import { checkValueFormat } from '../../common/validate';
+import { APIResponse, PostData } from '../../middleware/async';
 import { loadingSlice } from '../loading';
 
 /****************************************************************/

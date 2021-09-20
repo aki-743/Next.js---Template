@@ -1,7 +1,8 @@
 import { Step, StepLabel, Stepper } from '@material-ui/core';
 import { ChangeEvent, useState } from 'react';
-import { Complete, CustomDivider } from '../../components';
 import { PrimaryButton } from '../../components/Button';
+import Complete from '../../components/Complete/Complete';
+import { Divider } from '../../components/Divider';
 import { Layout } from '../../components/Layout';
 import { PathLink } from '../../components/Link';
 import { BaseTextInput } from '../../components/TextInput';
@@ -42,7 +43,7 @@ const Signup: React.FC = () => {
             SNS登録ならパスワードの<strong>入力不要！</strong>
           </p>
         </div>
-        <CustomDivider />
+        <Divider />
         <BaseTextInput label="メールアドレス" value={email} fullWidth={true} onChange={inputEmail} />
         <br />
         <PrimaryButton className="mb-[20px]" label="メールを送信" fullWidth={true} onClick={registerSubscription} />

@@ -1,13 +1,13 @@
-import CustomQueryClientProvider from './CustomQueryClientProvider';
+import QueryClientProvider from './QueryClientProvider';
 import MaterialThemeProvider from './MaterialThemeProvider';
 import StoreProvider from './StoreProvider';
 
 const Provider: React.FC = ({ children }) => {
   return (
     <StoreProvider>
-      <CustomQueryClientProvider>
+      <QueryClientProvider>
         <MaterialThemeProvider>{children}</MaterialThemeProvider>
-      </CustomQueryClientProvider>
+      </QueryClientProvider>
     </StoreProvider>
   );
 };

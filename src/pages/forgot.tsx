@@ -1,7 +1,6 @@
-import { CustomDivider, CustomImage } from '../components';
-import Logo from '../assets/images/logo.jpeg';
 import { ChangeEvent, useState } from 'react';
 import { PrimaryButton } from '../components/Button';
+import { Divider } from '../components/Divider';
 import { Layout } from '../components/Layout';
 import { BaseTextInput } from '../components/TextInput';
 
@@ -19,8 +18,7 @@ const Forgot: React.FC = () => {
 
   return (
     <Layout containerMaxWidth="sm" subTitle="パスワードを忘れた方">
-      <CustomImage src={Logo} alt="narite logo" width={100} height={100} />
-      <CustomDivider />
+      <Divider />
       <h3 className="text-center">パスワードの再設定</h3>
       <p className="text-center mb-[20px]">ご登録いただいたメールアドレス宛にパスワード再設定用のアドレスを送信します</p>
       <BaseTextInput label="メールアドレス" value={email} fullWidth={true} type={'email'} onChange={inputEmail} />

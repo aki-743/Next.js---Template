@@ -1,6 +1,5 @@
-import { Paper, Table, TableBody, TableCell, TableCellProps, TableContainer, TableHead, TableRow } from '@material-ui/core';
-import { MouseEvent, useCallback, useEffect, useState } from 'react';
-import { PostData } from '../api/middleware/async';
+import { Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@material-ui/core';
+import { useCallback, useState } from 'react';
 
 /** キーに対するラベル名 */
 const keyLabels = {
@@ -15,17 +14,17 @@ const keyLabels = {
 };
 
 /** マスクで表示させたいキー名 */
-const maskKeys = ['show_password'];
+const maskKeys = [];
 
 type Props = {
   width?: string;
-  rows?: PostData;
+  rows?: Object[];
 };
 
 const ConfirmTable: React.FC<Props> = ({ rows }) => {
   const [maskStates, setMaskStates] = useState<Array<boolean>>(new Array(maskKeys.length).fill(false));
 
-  const toggleMaskState = (index: number) => (e: MouseEvent<HTMLAnchorElement>) => {
+  const toggleMaskState = (index: number) => () => {
     const newMaskStates = [...maskStates];
     newMaskStates[index] = !newMaskStates[index];
     setMaskStates(newMaskStates);

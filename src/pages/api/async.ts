@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { AsyncMiddleware } from '../../api/middleware/async';
+import { AsyncMiddleware } from '../../middleware/async';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {

@@ -1,8 +1,9 @@
 import { AppBar, createStyles, IconButton, makeStyles, Theme, Toolbar, Typography } from '@material-ui/core';
 import { ExitToApp, Menu } from '@material-ui/icons';
 import { useState } from 'react';
-import CustomDrawer, { DrawerList } from './../CustomDrawer';
 import { useRouter } from 'next/dist/client/router';
+import { Drawer } from '../Drawer';
+import { DrawerList } from '../Drawer/Drawer';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -72,7 +73,7 @@ const Header: React.FC = () => {
         <IconButton aria-label="menu" onClick={toggleDrawer(true)}>
           <Menu />
         </IconButton>
-        <CustomDrawer anchor="right" open={drawerOpen} toggleDrawer={toggleDrawer} drawerList={drawerList} />
+        <Drawer anchor="right" open={drawerOpen} toggleDrawer={toggleDrawer} drawerList={drawerList} />
       </Toolbar>
     </AppBar>
   );

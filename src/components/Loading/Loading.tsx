@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import ReactLoading from 'react-loading';
-import { loadingSlice } from '../store/loading';
 import { useEffect } from 'react';
 import { Modal } from '@material-ui/core';
-import { loadingSelector } from '../store/loading/selector';
+import { loadingSelector } from '../../store/loading/selector';
+import { loadingSlice } from '../../store/loading';
 
 const CustomLoading: React.FC = () => {
   const dispatch = useDispatch();

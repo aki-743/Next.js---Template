@@ -14,7 +14,7 @@ type Props = {
   menus: Array<{ label: string; onClick: () => void }>;
 };
 
-const Togglemenu: React.FC<Props> = ({ anchorEl, handleClose, menus }) => {
+const TMenu: React.FC<Props> = ({ anchorEl, handleClose, menus }) => {
   const classes = useStyles();
 
   return (
@@ -28,4 +28,4 @@ const Togglemenu: React.FC<Props> = ({ anchorEl, handleClose, menus }) => {
   );
 };
 
-export default Togglemenu;
+export default TMenu;

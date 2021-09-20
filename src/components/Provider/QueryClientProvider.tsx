@@ -11,7 +11,7 @@ const queryClient = new QueryClient({
   },
 });
 
-const CustomQueryClientProvider: React.FC = ({ children }) => {
+const TQueryClientProvider: React.FC = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools />
@@ -20,4 +20,4 @@ const CustomQueryClientProvider: React.FC = ({ children }) => {
   );
 };
 
-export default CustomQueryClientProvider;
+export default TQueryClientProvider;

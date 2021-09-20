@@ -5,7 +5,7 @@ type Props = {
   handleClose: () => void;
 };
 
-const CustomModal: React.FC<Props> = ({ children, open, handleClose }) => {
+const TModal: React.FC<Props> = ({ children, open, handleClose }) => {
   return (
     <Modal
       className="flex items-center justify-center"
@@ -19,4 +19,4 @@ const CustomModal: React.FC<Props> = ({ children, open, handleClose }) => {
   );
 };
 
-export default CustomModal;
+export default TModal;

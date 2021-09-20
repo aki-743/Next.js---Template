@@ -1,5 +1,5 @@
 import { makeStyles, Theme, createStyles } from '@material-ui/core';
-import { CustomContainer } from '.';
+import { Container } from '../Container';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -15,14 +15,14 @@ const Footer: React.FC = () => {
 
   return (
     <footer className={classes.root}>
-      <CustomContainer>
+      <Container>
         <div className="py-3 flex justify-between">
           <div>
             <h4>{process.env.TITLE}</h4>
           </div>
           <div></div>
         </div>
-      </CustomContainer>
+      </Container>
     </footer>
   );
 };

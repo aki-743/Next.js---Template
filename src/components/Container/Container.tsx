@@ -1,6 +1,6 @@
 import { Container, ContainerProps } from '@material-ui/core';
 
-const CustomContainer: React.FC<ContainerProps> = ({ children, maxWidth }) => {
+const TContainer: React.FC<ContainerProps> = ({ children, maxWidth }) => {
   return (
     <Container maxWidth={maxWidth || 'md'}>
       <>{children}</>
@@ -8,4 +8,4 @@ const CustomContainer: React.FC<ContainerProps> = ({ children, maxWidth }) => {
   );
 };
 
-export default CustomContainer;
+export default TContainer;

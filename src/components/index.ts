@@ -1,9 +1,0 @@
-export { default as Complete } from './Complete';
-export { default as ConfirmTable } from './ConfirmTable';
-export { default as CustomDivider } from './CustomDivider';
-export { default as CustomDrawer } from './CustomDrawer';
-export { default as CustomImage } from './CustomImage';
-export { default as CustomLoading } from './CustomLoading';
-export { default as CustomModal } from './CustomModal';
-export { default as CustomSnackbar } from './CustomSnackbar';
-export { default as ToggleMenu } from './ToggleMenu';

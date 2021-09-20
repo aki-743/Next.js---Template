@@ -2,7 +2,6 @@ import { configureStore, getDefaultMiddleware, combineReducers } from '@reduxjs/
 import { loadingSlice } from './loading';
 import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
-import { snackbarSlice } from './snackbar';
 
 // HACK: `redux-persist failed to create sync storage. falling back to noop storage.`の対応
 // https://github.com/vercel/next.js/discussions/15687#discussioncomment-45319
@@ -23,7 +22,6 @@ const storage = typeof window !== 'undefined' ? createWebStorage('local') : crea
 
 const rootReducer = combineReducers({
   loading: loadingSlice.reducer,
-  snackbar: snackbarSlice.reducer,
 });
 
 const persistConfig = {
