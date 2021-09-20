@@ -1,5 +1,6 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@material-ui/core';
 import { useCallback, useState } from 'react';
+import { WarnText } from '../Warn';
 
 /** キーに対するラベル名 */
 const keyLabels = {
@@ -65,9 +66,7 @@ const ConfirmTable: React.FC<Props> = ({ rows }) => {
   return (
     <>
       <h2>オーナー情報</h2>
-      <p className="GB-alert" role="alert">
-        パスワードはこの画面でしか登録されませんのでご注意下さい
-      </p>
+      <WarnText label="パスワードはこの画面でしか登録されませんのでご注意下さい。" />
       <TableContainer component={Paper}>
         <Table aria-label="confirm table">
           <TableBody>
