@@ -1,9 +1,57 @@
-import { TextField } from '@material-ui/core';
+import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from '@material-ui/core';
+import { Visibility, VisibilityOff } from '@material-ui/icons';
 import { ChangeEvent, useCallback, useState } from 'react';
 import { validateFunctionObj } from '../../common/validate';
-import { BaseTextInputProps } from './type';
 
-const BaseTextInput: React.FC<BaseTextInputProps> = ({
+type Props = {
+  className?: string;
+  label?: string;
+  value?: string;
+  fullWidth?: boolean;
+  type?: string;
+  disabled?: boolean;
+  multiline?: boolean;
+  rows?: number;
+  limit?: number;
+  isRequired?: boolean;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+};
+
+const MaskTextInput: React.FC<Props> = ({ label, value, fullWidth, disabled, onChange }) => {
+  const [isShowPassword, setIsShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setIsShowPassword(!isShowPassword);
+  };
+
+  return (
+    <FormControl fullWidth={fullWidth} disabled={disabled} variant="outlined">
+      <InputLabel htmlFor="outlined-adornment-password">{label}</InputLabel>
+      <OutlinedInput
+        type={isShowPassword ? 'text' : 'password'}
+        value={value}
+        onChange={onChange}
+        endAdornment={
+          <InputAdornment position="end">
+            <IconButton
+              aria-label="toggle password visibility"
+              onClick={toggleShowPassword}
+              disabled={disabled}
+              // onMouseDown={handleMouseDownPassword}
+              edge="end"
+            >
+              {isShowPassword ? <VisibilityOff /> : <Visibility />}
+            </IconButton>
+          </InputAdornment>
+        }
+        label={label}
+      />
+    </FormControl>
+  );
+};
+
+const TextInput: React.FC<Props> = ({
+  className,
   label,
   value,
   type,
@@ -27,13 +75,13 @@ const BaseTextInput: React.FC<BaseTextInputProps> = ({
       if (validateFunction) {
         if (validateFunction(e.target.value)) {
           setError(false);
+          return;
         } else {
           setError(true);
         }
       }
 
       if (limit) {
-        console.log(e.target.value.length > limit);
         if (e.target.value.length > limit) {
           setError(true);
           setErrorMessage('文字数制限を超えています');
@@ -58,19 +106,23 @@ const BaseTextInput: React.FC<BaseTextInputProps> = ({
   );
 
   return (
-    <div>
-      <TextField
-        label={isRequired ? `${label}（必須）` : label}
-        value={value}
-        fullWidth={fullWidth}
-        type={type || 'text'}
-        error={error}
-        variant="outlined"
-        disabled={disabled}
-        multiline={multiline}
-        rows={rows || 1}
-        onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
-      />
+    <div className={`${className}`}>
+      {type === 'password' ? (
+        <MaskTextInput label={label} value={value} fullWidth={fullWidth} disabled={disabled} onChange={handleChange} />
+      ) : (
+        <TextField
+          label={isRequired ? `${label}（必須）` : label}
+          value={value}
+          fullWidth={fullWidth}
+          type={type || 'text'}
+          error={error}
+          variant="outlined"
+          disabled={disabled}
+          multiline={multiline}
+          rows={rows || 1}
+          onChange={handleChange}
+        />
+      )}
       <div className="flex justify-between">
         <div className="text-red">{error && errorMessage}</div>
         {limit && (
@@ -83,4 +135,4 @@ const BaseTextInput: React.FC<BaseTextInputProps> = ({
   );
 };
 
-export default BaseTextInput;
+export default TextInput;
