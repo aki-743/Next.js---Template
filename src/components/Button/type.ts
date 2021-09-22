@@ -19,5 +19,5 @@ export type BaseButtonProps = {
   /** ボタンに表示するアイコン */
   startIcon?: ReactNode;
   /** ボタンがクリックされたときに実行する関数 */
-  onClick?: () => void | Promise<void>;
+  onClick?: () => void | Promise<any>;
 };
