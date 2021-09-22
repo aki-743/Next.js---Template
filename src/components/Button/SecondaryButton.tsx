@@ -1,8 +1,22 @@
-import { Button } from '@material-ui/core';
+import { useState } from 'react';
+import { Button, CircularProgress } from '@material-ui/core';
 import { BaseButtonProps } from './type';
 import classNames from 'classnames';
+import styles from './CustomButton.module.scss';
 
-const SecondaryButton: React.FC<BaseButtonProps> = ({ label, className, disabled, fullWidth, size, startIcon, onClick }) => {
+const SecondaryButton: React.FC<BaseButtonProps> = ({
+  label,
+  className,
+  disabled = false,
+  fullWidth,
+  loading,
+  size,
+  startIcon,
+  onClick,
+}) => {
+  const [isDisabled, setIsDisabled] = useState(disabled),
+    [isLoading, setIsLoding] = useState(false);
+
   const sizeClassName = classNames({
     'py-0': size === 'xs',
     'py-1': size === 'sm',
@@ -10,15 +24,30 @@ const SecondaryButton: React.FC<BaseButtonProps> = ({ label, className, disabled
     'py-3': size === 'lg',
   });
 
+  const handleClick = async () => {
+    try {
+      // 処理中にローディングを表示する場合
+      if (loading) {
+        setIsDisabled(true);
+        setIsLoding(true);
+      }
+      await onClick();
+    } finally {
+      setIsDisabled(false);
+      setIsLoding(false);
+    }
+  };
+
   return (
     <Button
-      className={`py-3 text-white bg-main-light ${sizeClassName} ${className}`}
+      className={`text-white bg-main-light ${styles['CustomButton-root']} ${sizeClassName} ${className}`}
       fullWidth={fullWidth}
       variant="contained"
       startIcon={startIcon}
-      disabled={disabled}
-      onClick={onClick}
+      disabled={isDisabled}
+      onClick={handleClick}
     >
+      {isLoading && <CircularProgress className="text-white mr-[5px]" size={14} />}
       {label}
     </Button>
   );

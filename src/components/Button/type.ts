@@ -12,10 +12,12 @@ export type BaseButtonProps = {
   disabled?: boolean;
   /** Widthをフルにするか */
   fullWidth?: boolean;
+  /** 処理中にローディングを表示するか */
+  loading?: boolean;
   /** ボタンのサイズ */
   size?: ButtonSize;
   /** ボタンに表示するアイコン */
   startIcon?: ReactNode;
   /** ボタンがクリックされたときに実行する関数 */
-  onClick?: () => void;
+  onClick?: () => void | Promise<void>;
 };

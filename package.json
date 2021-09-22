@@ -32,7 +32,8 @@
     "react-loading": "^2.0.3",
     "react-query": "^3.24.2",
     "react-redux": "^7.2.4",
-    "redux-persist": "^6.0.0"
+    "redux-persist": "^6.0.0",
+    "sass": "^1.42.0"
   },
   "devDependencies": {
     "@types/cookie": "^0.4.1",
@@ -64,8 +65,8 @@
     }
   },
   "lint-staged": {
-    "*.@(css)": [
-      "prettier --write --parser css"
+    "*.@(scss)": [
+      "prettier --write --parser scss"
     ],
     "*.@(ts|tsx)": [
       "yarn lint",

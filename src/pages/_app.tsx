@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { AppProps } from 'next/app';
-import '../styles/global.css';
+import '../styles/global.scss';
 import Head from 'next/head';
 import { Provider } from '../components/Provider';
 
