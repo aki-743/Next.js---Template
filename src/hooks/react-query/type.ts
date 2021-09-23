@@ -1,11 +1,12 @@
 import { QueryKey, useQuery, UseQueryOptions, UseQueryResult } from 'react-query';
 import { APIResponse } from '../../api/middleware/async';
+import { toastError } from '../../components/Toast/Toast';
 
 type Props = {
   queryKey: string;
   deps?: QueryKey;
   options?: UseQueryOptions;
-  req: () => Promise<APIResponse | null>;
+  req: () => Promise<APIResponse>;
 };
 
 export const useQueryWrapper = <T>({ queryKey, deps = [], options = {}, req }: Props): UseQueryResult<T> => {
@@ -16,9 +17,9 @@ export const useQueryWrapper = <T>({ queryKey, deps = [], options = {}, req }: P
       try {
         const res = await req();
         return res.data;
-      } catch (e) {
-        // ここでトースト出したり
-        console.log(e);
+      } catch (error) {
+        toastError('ネットワークエラーが発生しました');
+        throw error;
       }
     },
     options,
