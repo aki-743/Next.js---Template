@@ -1,23 +1,10 @@
 import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from '@material-ui/core';
-import { Visibility, VisibilityOff } from '@material-ui/icons';
+import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import { ChangeEvent, useCallback, useState } from 'react';
 import { validateFunctionObj } from '../../common/validate';
+import { BaseTextInputProps } from './type';
 
-type Props = {
-  className?: string;
-  label?: string;
-  value?: string;
-  fullWidth?: boolean;
-  type?: string;
-  disabled?: boolean;
-  multiline?: boolean;
-  rows?: number;
-  limit?: number;
-  isRequired?: boolean;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-};
-
-const MaskTextInput: React.FC<Props> = ({ label, value, fullWidth, disabled, onChange }) => {
+const MaskTextInput: React.FC<BaseTextInputProps> = ({ label, value, fullWidth, disabled, onChange }) => {
   const [isShowPassword, setIsShowPassword] = useState(false);
 
   const toggleShowPassword = () => {
@@ -33,14 +20,8 @@ const MaskTextInput: React.FC<Props> = ({ label, value, fullWidth, disabled, onC
         onChange={onChange}
         endAdornment={
           <InputAdornment position="end">
-            <IconButton
-              aria-label="toggle password visibility"
-              onClick={toggleShowPassword}
-              disabled={disabled}
-              // onMouseDown={handleMouseDownPassword}
-              edge="end"
-            >
-              {isShowPassword ? <VisibilityOff /> : <Visibility />}
+            <IconButton aria-label="toggle password visibility" onClick={toggleShowPassword} disabled={disabled} edge="end">
+              {isShowPassword ? <MdVisibilityOff /> : <MdVisibility />}
             </IconButton>
           </InputAdornment>
         }
@@ -50,7 +31,7 @@ const MaskTextInput: React.FC<Props> = ({ label, value, fullWidth, disabled, onC
   );
 };
 
-const TextInput: React.FC<Props> = ({
+const TextInput: React.FC<BaseTextInputProps> = ({
   className,
   label,
   value,

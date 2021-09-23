@@ -1,11 +1,7 @@
 import { Modal } from '@material-ui/core';
+import { BaseModalProps } from './type';
 
-type Props = {
-  open: boolean;
-  handleClose: () => void;
-};
-
-const TModal: React.FC<Props> = ({ children, open, handleClose }) => {
+const TModal: React.FC<BaseModalProps> = ({ children, open, handleClose }) => {
   return (
     <Modal
       className="flex items-center justify-center"

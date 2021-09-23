@@ -2,6 +2,7 @@ import { ContainerProps } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import Head from 'next/head';
 import { Container } from '../Container';
+import { DispatchLoading } from '../Loading';
 import { Toast } from '../Toast';
 import Footer from './Footer';
 import Header from './Header';
@@ -44,6 +45,7 @@ const Layout: React.FC<Props> = ({ children, containerMaxWidth, footerRequired =
         <Container maxWidth={containerMaxWidth}>{children}</Container>
       </main>
       <Toast />
+      <DispatchLoading />
       {footerRequired && <Footer />}
     </>
   );

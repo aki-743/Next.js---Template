@@ -1,6 +1,7 @@
 import { Divider } from '@material-ui/core';
 
-type Props = {
+export type Props = {
+  /** Dividerに表示する文字 */
   splitLabel: string;
 };
 

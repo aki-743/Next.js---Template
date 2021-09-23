@@ -1,6 +1,7 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@material-ui/core';
 import { useCallback, useState } from 'react';
 import { WarnText } from '../Warn';
+import { NoHeadTableProps } from './type';
 
 /** キーに対するラベル名 */
 const keyLabels = {
@@ -17,12 +18,7 @@ const keyLabels = {
 /** マスクで表示させたいキー名 */
 const maskKeys = [];
 
-type Props = {
-  width?: string;
-  rows?: Object[];
-};
-
-const ConfirmTable: React.FC<Props> = ({ rows }) => {
+const ConfirmTable: React.FC<NoHeadTableProps> = ({ rows }) => {
   const [maskStates, setMaskStates] = useState<Array<boolean>>(new Array(maskKeys.length).fill(false));
 
   const toggleMaskState = (index: number) => () => {
@@ -66,7 +62,7 @@ const ConfirmTable: React.FC<Props> = ({ rows }) => {
   return (
     <>
       <h2>オーナー情報</h2>
-      <WarnText label="パスワードはこの画面でしか登録されませんのでご注意下さい。" />
+      <WarnText message="パスワードはこの画面でしか登録されませんのでご注意下さい。" />
       <TableContainer component={Paper}>
         <Table aria-label="confirm table">
           <TableBody>

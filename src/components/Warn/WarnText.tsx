@@ -1,11 +1,9 @@
-type Props = {
-  label: string;
-};
+import { BaseWarnTextProps } from './type';
 
-const WarnText: React.FC<Props> = ({ label }) => {
+const WarnText: React.FC<BaseWarnTextProps> = ({ message }) => {
   return (
     <p className="GB-alert" role="alert">
-      {label}
+      {message}
     </p>
   );
 };

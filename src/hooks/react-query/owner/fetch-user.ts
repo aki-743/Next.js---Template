@@ -1,6 +1,6 @@
 import { UseQueryResult } from 'react-query';
 import { requestAdminApi } from '../../../api/api/api';
-import { PostData } from '../../../middleware/async';
+import { PostData } from '../../../api/middleware/async';
 import { TUseQueryOptions, useQueryWrapper } from '../type';
 
 const QUERY_KEY = 'fetch-user';

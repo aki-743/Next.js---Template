@@ -3,15 +3,10 @@ import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { SwatchesPicker } from 'react-color';
 import { PrimaryButton } from '../Button';
 import { Modal } from '../Modal';
-
-type Props = {
-  color: string;
-  onChange: (color: string) => void;
-  colorLabel?: string;
-};
+import { BaseColorProps } from './type';
 
 /** カラーとカラーコードの表示 */
-const SplitColor: React.FC<Props> = ({ color, onChange }) => {
+const SplitColor: React.FC<BaseColorProps> = ({ color, onChange }) => {
   const colorBackgroundEl = useRef(null);
 
   const inputBackground = (e: ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +27,7 @@ const SplitColor: React.FC<Props> = ({ color, onChange }) => {
   );
 };
 
-const ColorPallate: React.FC<Props> = ({ color, colorLabel, onChange }) => {
+const ColorPallate: React.FC<BaseColorProps> = ({ color, colorLabel, onChange }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleChange = (color) => {
@@ -52,7 +47,7 @@ const ColorPallate: React.FC<Props> = ({ color, colorLabel, onChange }) => {
     <>
       <div className="flex items-center justify-between mb-[20px]">
         <div className="flex-70 flex justify-between">
-          <h4 className="text-bold">{colorLabel}</h4>
+          <h4 className="text-bold sm:flex-100 sm:mb-[10px]">・{colorLabel}</h4>
           <SplitColor color={color} onChange={onChange} />
         </div>
         <PrimaryButton label="選択する" size="sm" onClick={handleModalOpen} />

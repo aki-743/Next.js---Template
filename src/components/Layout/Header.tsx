@@ -1,9 +1,9 @@
 import { AppBar, createStyles, IconButton, makeStyles, Theme, Toolbar, Typography } from '@material-ui/core';
-import { ExitToApp, Menu } from '@material-ui/icons';
 import { useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import { Drawer } from '../Drawer';
-import { DrawerList } from '../Drawer/Drawer';
+import { DrawerList } from '../Drawer/type';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -42,22 +42,20 @@ const Header: React.FC = () => {
   };
 
   const drawerList: DrawerList = [
-    [{ text: 'メニュー', icon: <ExitToApp />, onClick: () => selectDrawermenu('/menu') }],
+    [{ text: 'メニュー', onClick: () => selectDrawermenu('/menu') }],
     [
       {
         text: 'ログアウト',
-        icon: <ExitToApp />,
         requireAuth: true,
         requireAuthValue: true,
         requireDivider: true,
         onClick: () => selectDrawermenu('/menu/register'),
       },
     ],
-    [{ text: 'ログイン', icon: <ExitToApp />, requireAuth: true, requireAuthValue: false, onClick: () => selectDrawermenu('/') }],
+    [{ text: 'ログイン', requireAuth: true, requireAuthValue: false, onClick: () => selectDrawermenu('/') }],
     [
       {
         text: '会社登録',
-        icon: <ExitToApp />,
         requireAuth: true,
         requireAuthValue: true,
         onClick: () => selectDrawermenu('/menu/register'),
@@ -71,7 +69,7 @@ const Header: React.FC = () => {
         {process.env.TITLE}
         <Typography variant="h6" className={classes.title}></Typography>
         <IconButton aria-label="menu" onClick={toggleDrawer(true)}>
-          <Menu />
+          <GiHamburgerMenu />
         </IconButton>
         <Drawer anchor="right" open={drawerOpen} toggleDrawer={toggleDrawer} drawerList={drawerList} />
       </Toolbar>

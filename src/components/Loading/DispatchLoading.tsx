@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import ReactLoading from 'react-loading';
 import { useEffect } from 'react';
-import { Modal } from '@material-ui/core';
 import { loadingSelector } from '../../store/loading/selector';
 import { loadingSlice } from '../../store/loading';
+import { Backdrop } from '@material-ui/core';
 
-const CustomLoading: React.FC = () => {
+const DispatchLoading: React.FC = () => {
   const dispatch = useDispatch();
   const loading = useSelector(loadingSelector);
 
@@ -15,10 +15,10 @@ const CustomLoading: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <Modal className="flex items-center justify-center" open={loading.open} aria-labelledby="loading" disableEnforceFocus>
+    <Backdrop className="z-[1300]" open={loading.open} aria-labelledby="loading">
       <ReactLoading type="spinningBubbles" />
-    </Modal>
+    </Backdrop>
   );
 };
 
-export default CustomLoading;
+export default DispatchLoading;

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { AppDispatch } from '..';
+import { APIResponse, PostData } from '../../api/middleware/async';
 import { lambdaErrorHandling } from '../../common/error';
 import { checkValueFormat } from '../../common/validate';
-import { APIResponse, PostData } from '../../middleware/async';
 import { loadingSlice } from '../loading';
 
 /****************************************************************/
@@ -49,7 +49,7 @@ const requestAdminApi: RequestAdminApi = async (postData, functionName) => {
     })
     .then((res) => {
       const data: APIResponse = res.data;
-      if (data.body.code === 0) {
+      if (data.data.code === 0) {
         return data;
       } else {
         lambdaErrorHandling(data);

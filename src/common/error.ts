@@ -2,7 +2,7 @@
 /** 非同期処理におけるエラーハンドリング */
 /****************************************************************/
 
-import { APIResponse } from '../middleware/async';
+import { APIResponse } from '../api/middleware/async';
 
 const errorHandling400 = (type: string) => {
   switch (type) {

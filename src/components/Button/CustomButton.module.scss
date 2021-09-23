@@ -1,4 +1,6 @@
 .CustomButton-root {
+  text-transform: unset;
+
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;

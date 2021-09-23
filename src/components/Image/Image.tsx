@@ -1,14 +1,7 @@
 import Image from 'next/image';
+import { BaseImageProps } from './type';
 
-type Props = {
-  src: StaticImageData;
-  alt: string;
-  width: number;
-  height: number;
-  align?: string;
-};
-
-const TImage: React.FC<Props> = ({ src, alt, width, height, align = 'center' }) => {
+const TImage: React.FC<BaseImageProps> = ({ src, alt, width, height, align = 'center' }) => {
   return (
     <div className={`text-${align}`}>
       <Image src={src} alt={alt} width={width} height={height} />

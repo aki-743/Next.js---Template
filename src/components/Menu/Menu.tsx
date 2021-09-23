@@ -1,4 +1,5 @@
 import { makeStyles, Menu, MenuItem } from '@material-ui/core';
+import { BaseMenuProps } from './type';
 
 const useStyles = makeStyles({
   root: {
@@ -8,13 +9,7 @@ const useStyles = makeStyles({
   },
 });
 
-type Props = {
-  anchorEl: null | HTMLElement;
-  handleClose: () => void;
-  menus: Array<{ label: string; onClick: () => void }>;
-};
-
-const TMenu: React.FC<Props> = ({ anchorEl, handleClose, menus }) => {
+const TMenu: React.FC<BaseMenuProps> = ({ anchorEl, handleClose, menus }) => {
   const classes = useStyles();
 
   return (

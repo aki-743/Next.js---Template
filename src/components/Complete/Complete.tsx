@@ -1,17 +1,16 @@
-import { CheckCircle } from '@material-ui/icons';
 import { useRouter } from 'next/dist/client/router';
 import DefaultButton from '../Button/DefaultButton';
+import { BaseCompleteProps } from './type';
+import { AiFillCheckCircle } from 'react-icons/ai';
 
-type Props = {
-  message: string;
-};
-
-const Complete: React.FC<Props> = ({ message }) => {
+const Complete: React.FC<BaseCompleteProps> = ({ message }) => {
   const router = useRouter();
 
   return (
     <div className="p-[40px] text-center">
-      <CheckCircle className="mb-[20px] text-green-400 w-[64px] h-[64px]" />
+      <div className="mb-[20px] flex justify-center">
+        <AiFillCheckCircle size={64} color={'00e676'} />
+      </div>
       <h3 className="mb-[20px]">{message}</h3>
       <DefaultButton label="ユーザー画面へ戻る" fullWidth={true} onClick={() => router.push('/user')} />
     </div>
