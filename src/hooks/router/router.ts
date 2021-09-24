@@ -1,4 +1,4 @@
-import { useRouter } from 'next/dist/client/router';
+import Router from 'next/dist/client/router';
 
 /**
  * ルーターのプッシュメソッド
@@ -6,8 +6,7 @@ import { useRouter } from 'next/dist/client/router';
  * @param {string} path 遷移先のパス
  */
 export const useRouterPush = async (path: string) => {
-  const router = useRouter();
-  await router.push(path);
+  await Router.push(path);
 };
 
 /**
@@ -16,8 +15,7 @@ export const useRouterPush = async (path: string) => {
  * @param {string} path 遷移先のパス
  */
 export const useRouterReplace = async (path: string) => {
-  const router = useRouter();
-  await router.replace(path);
+  await Router.replace(path);
 };
 
 /**
@@ -25,8 +23,7 @@ export const useRouterReplace = async (path: string) => {
  *
  */
 export const useRouterReload = () => {
-  const router = useRouter();
-  router.reload();
+  Router.reload();
 };
 
 /**
@@ -34,6 +31,5 @@ export const useRouterReload = () => {
  *
  */
 export const usePathNameState = (): string => {
-  const router = useRouter();
-  return router.pathname;
+  return Router.pathname;
 };
