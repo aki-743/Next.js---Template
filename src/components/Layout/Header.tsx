@@ -1,9 +1,9 @@
 import { AppBar, createStyles, IconButton, makeStyles, Theme, Toolbar, Typography } from '@material-ui/core';
 import { useState } from 'react';
-import { useRouter } from 'next/dist/client/router';
 import { Drawer } from '../Drawer';
 import { DrawerList } from '../Drawer/type';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { useRouterPush } from '../../hooks/router/router';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme: Theme) =>
 // Drawer
 const Header: React.FC = () => {
   const classes = useStyles();
-  const router = useRouter();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   // Drawerメニューのトグル操作
@@ -38,7 +37,7 @@ const Header: React.FC = () => {
   };
 
   const selectDrawermenu = (path: string) => {
-    router.push(path);
+    useRouterPush(path);
   };
 
   const drawerList: DrawerList = [
