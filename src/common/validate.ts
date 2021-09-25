@@ -2,7 +2,7 @@
 /** キー名に対するフォーマット */
 /****************************************************************/
 
-import { PostData } from '../api/middleware/async';
+import { CheckValueFormat, ValidateEmail, ValidateFunctionObj, ValidatePassword } from './types/validate';
 
 const formats = {
   admin_password1: { min: 8, max: 64, type: 'string' },
@@ -50,27 +50,27 @@ const keyErrorMessages = {
 /** タイプにおける正規表現 */
 /****************************************************************/
 
-export const validateEmail = (email: string): boolean => {
+export const validateEmail: ValidateEmail = (email) => {
   const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   return regex.test(email);
 };
 
-export const validatePassowrd = (password: string): boolean => {
+export const validatePassowrd: ValidatePassword = (password) => {
   const regex = /^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}$/i;
   return regex.test(password);
 };
 
 /** タイプに対する正規表現関数 */
-export const validateFunctionObj = {
+export const validateFunctionObj: ValidateFunctionObj = {
   email: validateEmail,
   password: validatePassowrd,
-} as { [key: string]: (value: string) => boolean };
+};
 
 /****************************************************************/
 /** 非同期処理にポストデータのバリデーション */
 /****************************************************************/
 
-export const checkValueFormat = (postData: PostData): void => {
+export const checkValueFormat: CheckValueFormat = (postData) => {
   Object.keys(postData).forEach((key) => {
     const format = formats[key];
     if (!format) {

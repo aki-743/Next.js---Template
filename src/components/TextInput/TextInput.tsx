@@ -2,7 +2,7 @@ import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, Tex
 import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import { ChangeEvent, useCallback, useState } from 'react';
 import { validateFunctionObj } from '../../common/validate';
-import { BaseTextInputProps } from './type';
+import { BaseTextInputProps } from '../types/text-input';
 
 const MaskTextInput: React.FC<BaseTextInputProps> = ({ label, value, fullWidth, disabled, onChange }) => {
   const [isShowPassword, setIsShowPassword] = useState(false);

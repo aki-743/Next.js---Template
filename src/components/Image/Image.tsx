@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { BaseImageProps } from './type';
+import { BaseImageProps } from '../types/image';
 
 const TImage: React.FC<BaseImageProps> = ({ src, alt, width, height, align = 'center' }) => {
   return (

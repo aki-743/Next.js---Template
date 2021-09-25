@@ -2,16 +2,14 @@
 /** 非同期処理におけるエラーハンドリング */
 /****************************************************************/
 
-import { APIResponse } from '../api/middleware/async';
+import { APIResponse } from '../api/types/async';
 
 const errorHandling400 = (type: string) => {
   switch (type) {
     case 'Key Error':
-      alert('リクエストに失敗しました。担当者に直接お問い合わせください。エラーコード：400');
-      break;
+      return alert('リクエストに失敗しました。担当者に直接お問い合わせください。エラーコード：400');
     default:
-      alert('予期せぬエラーが発生しました。時間をおいてから再度お試しください。');
-      break;
+      return alert('予期せぬエラーが発生しました。時間をおいてから再度お試しください。');
   }
 };
 
@@ -36,9 +34,10 @@ const errorHandling500 = (type: string) => {
 };
 
 /** Lambdaのエラーハンドリング */
-export const lambdaErrorHandling = (errorRes: APIResponse): void => {
+export const lambdaErrorHandling = (errorRes: APIResponse) => {
   const statusCode = errorRes.statusCode;
   const type = errorRes.type;
+
   switch (statusCode) {
     case 400:
       return errorHandling400(type);

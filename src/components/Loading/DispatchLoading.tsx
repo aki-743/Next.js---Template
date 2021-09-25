@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ReactLoading from 'react-loading';
 import { useEffect } from 'react';
 import { loadingSelector } from '../../store/loading/selector';
-import { loadingSlice } from '../../store/loading';
+import { loadingSlice } from '../../store/loading/slice';
 import { Backdrop } from '@material-ui/core';
 
 const DispatchLoading: React.FC = () => {

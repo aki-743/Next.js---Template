@@ -1,9 +1,9 @@
 import { AppBar, createStyles, IconButton, makeStyles, Theme, Toolbar, Typography } from '@material-ui/core';
 import { useState } from 'react';
 import { Drawer } from '../Drawer';
-import { DrawerList } from '../Drawer/type';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useRouterPush } from '../../hooks/router/router';
+import { DrawerList } from '../types/drawer';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

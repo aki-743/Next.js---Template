@@ -3,7 +3,7 @@ import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { SwatchesPicker } from 'react-color';
 import { PrimaryButton } from '../Button';
 import { Modal } from '../Modal';
-import { BaseColorProps } from './type';
+import { BaseColorProps } from '../types/color';
 
 /** カラーとカラーコードの表示 */
 const SplitColor: React.FC<BaseColorProps> = ({ color, onChange }) => {

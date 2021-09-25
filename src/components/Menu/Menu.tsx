@@ -1,5 +1,5 @@
 import { makeStyles, Menu, MenuItem } from '@material-ui/core';
-import { BaseMenuProps } from './type';
+import { BaseMenuProps } from '../types/menu';
 
 const useStyles = makeStyles({
   root: {

@@ -1,5 +1,5 @@
 import { Modal } from '@material-ui/core';
-import { BaseModalProps } from './type';
+import { BaseModalProps } from '../types/modal';
 
 const TModal: React.FC<BaseModalProps> = ({ children, open, handleClose }) => {
   return (

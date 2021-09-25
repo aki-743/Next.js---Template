@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button, CircularProgress } from '@material-ui/core';
-import { BaseButtonProps } from './type';
+import { BaseButtonProps } from '../types/button';
 import classNames from 'classnames';
 import styles from './CustomButton.module.scss';
 

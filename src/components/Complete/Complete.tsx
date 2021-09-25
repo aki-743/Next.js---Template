@@ -1,7 +1,7 @@
 import DefaultButton from '../Button/DefaultButton';
-import { BaseCompleteProps } from './type';
 import { AiFillCheckCircle } from 'react-icons/ai';
 import { useRouterPush } from '../../hooks/router/router';
+import { BaseCompleteProps } from '../types/complete';
 
 const Complete: React.FC<BaseCompleteProps> = ({ message }) => {
   return (

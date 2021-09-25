@@ -1,9 +1,10 @@
 import axios from 'axios';
-import { AppDispatch } from '..';
-import { APIResponse, PostData } from '../../api/middleware/async';
+import { RequestAdminApi } from '../../api/types/api';
+import { APIResponse } from '../../api/types/async';
 import { lambdaErrorHandling } from '../../common/error';
 import { checkValueFormat } from '../../common/validate';
-import { loadingSlice } from '../loading';
+import { loadingSlice } from '../loading/slice';
+import { AdminLogin, SignOut } from './types/operations';
 
 /****************************************************************/
 /** dispatchにおけるエラーハンドリング */
@@ -34,9 +35,8 @@ const errorHandlingDispatch = (error) => {
  * @param {Object} postData APIで渡すデータ
  * @param {string} functionKey 呼び出す関数名
  */
-type RequestAdminApi = (postData: PostData, functionName: string) => Promise<APIResponse | null>;
 
-const requestAdminApi: RequestAdminApi = async (postData, functionName) => {
+const requestAdminApi: RequestAdminApi = async (functionName, postData) => {
   // 文字数制限やタイプが間違っていないか
   checkValueFormat(postData);
   return await axios
@@ -69,8 +69,6 @@ const requestAdminApi: RequestAdminApi = async (postData, functionName) => {
  * @param {string} password2 管理者パスワード２
  */
 
-type AdminLogin = (password1: string, passoword2: string) => (dispatch: AppDispatch) => Promise<APIResponse | null>;
-
 export const adminLogin: AdminLogin = (password1, passsword2) => async (dispatch) => {
   try {
     dispatch(loadingSlice.actions.open());
@@ -78,7 +76,7 @@ export const adminLogin: AdminLogin = (password1, passsword2) => async (dispatch
       admin_password1: password1,
       admin_password2: passsword2,
     };
-    return await requestAdminApi(postData, 'sfsp-admin-login');
+    return await requestAdminApi('sfsp-admin-login', postData);
   } catch (error) {
     errorHandlingDispatch(error);
   } finally {
@@ -90,12 +88,10 @@ export const adminLogin: AdminLogin = (password1, passsword2) => async (dispatch
 /** サインアウト */
 /****************************************************************/
 
-type SignOut = () => (dispatch: AppDispatch) => Promise<void>;
-
-export const SignOut: SignOut = () => async (dispatch: AppDispatch) => {
+export const signOut: SignOut = () => async (dispatch) => {
   try {
     dispatch(loadingSlice.actions.open());
-    await requestAdminApi({}, 'sfsp-admin-signout');
+    await requestAdminApi('sfsp-admin-signout');
   } catch (error) {
     errorHandlingDispatch(error);
   } finally {

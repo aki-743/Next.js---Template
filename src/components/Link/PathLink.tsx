@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import { BaseLinkProps } from './type';
+import { BaseLinkProps } from '../types/link';
 import Link from 'next/link';
 
 const useStyles = makeStyles({

@@ -1,6 +1,6 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 import { PathLink } from '../Link';
-import { ListTableProps } from './type';
+import { ListTableProps } from '../types/table';
 import styles from './ListTable.module.scss';
 
 const ListTable: React.FC<ListTableProps> = ({ heads, data }) => {

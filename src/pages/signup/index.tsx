@@ -5,7 +5,7 @@ import Complete from '../../components/Complete/Complete';
 import { Divider } from '../../components/Divider';
 import { Layout } from '../../components/Layout';
 import { PathLink } from '../../components/Link';
-import { BaseTextInput } from '../../components/TextInput';
+import { TextInput } from '../../components/TextInput';
 
 const Signup: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0),
@@ -44,7 +44,7 @@ const Signup: React.FC = () => {
           </p>
         </div>
         <Divider />
-        <BaseTextInput label="メールアドレス" value={email} fullWidth={true} onChange={inputEmail} />
+        <TextInput label="メールアドレス" value={email} fullWidth={true} onChange={inputEmail} />
         <br />
         <PrimaryButton className="mb-[20px]" label="メールを送信" fullWidth={true} onClick={registerSubscription} />
         <PathLink label="すでにアカウントをお持ちの方はこちらから" path="/signin" />
@@ -57,8 +57,8 @@ const Signup: React.FC = () => {
       <>
         <div>
           <h3 className="mb-[20px] text-center">パスワードの設定</h3>
-          <BaseTextInput label="パスワード" value={password1} fullWidth={true} onChange={inputPassword1} />
-          <BaseTextInput label="確認用パスワード" value={password2} fullWidth={true} onChange={inputPassword2} />
+          <TextInput label="パスワード" value={password1} fullWidth={true} onChange={inputPassword1} />
+          <TextInput label="確認用パスワード" value={password2} fullWidth={true} onChange={inputPassword2} />
           <PrimaryButton label="会員登録" fullWidth={true} onClick={signUp} />
         </div>
       </>

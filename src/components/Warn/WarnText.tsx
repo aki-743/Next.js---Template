@@ -1,4 +1,4 @@
-import { BaseWarnTextProps } from './type';
+import { BaseWarnTextProps } from '../types/warn';
 
 const WarnText: React.FC<BaseWarnTextProps> = ({ message }) => {
   return (

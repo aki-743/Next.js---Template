@@ -1,8 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-export type LoadingState = {
-  open: boolean;
-};
+import { LoadingState } from './types/slice';
 
 const initialState: LoadingState = {
   open: false,

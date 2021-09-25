@@ -1,6 +1,6 @@
 import React from 'react';
 import { Divider, Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles } from '@material-ui/core';
-import { DrawerObject, BaseDrawerProps } from './type';
+import { BaseDrawerProps, DrawerObject } from '../types/drawer';
 
 const useStyles = makeStyles({
   list: {

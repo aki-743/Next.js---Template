@@ -1,4 +1,4 @@
-import { PostData } from '../../api/middleware/async';
+import { PostData } from '../../api/types/async';
 
 export type NoHeadTableProps = {
   /** テーブルの横幅 */

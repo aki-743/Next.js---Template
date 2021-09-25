@@ -1,5 +1,5 @@
 import { configureStore, getDefaultMiddleware, combineReducers } from '@reduxjs/toolkit';
-import { loadingSlice } from './loading';
+import { loadingSlice } from './loading/slice';
 import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
 

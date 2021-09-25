@@ -1,6 +1,6 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 import { PathLink } from '../Link';
-import { AsyncListTableProps } from './type';
+import { AsyncListTableProps } from '../types/table';
 import styles from './ListTable.module.scss';
 import { AsyncLoading } from '../Loading';
 import { AsyncError } from '../Error';
