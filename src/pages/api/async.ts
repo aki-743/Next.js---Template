@@ -13,6 +13,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   } catch (error) {
     console.log('error type:', error.type);
     console.log('error message:', error.message);
-    res.status(200).json(error);
+    res.status(500).json(error);
   }
 }

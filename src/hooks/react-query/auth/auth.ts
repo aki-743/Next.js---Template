@@ -1,7 +1,7 @@
 import { UseQueryResult } from 'react-query';
+import { useQueryWrapper } from '..';
 import { requestAdminApi } from '../../../api/api/api';
 import { PostData } from '../../../api/types/async';
-import { useQueryWrapper } from '../types';
 
 /** 認証が必要なパス */
 const requiresAuthPaths = ['/menu', '/menu/register', '/menu/list', '/menu/edit'];
