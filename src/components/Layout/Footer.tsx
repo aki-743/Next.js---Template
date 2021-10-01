@@ -1,20 +1,8 @@
-import { makeStyles, Theme, createStyles } from '@material-ui/core';
 import { Container } from '../Container';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      color: '#fff',
-      backgroundColor: theme.palette.secondary.dark,
-    },
-  }),
-);
-
 const Footer: React.FC = () => {
-  const classes = useStyles();
-
   return (
-    <footer className={classes.root}>
+    <footer className="text-white bg-main-dark">
       <Container>
         <div className="py-3 flex justify-between">
           <div>

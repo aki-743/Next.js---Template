@@ -63,12 +63,12 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <AppBar className="text-white" position="static" color="secondary">
+    <AppBar className="text-white bg-main" position="static">
       <Toolbar>
         {process.env.TITLE}
         <Typography variant="h6" className={classes.title}></Typography>
         <IconButton aria-label="menu" onClick={toggleDrawer(true)}>
-          <GiHamburgerMenu />
+          <GiHamburgerMenu className="text-white" />
         </IconButton>
         <Drawer anchor="right" open={drawerOpen} toggleDrawer={toggleDrawer} drawerList={drawerList} />
       </Toolbar>
