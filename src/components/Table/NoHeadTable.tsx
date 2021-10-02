@@ -1,7 +1,7 @@
-import { Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@material-ui/core';
 import { useCallback, useState } from 'react';
 import { WarnText } from '../Warn';
 import { NoHeadTableProps } from '../types/table';
+import { Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
 
 /** キーに対するラベル名 */
 const keyLabels = {

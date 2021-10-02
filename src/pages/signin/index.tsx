@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 import { PrimaryButton } from '../../components/Button';
 import { TextInput } from '../../components/TextInput';
-import { Divider, SplitDivider } from '../../components/Divider';
+import { Divider } from '../../components/Divider';
 import AnchorLink from '../../components/Link/AnchorLink';
 import { DefaultLayout } from '../../components/Layout';
 
@@ -31,7 +31,6 @@ const Signin: React.FC = () => {
       <PrimaryButton className="mb-[20px]" label="サインイン" fullWidth={true} onClick={signin} />
       <AnchorLink label="会員登録はこちらから" onClick={() => console.log(1)} />
       <Divider />
-      <SplitDivider splitLabel="aaa" />
     </DefaultLayout>
   );
 };

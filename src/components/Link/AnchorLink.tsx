@@ -9,7 +9,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = ({ label, href, onClick }) => {
   };
 
   return (
-    <a className="text-link hover:underline" href={href} onClick={handleClick}>
+    <a className="text-link hover:underline hover:cursor-pointer" href={href} onClick={handleClick}>
       {label}
     </a>
   );

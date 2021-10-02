@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/system';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { SwatchesPicker } from 'react-color';
 import { PrimaryButton } from '../Button';

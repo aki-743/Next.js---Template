@@ -1,27 +1,12 @@
-import { AppBar, createStyles, IconButton, makeStyles, Theme, Toolbar, Typography } from '@material-ui/core';
 import { useState } from 'react';
 import { Drawer } from '../Drawer';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useRouterPush } from '../../hooks/router/router';
 import { DrawerList } from '../types/drawer';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    title: {
-      flexGrow: 1,
-    },
-  }),
-);
+import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
 
 // Drawer
 const Header: React.FC = () => {
-  const classes = useStyles();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   // Drawerメニューのトグル操作
@@ -64,9 +49,10 @@ const Header: React.FC = () => {
 
   return (
     <AppBar className="text-white bg-main" position="static">
-      <Toolbar>
-        {process.env.TITLE}
-        <Typography variant="h6" className={classes.title}></Typography>
+      <Toolbar className="flex justify-between">
+        <Typography variant="h6" className="flex-grow-1">
+          {process.env.TITLE}
+        </Typography>
         <IconButton aria-label="menu" onClick={toggleDrawer(true)}>
           <GiHamburgerMenu className="text-white" />
         </IconButton>

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Button, CircularProgress } from '@material-ui/core';
 import { BaseButtonProps } from '../types/button';
 import classNames from 'classnames';
-import styles from './CustomButton.module.scss';
+import styles from './Button.module.scss';
+import { Button, CircularProgress } from '@mui/material';
 
 const DefaultButton: React.FC<BaseButtonProps> = ({
   label,
@@ -40,7 +40,7 @@ const DefaultButton: React.FC<BaseButtonProps> = ({
 
   return (
     <Button
-      className={`text-white bg-default ${styles['CustomButton-root']} ${sizeClassName} ${className}`}
+      className={`text-white bg-default ${styles['comp-root']} ${sizeClassName} ${className}`}
       fullWidth={fullWidth}
       variant="contained"
       startIcon={startIcon}

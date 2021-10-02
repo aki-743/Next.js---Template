@@ -1,6 +1,6 @@
-import { createTheme } from '@material-ui/core';
+import { createTheme } from '@mui/material';
 
-declare module '@material-ui/core/styles/createBreakpoints' {
+declare module '@mui/material/styles' {
   interface BreakpointOverrides {
     xs: true;
     sm: true;

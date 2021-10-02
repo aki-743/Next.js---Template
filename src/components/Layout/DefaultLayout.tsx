@@ -1,26 +1,11 @@
-import { ContainerProps } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
+import { ContainerProps } from '@mui/material';
 import Head from 'next/head';
 import { Container } from '../Container';
 import { DispatchLoading } from '../Loading';
 import { Toast } from '../Toast';
 import Footer from './Footer';
 import Header from './Header';
-
-const useStyles = makeStyles({
-  main: {
-    backgroundColor: '#f5f5f5',
-    minHeight: 'calc(100vh - 136px)',
-    '& > div': {
-      padding: '40px',
-      minHeight: 'inherit',
-      backgroundColor: '#fff',
-    },
-    '& > div > *': {
-      marginBottom: '20px',
-    },
-  },
-});
+import styles from './Layout.module.scss';
 
 type Props = {
   children: ContainerProps['children'];
@@ -31,8 +16,6 @@ type Props = {
 };
 
 const DefaultLayout: React.FC<Props> = ({ children, containerMaxWidth, footerRequired = true, headerRequired = true, subTitle }) => {
-  const classes = useStyles();
-
   return (
     <>
       <Head>
@@ -43,7 +26,7 @@ const DefaultLayout: React.FC<Props> = ({ children, containerMaxWidth, footerReq
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       {headerRequired && <Header />}
-      <main className={classes.main}>
+      <main className={styles['comp-root']}>
         <Container maxWidth={containerMaxWidth}>{children}</Container>
       </main>
       <Toast />

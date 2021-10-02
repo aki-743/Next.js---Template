@@ -1,2 +1,2 @@
 export { default as Divider } from './Divider';
-export { default as SplitDivider } from './SplitDivider';
+export { default as DividerWithText } from './DividerWithText';

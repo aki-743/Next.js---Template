@@ -1,4 +1,4 @@
-import { Divider } from '@material-ui/core';
+import { Divider } from '@mui/material';
 
 const TDivider: React.FC = () => {
   return <Divider className="mb-[20px]" />;

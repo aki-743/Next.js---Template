@@ -1,4 +1,4 @@
-import { CheckboxProps } from '@material-ui/core';
+import { CheckboxProps } from '@mui/material';
 
 export declare interface BaseCheckboxProps extends CheckboxProps {
   /** チェックボックスのラベル */

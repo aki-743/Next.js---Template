@@ -3,7 +3,7 @@ import ReactLoading from 'react-loading';
 import { useEffect } from 'react';
 import { loadingSelector } from '../../store/loading/selector';
 import { loadingSlice } from '../../store/loading/slice';
-import { Backdrop } from '@material-ui/core';
+import { Backdrop } from '@mui/material';
 
 const DispatchLoading: React.FC = () => {
   const dispatch = useDispatch();

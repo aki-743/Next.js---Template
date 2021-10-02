@@ -1,4 +1,4 @@
-import { DrawerProps } from '@material-ui/core';
+import { DrawerProps } from '@mui/material';
 
 // Drawerのメニューリスト
 export declare type DrawerObject = {

@@ -14,9 +14,12 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/lab": "^4.0.0-alpha.60",
-    "@material-ui/styles": "^4.11.4",
+    "@emotion/cache": "^11.4.0",
+    "@emotion/react": "^11.4.1",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/core": "^5.0.0-alpha.49",
+    "@mui/material": "^5.0.0-rc.1",
     "@reduxjs/toolkit": "^1.6.1",
     "@trejgun/material-ui-icons-google": "0.0.3",
     "axios": "^0.21.3",

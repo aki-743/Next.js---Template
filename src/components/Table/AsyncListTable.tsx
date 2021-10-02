@@ -1,14 +1,14 @@
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 import { PathLink } from '../Link';
 import { AsyncListTableProps } from '../types/table';
 import styles from './ListTable.module.scss';
 import { AsyncLoading } from '../Loading';
 import { AsyncError } from '../Error';
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
 const AsyncListTable: React.FC<AsyncListTableProps> = ({ heads, data, isLoading, isError }) => {
   return (
     <TableContainer component={Paper}>
-      <Table className={styles['ListTable-root']} aria-label="owner list">
+      <Table className={styles['comp-root']} aria-label="owner list">
         <TableHead>
           <TableRow>
             {heads.map((head) => (
@@ -25,7 +25,7 @@ const AsyncListTable: React.FC<AsyncListTableProps> = ({ heads, data, isLoading,
             data.map((owner) => (
               <TableRow key={owner.path_name}>
                 <TableCell component="th" scope="row">
-                  <PathLink label={owner.store_name} path={`/menu/edit?oid=${owner.oid}`} />
+                  <PathLink label={owner.store_name} href={`/menu/edit?oid=${owner.oid}`} />
                 </TableCell>
                 <TableCell align="right">{owner.email}</TableCell>
                 <TableCell align="right">{owner.representative}</TableCell>

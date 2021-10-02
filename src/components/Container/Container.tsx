@@ -1,4 +1,4 @@
-import { Container, ContainerProps } from '@material-ui/core';
+import { Container, ContainerProps } from '@mui/material';
 
 const TContainer: React.FC<ContainerProps> = ({ children, maxWidth }) => {
   return (

@@ -38,6 +38,7 @@ module.exports = {
   },
   variants: {
     textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+    textDecoration: ['hover'],
     backgroundColor: ['responsive', 'hover', 'focus', 'group-hover'],
     extend: {},
   },
