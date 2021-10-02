@@ -1,4 +1,4 @@
-export type BaseModalProps = {
+export declare type BaseModalProps = {
   open: boolean;
   handleClose: () => void;
 };

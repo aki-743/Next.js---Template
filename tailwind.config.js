@@ -32,6 +32,7 @@ module.exports = {
       google: '#c6594b',
       facebook: '#3b5998',
       twitter: '#00acee',
+      link: "#0366d6"
     },
     extend: {},
   },

@@ -30,7 +30,7 @@ type Props = {
   subTitle?: string;
 };
 
-const Layout: React.FC<Props> = ({ children, containerMaxWidth, footerRequired = true, headerRequired = true, subTitle }) => {
+const DefaultLayout: React.FC<Props> = ({ children, containerMaxWidth, footerRequired = true, headerRequired = true, subTitle }) => {
   const classes = useStyles();
 
   return (
@@ -53,4 +53,4 @@ const Layout: React.FC<Props> = ({ children, containerMaxWidth, footerRequired =
   );
 };
 
-export default Layout;
+export default DefaultLayout;

@@ -3,7 +3,7 @@ import { ChangeEvent, useState } from 'react';
 import { PrimaryButton } from '../../components/Button';
 import Complete from '../../components/Complete/Complete';
 import { Divider } from '../../components/Divider';
-import { Layout } from '../../components/Layout';
+import { DefaultLayout } from '../../components/Layout';
 import { PathLink } from '../../components/Link';
 import { TextInput } from '../../components/TextInput';
 
@@ -47,7 +47,7 @@ const Signup: React.FC = () => {
         <TextInput label="メールアドレス" value={email} fullWidth={true} onChange={inputEmail} />
         <br />
         <PrimaryButton className="mb-[20px]" label="メールを送信" fullWidth={true} onClick={registerSubscription} />
-        <PathLink label="すでにアカウントをお持ちの方はこちらから" path="/signin" />
+        <PathLink label="すでにアカウントをお持ちの方はこちらから" href="/signin" />
       </>
     );
   };
@@ -85,7 +85,7 @@ const Signup: React.FC = () => {
   };
 
   return (
-    <Layout containerMaxWidth="sm" subTitle="会員登録">
+    <DefaultLayout containerMaxWidth="sm" subTitle="会員登録">
       <Stepper activeStep={activeStep} alternativeLabel>
         <Step>
           <StepLabel>メールアドレスの入力</StepLabel>
@@ -104,7 +104,7 @@ const Signup: React.FC = () => {
       {activeStep === 1 && secondStep()}
       {activeStep === 2 && thirdStep()}
       {activeStep === 3 && fourthStep()}
-    </Layout>
+    </DefaultLayout>
   );
 };
 

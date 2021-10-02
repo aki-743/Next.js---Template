@@ -1,9 +1,9 @@
 import { ChangeEvent, useState } from 'react';
 import { PrimaryButton } from '../../components/Button';
-import { Layout } from '../../components/Layout';
 import { TextInput } from '../../components/TextInput';
-import { PathLink } from '../../components/Link';
 import { Divider, SplitDivider } from '../../components/Divider';
+import AnchorLink from '../../components/Link/AnchorLink';
+import { DefaultLayout } from '../../components/Layout';
 
 const Signin: React.FC = () => {
   const [email, setEmail] = useState(''),
@@ -23,17 +23,16 @@ const Signin: React.FC = () => {
   };
 
   return (
-    <Layout containerMaxWidth="sm" subTitle="サインイン">
+    <DefaultLayout containerMaxWidth="sm" subTitle="サインイン">
       <Divider />
       <TextInput label="メールアドレス" value={email} fullWidth={true} type={'email'} onChange={inputEmail} />
       <br />
       <TextInput label="パスワード" value={password} fullWidth={true} type="password" onChange={inputPassword} />
       <PrimaryButton className="mb-[20px]" label="サインイン" fullWidth={true} onClick={signin} />
-      <PathLink label="会員登録はこちらから" path="/signup" />
-      <PathLink label="パスワードを忘れた方はこちらから" path="/forgot" />
+      <AnchorLink label="会員登録はこちらから" onClick={() => console.log(1)} />
       <Divider />
       <SplitDivider splitLabel="aaa" />
-    </Layout>
+    </DefaultLayout>
   );
 };
 

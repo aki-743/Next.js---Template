@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 
-export type BaseTextInputProps = {
+export declare type BaseTextInputProps = {
   /** クラス名 */
   className?: string;
   /** ラベル */

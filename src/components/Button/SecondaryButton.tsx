@@ -6,11 +6,11 @@ import styles from './CustomButton.module.scss';
 
 const SecondaryButton: React.FC<BaseButtonProps> = ({
   label,
-  className,
+  className = '',
   disabled = false,
   fullWidth,
   loading,
-  size,
+  size = 'md',
   startIcon,
   onClick,
 }) => {

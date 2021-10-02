@@ -1,4 +1,4 @@
-export type BaseMenuProps = {
+export declare type BaseMenuProps = {
   /** メニューを表示する要素 */
   anchorEl: null | HTMLElement;
   /** メニューを閉じる関数 */

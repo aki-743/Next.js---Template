@@ -4,7 +4,16 @@ import { BaseButtonProps } from '../types/button';
 import classNames from 'classnames';
 import styles from './CustomButton.module.scss';
 
-const PrimaryButton: React.FC<BaseButtonProps> = ({ label, className, disabled = false, fullWidth, loading, size, startIcon, onClick }) => {
+const PrimaryButton: React.FC<BaseButtonProps> = ({
+  label,
+  className = '',
+  disabled = false,
+  fullWidth,
+  loading,
+  size = 'md',
+  startIcon,
+  onClick,
+}) => {
   const [isDisabled, setIsDisabled] = useState(disabled),
     [isLoading, setIsLoding] = useState(false);
 

@@ -1,20 +1,20 @@
 import { PostData } from '../../api/types/async';
 
-export type NoHeadTableProps = {
+export declare type NoHeadTableProps = {
   /** テーブルの横幅 */
   width?: string;
   /** テーブルの右に表示するデータ */
   rows?: PostData[];
 };
 
-export type ListTableProps = {
+export declare type ListTableProps = {
   /** テーブルのヘッド */
   heads: string[];
   /** 非同期で取得したデータ */
   data: any[];
 };
 
-export type AsyncListTableProps = {
+export declare type AsyncListTableProps = {
   /** テーブルのヘッド */
   heads: string[];
   /** 非同期で取得したデータ */

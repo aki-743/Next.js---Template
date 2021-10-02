@@ -1,4 +1,4 @@
-export type BaseColorProps = {
+export declare type BaseColorProps = {
   /** カラー */
   color: string;
   /** カラーが変更されたときの関数 */

@@ -1,25 +1,11 @@
-import { makeStyles } from '@material-ui/core';
 import { BaseLinkProps } from '../types/link';
 import Link from 'next/link';
 
-const useStyles = makeStyles({
-  root: {
-    color: '#0366d6',
-    '&:hover': {
-      textDecoration: 'underline',
-    },
-  },
-});
-
-const PathLink: React.FC<BaseLinkProps> = ({ label, path, className }) => {
-  const classes = useStyles();
-
+const PathLink: React.FC<BaseLinkProps> = ({ label, href, replace, passHref }) => {
   return (
-    <div className={`mb-[5px] ${className}`}>
-      <Link href={path}>
-        <a className={classes.root}>{label}</a>
-      </Link>
-    </div>
+    <Link href={href} replace={replace} passHref={passHref}>
+      <a className="text-link hover:underline">{label}</a>
+    </Link>
   );
 };
 

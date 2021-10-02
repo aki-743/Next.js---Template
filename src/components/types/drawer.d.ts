@@ -1,7 +1,7 @@
 import { DrawerProps } from '@material-ui/core';
 
 // Drawerのメニューリスト
-export type DrawerObject = {
+export declare type DrawerObject = {
   /** メニューテキスト */
   text: string;
   /** アイコン */
@@ -16,9 +16,9 @@ export type DrawerObject = {
   onClick: () => void;
 };
 
-export type DrawerList = Array<Array<DrawerObject>>;
+export declare type DrawerList = Array<Array<DrawerObject>>;
 
-export type BaseDrawerProps = {
+export declare type BaseDrawerProps = {
   /** Drawerを表示する位置 */
   anchor: DrawerProps['anchor'];
   /** 表示・非表示の状態 */

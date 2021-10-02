@@ -1,4 +1,4 @@
-export type BaseImageProps = {
+export declare type BaseImageProps = {
   /** 表示する画像 */
   src: StaticImageData;
   /** 画像説明 */
