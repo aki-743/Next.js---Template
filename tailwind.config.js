@@ -15,7 +15,7 @@ module.exports = {
   },
   theme: {
     screens: {
-      sm: { max: "599px" },
+      sm: { max: "600px" },
       md: { max: "960px" },
       tablet: { max: "1024px" },
     },
@@ -37,7 +37,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: theme => ({
-        "SignUpAndSignInBackground": "url('/src/assets/background/db-RegisterAndLoginBackgroundImage.jpg')"
+        "SignUpAndSignInBackground": "url('../../..//assets/background/db-RegisterAndLoginBackgroundImage.jpg')"
       })
     },
   },

@@ -1,7 +1,7 @@
 import { AiFillCheckCircle } from 'react-icons/ai';
-import styles from './SuccessCheck.module.scss';
+import styles from './SuccessCheckIcon.module.scss';
 
-const SuccessCheck: React.FC = () => {
+const SuccessCheckIcon: React.FC = () => {
   return (
     <div className={styles.root}>
       <AiFillCheckCircle size={64} color={'00e676'} />
@@ -9,4 +9,4 @@ const SuccessCheck: React.FC = () => {
   );
 };
 
-export default SuccessCheck;
+export default SuccessCheckIcon;

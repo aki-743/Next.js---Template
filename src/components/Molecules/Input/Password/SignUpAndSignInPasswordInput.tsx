@@ -1,5 +1,5 @@
 import { FormControl, IconButton, InputAdornment, OutlinedInput } from '@mui/material';
-import { BaseInputProps } from '../input';
+import { BaseInputProps } from '../../../types/Input/props';
 import { useState } from 'react';
 import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import styles from '../../../styles/Input.module.scss';
@@ -19,6 +19,8 @@ const SignUpAndSignInPasswordInput: React.FC<BaseInputProps> = ({ id, name, valu
           name={name}
           type={isShowPassword ? 'text' : 'password'}
           value={value}
+          autoFocus={true}
+          autoComplete="current-password"
           onChange={onChange}
           endAdornment={
             <InputAdornment position="end">

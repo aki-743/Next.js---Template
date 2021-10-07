@@ -1,10 +1,24 @@
 .root {
   @apply w-1/2 mx-auto;
+  @media (max-width: theme('screens.tablet.max')) {
+    @apply w-[550px];
+  }
+  @media (max-width: theme('screens.sm.max')) {
+    @apply w-[95%];
+  }
 
   .form {
     @apply px-[48px] py-[56px] bg-white;
+    @media (max-width: theme('screens.sm.max')) {
+      @apply p-0;
+    }
+
     > div {
       @apply ml-[20px] mt-[20px];
+
+      @media (max-width: theme('screens.sm.max')) {
+        @apply ml-[10px] mt-[10px];
+      }
     }
   }
 }

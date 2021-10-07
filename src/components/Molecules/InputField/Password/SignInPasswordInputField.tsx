@@ -1,6 +1,6 @@
 import { FormInputLabel } from '../../../Atoms/Label';
 import { SignUpAndSignInPasswordInput } from '../../Input';
-import { BaseInputProps } from '../../Input/input';
+import { BaseInputProps } from '../../../types/Input/props';
 
 const FORM_INPUT_LABEL = 'パスワード';
 

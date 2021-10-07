@@ -3,7 +3,8 @@ import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { SwatchesPicker } from 'react-color';
 import { PrimaryButton } from '../../Atoms/Button';
 import { DefaultModal } from '../../Atoms/Modal';
-import { BaseColorProps } from './color';
+import { BaseColorProps } from '../../types/Color/props';
+import styles from './ColorPallate.module.scss';
 
 /** カラーとカラーコードの表示 */
 const SplitColor: React.FC<BaseColorProps> = ({ color, onChange }) => {
@@ -18,8 +19,8 @@ const SplitColor: React.FC<BaseColorProps> = ({ color, onChange }) => {
   }, [color]);
 
   return (
-    <Box className="flex border-black h-[23px] border-[1px]">
-      <div ref={colorBackgroundEl} className="h-full border-black w-[20px] border-r-[1px] brand-color"></div>
+    <Box className="flex h-[23px] border-[1px] border-black">
+      <div ref={colorBackgroundEl} className="w-[20px] h-full border-r-[1px] border-black brand-color"></div>
       <div className="h-full">
         <input type="text" value={color} onChange={inputBackground} />
       </div>
@@ -45,9 +46,9 @@ const ColorPallate: React.FC<BaseColorProps> = ({ color, colorLabel, onChange })
 
   return (
     <>
-      <div className="flex justify-between items-center mb-[20px]">
-        <div className="flex justify-between flex-70">
-          <h4 className="sm:mb-[10px] text-bold sm:flex-100">・{colorLabel}</h4>
+      <div className={styles.root}>
+        <div className={styles['label-wrapper']}>
+          <h4 className={styles.label}>・{colorLabel}</h4>
           <SplitColor color={color} onChange={onChange} />
         </div>
         <PrimaryButton label="選択する" size="sm" onClick={handleModalOpen} />

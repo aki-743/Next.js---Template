@@ -1,6 +1,6 @@
 import { FormInputLabel } from '../../../Atoms/Label';
 import { SignUpAndSignInPasswordInput } from '../../Input';
-import { BaseInputProps, SignUpPasswordInputProps } from '../../Input/input';
+import { BaseInputProps, SignUpPasswordInputProps } from '../../../types/Input/props';
 
 const InputPassword1: React.FC<BaseInputProps> = (props) => {
   const FORM_INPUT_LABEL = 'パスワード';

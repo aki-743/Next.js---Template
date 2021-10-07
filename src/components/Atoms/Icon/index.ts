@@ -1,1 +1,1 @@
-export { default as SuccessChecker } from './SuccessCheck';
+export { default as SuccessCheckeIcon } from './SuccessCheckIcon';

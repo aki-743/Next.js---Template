@@ -6,7 +6,7 @@ import { ListTableProps } from '../../types/Table/props';
 const ListTable: React.FC<ListTableProps> = ({ heads, data }) => {
   return (
     <TableContainer component={Paper}>
-      <Table className={styles['comp-root']} aria-label="owner list">
+      <Table className={styles.root} aria-label="owner list">
         <TableHead>
           <TableRow>
             {heads.map((head) => (
@@ -16,7 +16,7 @@ const ListTable: React.FC<ListTableProps> = ({ heads, data }) => {
             ))}
           </TableRow>
         </TableHead>
-        <TableBody className="overflow-scroll">
+        <TableBody className={styles.body}>
           {data.map((owner) => (
             <TableRow key={owner.path_name}>
               <TableCell component="th" scope="row">

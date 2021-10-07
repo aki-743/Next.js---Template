@@ -1,6 +1,8 @@
 import { useCallback, useState } from 'react';
 import { NoHeadTableProps } from '../../types/Table/props';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
+import { AnchorLink } from '../Link';
+import styles from './NoHeadTable.module.scss';
 
 /** キーに対するラベル名 */
 const keyLabels = {
@@ -17,7 +19,7 @@ const keyLabels = {
 /** マスクで表示させたいキー名 */
 const maskKeys = [];
 
-const ConfirmTable: React.FC<NoHeadTableProps> = ({ rows }) => {
+const NoHeadTable: React.FC<NoHeadTableProps> = ({ rows }) => {
   const [maskStates, setMaskStates] = useState<Array<boolean>>(new Array(maskKeys.length).fill(false));
 
   const toggleMaskState = (index: number) => () => {
@@ -35,18 +37,14 @@ const ConfirmTable: React.FC<NoHeadTableProps> = ({ rows }) => {
         <TableCell align="left">
           {isMasked ? (
             maskStates[index] ? (
-              <div className="flex justify-between">
+              <div className={styles['mask-cell']}>
                 <span>{rows[key]}</span>
-                <a className="GB-link" onClick={toggleMaskState(index)}>
-                  非表示
-                </a>
+                <AnchorLink label="非表示" onClick={toggleMaskState(index)} />
               </div>
             ) : (
-              <div className="flex justify-between">
+              <div className={styles['mask-cell']}>
                 <span>***********</span>
-                <a className="GB-link" onClick={toggleMaskState(index)}>
-                  表示
-                </a>
+                <AnchorLink label="表示" onClick={toggleMaskState(index)} />
               </div>
             )
           ) : (
@@ -67,7 +65,7 @@ const ConfirmTable: React.FC<NoHeadTableProps> = ({ rows }) => {
               (key) =>
                 keyLabels[key] && (
                   <TableRow key={key}>
-                    <TableCell className="bg-gray-100 w-[40%]" align="left" component="th">
+                    <TableCell className={styles['left-cell']} align="left" component="th">
                       {keyLabels[key]}
                     </TableCell>
                     {CustomTableCell(key)}
@@ -81,4 +79,4 @@ const ConfirmTable: React.FC<NoHeadTableProps> = ({ rows }) => {
   );
 };
 
-export default ConfirmTable;
+export default NoHeadTable;

@@ -3,7 +3,7 @@ import { LinkProps } from 'next/link';
 export declare type BaseLinkProps = {
   /** ラベル */
   label: string;
-  /** 遷移先のパラメータ */
+  /** 遷移先のURL */
   href?: LinkProps['href'];
   /** replaceで遷移するか */
   replace?: boolean;
@@ -12,7 +12,7 @@ export declare type BaseLinkProps = {
 };
 
 export declare interface AnchorLinkProps extends BaseLinkProps {
-  /** 遷移先のパス */
+  /** 遷移先のURL */
   href?: string;
   /** クリックイベント */
   onClick?: () => void;

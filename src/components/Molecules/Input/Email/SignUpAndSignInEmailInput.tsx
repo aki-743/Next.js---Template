@@ -1,4 +1,4 @@
-import { BaseInputProps } from '../input';
+import { BaseInputProps } from '../../../types/Input/props';
 import { ChangeEvent, useCallback, useState } from 'react';
 import { validateEmail } from '../../../../common/validate';
 import { TextField } from '@mui/material';
@@ -56,6 +56,8 @@ const SignUpAndSignInEmailInput: React.FC<BaseInputProps> = ({ id, name, value, 
         error={error}
         variant="outlined"
         disabled={disabled}
+        autoFocus={true}
+        autoComplete="email"
         onChange={handleChange}
       />
       <div className="flex justify-between">

@@ -2,7 +2,7 @@ import styles from '../../styles/ListTable.module.scss';
 import { AsyncError } from '../../Atoms/Error';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { PathLink } from '../../Atoms/Link';
-import { AsyncLoading } from '../Loading';
+import { AsyncLoading } from '../../Atoms/Loading';
 import { AsyncListTableProps } from '../../types/Table/props';
 
 const AsyncListTable: React.FC<AsyncListTableProps> = ({ heads, data, isLoading, isError }) => {
