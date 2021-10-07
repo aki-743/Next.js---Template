@@ -1,0 +1,10 @@
+.root {
+  @apply w-1/2 mx-auto;
+
+  .form {
+    @apply px-[48px] py-[56px] bg-white;
+    > div {
+      @apply ml-[20px] mt-[20px];
+    }
+  }
+}

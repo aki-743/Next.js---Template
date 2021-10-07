@@ -1,14 +1,12 @@
 import { ChangeEvent, useState } from 'react';
-import { PrimaryButton } from '../../components/Button';
-import Complete from '../../components/Complete/Complete';
-import { Divider } from '../../components/Divider';
-import { DefaultLayout } from '../../components/Layout';
-import { PathLink } from '../../components/Link';
-import { TextInput } from '../../components/TextInput';
+import { PathLink } from '../../components/Atoms/Link';
+import { SignUpAndSignInFormButton } from '../../components/Molecules/Button';
+import { SignUpAndSignInEmailInputField, SignUpPasswordInputField } from '../../components/Molecules/InputField';
+import { SignUpAndSignInLayoutForm } from '../../components/Pages/FormLayout';
+import { SignUpAndSignInLayout } from '../../components/Pages/TopLayout';
 
 const Signup: React.FC = () => {
-  const [activeStep, setActiveStep] = useState(0),
-    [email, setEmail] = useState(''),
+  const [email, setEmail] = useState(''),
     [password1, setPassword1] = useState(''),
     [password2, setPassword2] = useState('');
 
@@ -26,70 +24,26 @@ const Signup: React.FC = () => {
   };
 
   const signUp = async () => {
-    setActiveStep(1);
-  };
-
-  const registerSubscription = async () => {
-    console.log('a');
-  };
-
-  const firstStep = () => {
-    return (
-      <>
-        <div>
-          <h3 className="text-center">SNSアカウントでかんたんログイン！</h3>
-          <p className="text-center mb-[20px]">
-            SNS登録ならパスワードの<strong>入力不要！</strong>
-          </p>
-        </div>
-        <Divider />
-        <TextInput label="メールアドレス" value={email} fullWidth={true} onChange={inputEmail} />
-        <br />
-        <PrimaryButton className="mb-[20px]" label="メールを送信" fullWidth={true} onClick={registerSubscription} />
-        <PathLink label="すでにアカウントをお持ちの方はこちらから" href="/signin" />
-      </>
-    );
-  };
-
-  const secondStep = () => {
-    return (
-      <>
-        <div>
-          <h3 className="mb-[20px] text-center">パスワードの設定</h3>
-          <TextInput label="パスワード" value={password1} fullWidth={true} onChange={inputPassword1} />
-          <TextInput label="確認用パスワード" value={password2} fullWidth={true} onChange={inputPassword2} />
-          <PrimaryButton label="会員登録" fullWidth={true} onClick={signUp} />
-        </div>
-      </>
-    );
-  };
-
-  const thirdStep = () => {
-    return (
-      <>
-        <div>
-          <h3 className="mb-[20px] text-center">サブスクリプションの登録</h3>
-          <PrimaryButton label="登録する" fullWidth={true} onClick={signUp} />
-        </div>
-      </>
-    );
-  };
-
-  const fourthStep = () => {
-    return (
-      <>
-        <Complete message="登録が完了しました" />
-      </>
-    );
+    console.log(1);
   };
 
   return (
-    <DefaultLayout containerMaxWidth="sm" subTitle="会員登録">
-      {activeStep === 0 && firstStep()}
-      {activeStep === 1 && secondStep()}
-      {activeStep === 2 && thirdStep()}
-      {activeStep === 3 && fourthStep()}
-    </DefaultLayout>
+    <SignUpAndSignInLayout subTitle="会員登録">
+      <SignUpAndSignInLayoutForm title="アカウントの作成">
+        <SignUpAndSignInEmailInputField name="email" value={email} fullWidth={true} onChange={inputEmail} />
+        <SignUpPasswordInputField
+          password1={password1}
+          password2={password2}
+          fullWidth={true}
+          onChangePassword1={inputPassword1}
+          onChangePassword2={inputPassword2}
+        />
+        <SignUpAndSignInFormButton label="メールを送信" fullWidth={true} onClick={signUp} />
+        <div>
+          <PathLink label="すでにアカウントをお持ちの方はこちらから" href="/signin" />
+        </div>
+      </SignUpAndSignInLayoutForm>
+    </SignUpAndSignInLayout>
   );
 };
 

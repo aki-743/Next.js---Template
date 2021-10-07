@@ -1,6 +1,6 @@
 import { QueryKey, useQuery, UseQueryOptions, UseQueryResult } from 'react-query';
 import { APIResponse } from '../../api/types/async';
-import { toastError } from '../../components/Toast/Toast';
+import { toastError } from '../../components/Atoms/Toast/Toast';
 
 type Props = {
   queryKey: string;
