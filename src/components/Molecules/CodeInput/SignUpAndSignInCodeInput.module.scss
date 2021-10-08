@@ -1,0 +1,13 @@
+.root {
+  > h3 {
+    @apply mb-[30px];
+  }
+
+  > div {
+    @apply mb-[20px];
+  }
+
+  .code-input {
+    @apply py-[30px] flex justify-center;
+  }
+}

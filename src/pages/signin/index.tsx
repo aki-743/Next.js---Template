@@ -1,15 +1,17 @@
 import { ChangeEvent, useState } from 'react';
-import { PrimaryButton } from '../../components/Button';
-import { TextInput } from '../../components/TextInput';
-import { Divider } from '../../components/Divider';
-import AnchorLink from '../../components/Link/AnchorLink';
-import { DefaultLayout } from '../../components/Layout';
+import { PathLink } from '../../components/Atoms/Link';
+import { SignUpAndSignInFormButton } from '../../components/Molecules/Button';
+import { SignUpAndSignInCodeInput } from '../../components/Molecules/CodeInput';
+import { SignInPasswordInputField, SignUpAndSignInEmailInputField } from '../../components/Molecules/InputField';
+import { SignUpPhoneInput } from '../../components/Molecules/PhoneInput';
+import { SignUpAndSignInLayoutForm } from '../../components/Pages/FormLayout';
+import { SignUpAndSignInLayout } from '../../components/Pages/TopLayout';
 
-const Signin: React.FC = () => {
+const SignIn: React.FC = () => {
   const [email, setEmail] = useState(''),
-    [password, setPassword] = useState('');
+    [password, setPassword] = useState(''),
+    [verificationCode, setVerificationCode] = useState('');
 
-  // TextInputが変更されたときのコールバック関数
   const inputEmail = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
@@ -19,20 +21,33 @@ const Signin: React.FC = () => {
   };
 
   const signin = async () => {
+    console.log(1);
     return;
   };
 
+  const inputVerficationCode = (value: string) => {
+    setVerificationCode(value);
+  };
+
   return (
-    <DefaultLayout containerMaxWidth="sm" subTitle="サインイン">
-      <Divider />
-      <TextInput label="メールアドレス" value={email} fullWidth={true} type={'email'} onChange={inputEmail} />
-      <br />
-      <TextInput label="パスワード" value={password} fullWidth={true} type="password" onChange={inputPassword} />
-      <PrimaryButton className="mb-[20px]" label="サインイン" fullWidth={true} onClick={signin} />
-      <AnchorLink label="会員登録はこちらから" onClick={() => console.log(1)} />
-      <Divider />
-    </DefaultLayout>
+    <SignUpAndSignInLayout subTitle="サインイン">
+      <SignUpAndSignInLayoutForm title="アカウントにサインイン">
+        <SignUpAndSignInEmailInputField name="email" value={email} fullWidth={true} onChange={inputEmail} />
+        <SignInPasswordInputField name="password" value={password} fullWidth={true} onChange={inputPassword} />
+        <SignUpAndSignInFormButton label="サインイン" fullWidth={true} onClick={signin} />
+        <div>
+          <PathLink label="アカウントをお持ちでない方はアカウント登録" href="/signup" />
+        </div>
+        <SignUpAndSignInCodeInput
+          address="akimu@example.com"
+          verificationName="本人確認"
+          value={verificationCode}
+          onChange={inputVerficationCode}
+        />
+        <SignUpPhoneInput />
+      </SignUpAndSignInLayoutForm>
+    </SignUpAndSignInLayout>
   );
 };
 
-export default Signin;
+export default SignIn;

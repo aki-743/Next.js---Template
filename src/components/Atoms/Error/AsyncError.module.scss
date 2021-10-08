@@ -1,0 +1,7 @@
+.root {
+  @apply p-[20px] text-xl flex items-center justify-center flex-wrap w-full;
+
+  .text {
+    @apply text-center flex-100;
+  }
+}

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import '../styles/global.scss';
 import Head from 'next/head';
-import { Provider } from '../components/Provider';
+import { Provider } from '../components/Providers';
 
 const CustomApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   useEffect(() => {

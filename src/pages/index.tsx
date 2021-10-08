@@ -1,16 +1,16 @@
-import { DividerWithText } from '../components/Divider';
-import { DefaultLayout } from '../components/Layout';
-import { PathLink } from '../components/Link';
+import { GetServerSideProps } from 'next';
+
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  res.writeHead(302, { Location: '/signin' });
+  res.end();
+
+  return {
+    props: {},
+  };
+};
 
 const IndexPage: React.FC = () => {
-  return (
-    <DefaultLayout subTitle="ホーム">
-      あああああああああああああ
-      <PathLink label="あいうえお" href="/signin" />
-      ああああああああああああああ
-      <DividerWithText text="aaaa" />
-    </DefaultLayout>
-  );
+  return <></>;
 };
 
 export default IndexPage;

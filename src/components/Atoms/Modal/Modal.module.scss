@@ -1,0 +1,6 @@
+.root {
+  @apply flex items-center justify-center;
+  > div {
+    @apply bg-white p-[20px];
+  }
+}

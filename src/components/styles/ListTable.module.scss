@@ -1,0 +1,12 @@
+.root {
+  @apply max-h-[60vh] overflow-scroll;
+
+  th,
+  td {
+    @apply whitespace-nowrap;
+  }
+
+  .body {
+    @apply overflow-scroll;
+  }
+}
