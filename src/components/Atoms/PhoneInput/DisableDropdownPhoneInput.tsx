@@ -1,12 +1,11 @@
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import { BasePhoneInputProps } from '../../types/PhoneInput/props';
 
-const DefaultPhoneInput: React.FC = () => {
-  const country = 'jp';
-
+const DisableDropdownPhoneInput: React.FC<BasePhoneInputProps> = ({ defaultCountry = 'jp', onChange }) => {
   return (
     <PhoneInput
-      country={country}
+      country={defaultCountry}
       placeholder=""
       autoFormat={false}
       disableDropdown={true}
@@ -15,8 +14,9 @@ const DefaultPhoneInput: React.FC = () => {
         required: true,
         autoFocus: true,
       }}
+      onChange={onChange}
     />
   );
 };
 
-export default DefaultPhoneInput;
+export default DisableDropdownPhoneInput;

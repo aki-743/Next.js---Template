@@ -1,6 +1,10 @@
 # 内容
 
-ボタンのコンポーネントとして使用。
+エラー表示のコンポーネント。
+
+## 参考URL
+
+[https://react-icons.github.io/react-icons/search?q=error](https://react-icons.github.io/react-icons/search?q=error)
 
 # コンポーネント
 

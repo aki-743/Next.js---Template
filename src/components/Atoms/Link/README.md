@@ -1,6 +1,10 @@
 # 内容
 
-ボタンのコンポーネントとして使用。
+リンクのコンポーネント。
+
+## 参考URL
+
+[https://nextjs.org/docs/api-reference/next/link](https://nextjs.org/docs/api-reference/next/link)
 
 # コンポーネント
 

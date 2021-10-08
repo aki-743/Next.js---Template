@@ -1,50 +1,58 @@
 import { ChangeEvent, useState } from 'react';
 import { PathLink } from '../../components/Atoms/Link';
 import { SignUpAndSignInFormButton } from '../../components/Molecules/Button';
-import { SignUpAndSignInEmailInputField, SignUpPasswordInputField } from '../../components/Molecules/InputField';
+import { SignUpAndSignInCodeInput } from '../../components/Molecules/CodeInput';
+import { SignInPasswordInputField, SignUpAndSignInEmailInputField } from '../../components/Molecules/InputField';
+import { SignUpPhoneInput } from '../../components/Molecules/PhoneInput';
 import { SignUpAndSignInLayoutForm } from '../../components/Pages/FormLayout';
 import { SignUpAndSignInLayout } from '../../components/Pages/TopLayout';
 
-const Signup: React.FC = () => {
+const SignIn: React.FC = () => {
   const [email, setEmail] = useState(''),
-    [password1, setPassword1] = useState(''),
-    [password2, setPassword2] = useState('');
+    [password, setPassword] = useState(''),
+    [verificationCode, setVerificationCode] = useState(''),
+    [_phoneNumber, setPhoneNumber] = useState('');
 
-  // TextInputが変更されたときのコールバック関数
   const inputEmail = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
 
-  const inputPassword1 = (event: ChangeEvent<HTMLInputElement>) => {
-    setPassword1(event.target.value);
+  const inputPassword = (event: ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
   };
 
-  const inputPassword2 = (event: ChangeEvent<HTMLInputElement>) => {
-    setPassword2(event.target.value);
-  };
-
-  const signUp = async () => {
+  const signin = async () => {
     console.log(1);
+    return;
+  };
+
+  const inputVerficationCode = (value: string) => {
+    setVerificationCode(value);
+  };
+
+  const inputPhoneNumber = (value: string) => {
+    setPhoneNumber(value);
   };
 
   return (
     <SignUpAndSignInLayout subTitle="会員登録">
-      <SignUpAndSignInLayoutForm title="アカウントの作成">
+      <SignUpAndSignInLayoutForm title="アカウントにサインイン">
         <SignUpAndSignInEmailInputField name="email" value={email} fullWidth={true} onChange={inputEmail} />
-        <SignUpPasswordInputField
-          password1={password1}
-          password2={password2}
-          fullWidth={true}
-          onChangePassword1={inputPassword1}
-          onChangePassword2={inputPassword2}
-        />
-        <SignUpAndSignInFormButton label="メールを送信" fullWidth={true} onClick={signUp} />
+        <SignInPasswordInputField name="password" value={password} fullWidth={true} onChange={inputPassword} />
+        <SignUpAndSignInFormButton label="サインイン" fullWidth={true} onClick={signin} />
         <div>
-          <PathLink label="すでにアカウントをお持ちの方はこちらから" href="/signin" />
+          <PathLink label="アカウントをお持ちでない方はアカウント登録" href="/signup" />
         </div>
+        <SignUpAndSignInCodeInput
+          address="akimu@example.com"
+          verificationName="本人確認"
+          value={verificationCode}
+          onChange={inputVerficationCode}
+        />
+        <SignUpPhoneInput onChange={inputPhoneNumber} />
       </SignUpAndSignInLayoutForm>
     </SignUpAndSignInLayout>
   );
 };
 
-export default Signup;
+export default SignIn;

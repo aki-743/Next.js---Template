@@ -1,1 +1,1 @@
-export { default as DefaultPhoneInput } from './DefaultPhoneInput';
+export { default as DisableDropdownPhoneInput } from './DisableDropdownPhoneInput';

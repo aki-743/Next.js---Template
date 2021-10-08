@@ -1,6 +1,10 @@
 # 内容
 
-ボタンのコンポーネントとして使用。
+Material-uiのDividerコンポーネントをほぼそのまま使用
+
+## 参考URL
+
+[https://mui.com/components/dividers/#main-content](https://mui.com/components/dividers/#main-content)
 
 # コンポーネント
 

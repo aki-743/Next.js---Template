@@ -2,13 +2,14 @@ import { Divider, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mu
 import React from 'react';
 import { BaseDrawerProps } from '../../types/Drawer/drawer';
 import { DrawerObject } from '../../types/Drawer/list';
+import styles from './Drawer.module.scss';
 
 const DefaultDrawer: React.FC<BaseDrawerProps> = ({ anchor, open, toggleDrawer, drawerList }) => {
   const isLogined = true;
 
   return (
     <Drawer anchor={anchor} open={open} onClose={toggleDrawer(false)}>
-      <div className="w-[250px]" role="header menu" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
+      <div className={styles.root} role="header menu" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
         <List>
           {drawerList.map((menus: Array<DrawerObject>, index: number) =>
             menus.map((menu) => (

@@ -1,6 +1,10 @@
 # 内容
 
-ボタンのコンポーネントとして使用。
+認証コードを入力するコンポーネント。
+
+## 参考URL
+
+[https://www.npmjs.com/package/react-verification-code-input](https://www.npmjs.com/package/react-verification-code-input)
 
 # コンポーネント
 

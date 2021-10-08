@@ -1,6 +1,10 @@
 # 内容
 
-ボタンのコンポーネントとして使用。
+next/imageのコンポーネント。
+
+## 参考URL
+
+[https://nextjs.org/docs/api-reference/next/image](https://nextjs.org/docs/api-reference/next/image)
 
 # コンポーネント
 

@@ -1,6 +1,10 @@
 # 内容
 
-ボタンのコンポーネントとして使用。
+複数回使うアイコンのコンポーネント。
+
+## 参考URL
+
+[https://react-icons.github.io/react-icons/search](https://react-icons.github.io/react-icons/search)
 
 # コンポーネント
 

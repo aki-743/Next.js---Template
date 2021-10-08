@@ -1,6 +1,10 @@
 # 内容
 
-ボタンのコンポーネントとして使用。
+Material-uiのボタンのコンポーネントをカスタマイズ。
+
+## 参考URL
+
+[https://mui.com/components/buttons/#contained-button](https://mui.com/components/buttons/#contained-button)
 
 # コンポーネント
 

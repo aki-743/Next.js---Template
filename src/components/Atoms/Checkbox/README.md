@@ -1,6 +1,10 @@
 # 内容
 
-ボタンのコンポーネントとして使用。
+Material-uiのチェックボックスをカスタマイズ。
+
+## 参考URL
+
+[https://mui.com/components/checkboxes/#label](https://mui.com/components/checkboxes/#label)
 
 # コンポーネント
 
