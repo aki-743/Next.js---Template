@@ -3,7 +3,6 @@ import { PathLink } from '../../components/Atoms/Link';
 import { SignUpAndSignInFormButton } from '../../components/Molecules/Button';
 import { SignUpAndSignInCodeInput } from '../../components/Molecules/CodeInput';
 import { SignInPasswordInputField, SignUpAndSignInEmailInputField } from '../../components/Molecules/InputField';
-import { SignUpPhoneInput } from '../../components/Molecules/PhoneInput';
 import { SignUpAndSignInLayoutForm } from '../../components/Pages/FormLayout';
 import { SignUpAndSignInLayout } from '../../components/Pages/TopLayout';
 
@@ -44,7 +43,6 @@ const SignIn: React.FC = () => {
           value={verificationCode}
           onChange={inputVerficationCode}
         />
-        <SignUpPhoneInput />
       </SignUpAndSignInLayoutForm>
     </SignUpAndSignInLayout>
   );
