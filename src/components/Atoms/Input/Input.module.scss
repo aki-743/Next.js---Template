@@ -1,0 +1,6 @@
+.root {
+  input {
+    @apply px-16 py-12;
+    @apply disabled:bg-default;
+  }
+}

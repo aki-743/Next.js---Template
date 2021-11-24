@@ -3,20 +3,23 @@
 @tailwind utilities;
 
 h1 {
-  @apply font-bold text-[48px] leading-[1];
+  @apply font-bold text-h1;
 }
 h2 {
-  @apply font-bold text-[36px] leading-[1.333];
+  @apply font-bold text-h2;
 }
 h3 {
-  @apply font-bold text-[24px] leading-[1];
+  @apply font-bold text-h3;
 }
-h4,
-h5,
+h4 {
+  @apply font-semibold text-h4;
+}
+h5 {
+  @apply font-medium text-h5;
+}
 h6 {
-  @apply text-[16px] leading-[1.5];
+  @apply font-normal text-h6;
 }
-
 div {
   @apply box-border;
 }

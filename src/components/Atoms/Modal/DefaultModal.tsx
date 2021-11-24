@@ -1,5 +1,5 @@
 import { Modal } from '@mui/material';
-import { BaseModalProps } from '../../types/Modal/props';
+import { BaseModalProps } from '.';
 import styles from './Modal.module.scss';
 
 const TModal: React.FC<BaseModalProps> = ({ children, open, handleClose }) => {

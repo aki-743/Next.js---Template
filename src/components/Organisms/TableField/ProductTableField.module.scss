@@ -1,0 +1,16 @@
+.root {
+  > div {
+    > div:first-child {
+      @apply bg-main;
+      > div {
+        > button {
+          > span {
+            > svg {
+              @apply text-white;
+            }
+          }
+        }
+      }
+    }
+  }
+}

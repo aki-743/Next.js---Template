@@ -3,7 +3,7 @@ import { AsyncError } from '../../Atoms/Error';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { PathLink } from '../../Atoms/Link';
 import { AsyncLoading } from '../../Atoms/Loading';
-import { AsyncListTableProps } from '../../types/Table/props';
+import { AsyncListTableProps } from '../../Atoms/Table';
 
 const AsyncListTable: React.FC<AsyncListTableProps> = ({ heads, data, isLoading, isError }) => {
   return (

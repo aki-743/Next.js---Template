@@ -1,0 +1,9 @@
+.root {
+  * {
+    @apply text-white;
+  }
+
+  > div {
+    @apply fixed bg-drawer-bg h-screen;
+  }
+}

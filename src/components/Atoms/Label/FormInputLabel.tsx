@@ -1,11 +1,11 @@
-import { BaseLabelProps } from '../../types/Label/props';
-import styles from './FormInputLable.module.scss';
+import { BaseLabelProps } from '.';
+import styles from './FormInputLabel.module.scss';
 
-const FormInputLabel: React.FC<BaseLabelProps> = ({ htmlFor, label }) => {
+const FormInputLabel = (props: BaseLabelProps) => {
   return (
     <div className={styles.root}>
-      <label htmlFor={htmlFor}>
-        <span>{label}</span>
+      <label htmlFor={props.htmlFor}>
+        <span>{props.label}</span>
       </label>
     </div>
   );

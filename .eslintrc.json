@@ -24,23 +24,14 @@
     "project": "./tsconfig.eslint.json",
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "import",
-    "react",
-    "react-hooks",
-    "tailwindcss",
-    "prettier"
-  ],
+  "plugins": ["@typescript-eslint", "import", "react", "react-hooks", "tailwindcss", "prettier"],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "no-use-before-define": "off",
     "prefer-const": "warn",
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-use-before-define": [
-      "error"
-    ],
+    "@typescript-eslint/no-use-before-define": ["error"],
     "no-void": [
       "error",
       {
@@ -70,18 +61,13 @@
     "react/jsx-filename-extension": [
       "error",
       {
-        "extensions": [
-          ".jsx",
-          ".tsx"
-        ]
+        "extensions": [".jsx", ".tsx"]
       }
     ]
   },
   "overrides": [
     {
-      "files": [
-        "*.tsx"
-      ],
+      "files": ["*.tsx"],
       "rules": {
         "react/prop-types": "off"
       }
@@ -92,10 +78,11 @@
       "version": "detect"
     },
     "import/resolver": {
+      "typescript": {
+        "project": "./"
+      },
       "node": {
-        "paths": [
-          "src"
-        ]
+        "paths": ["src"]
       }
     }
   }

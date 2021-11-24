@@ -1,0 +1,7 @@
+.root {
+  @apply w-full;
+
+  .toolbar {
+    @apply text-white flex justify-between;
+  }
+}

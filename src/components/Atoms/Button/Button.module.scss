@@ -1,8 +1,15 @@
 .root {
-  > button {
+  > button,
+  > span {
+    @apply text-white;
     @apply disabled:text-white disabled:opacity-70 #{!important};
+
+    > div {
+      @apply text-white static mr-8;
+    }
+
     > span {
-      @apply text-[16px] font-bold;
+      @apply text-16 font-bold;
     }
   }
 
@@ -19,10 +26,10 @@
   }
 
   .default {
-    @apply bg-default #{!important};
+    @apply text-black bg-default #{!important};
   }
 
   .loading {
-    @apply text-white mr-[5px];
+    @apply mr-8 text-white;
   }
 }

@@ -1,0 +1,9 @@
+.root {
+  @apply mb-4 inline-block;
+
+  > label {
+    > span {
+      @apply font-bold;
+    }
+  }
+}

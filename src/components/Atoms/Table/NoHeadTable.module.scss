@@ -1,7 +1,3 @@
 .left-cell {
-  @apply bg-gray-100 w-[40%];
-}
-
-.mask-cell {
-  @apply flex justify-between;
+  @apply bg-main text-white font-bold w-1_2 #{!important};
 }

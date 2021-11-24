@@ -1,4 +1,4 @@
-import { BaseLinkProps } from '../../types/Link/props';
+import { BaseLinkProps } from '.';
 import Link from 'next/link';
 import styles from './Link.module.scss';
 

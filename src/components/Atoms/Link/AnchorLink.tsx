@@ -1,12 +1,11 @@
 import { MouseEvent } from 'react';
-import { AnchorLinkProps } from '../../types/Link/props';
+import { AnchorLinkProps } from '.';
 import styles from './Link.module.scss';
 
 const AnchorLink: React.FC<AnchorLinkProps> = ({ label, href = '#', onClick }) => {
-  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+  const handleClick = async (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-
-    onClick();
+    await onClick();
   };
 
   return (

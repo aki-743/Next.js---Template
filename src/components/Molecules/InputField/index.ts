@@ -1,3 +1,10 @@
-export { default as SignUpAndSignInEmailInputField } from './Email/SignUpAndSignInEmailInputField';
-export { default as SignInPasswordInputField } from './Password/SignInPasswordInputField';
-export { default as SignUpPasswordInputField } from './Password/SignUpPasswordInputField';
+export { default as TextAutocompleteField } from './Autocomplete/TextAutocompleteField';
+export { default as VerificationCodeInputField } from './Code/VerificationCodeInputField';
+export { default as DateInputField } from './Date/DateInputField';
+export { default as EmailInputField } from './Email/EmailInputField';
+export { default as ImageInputField } from './File/ImageInputField';
+export { default as PasswordInputField } from './Password/PasswordInputField';
+export { default as ConfirmPasswordInputField } from './Password/ConfirmPasswordInputField';
+export { default as TelInputField } from './Tel/TelInputField';
+export { default as TextInputField } from './Text/TextInputField';
+export { default as ToggleEditTextInputField } from './Text/ToggleEditTextInputField';

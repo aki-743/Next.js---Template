@@ -1,0 +1,12 @@
+.root {
+  @apply relative mb-24;
+
+  &::after {
+    content: '';
+    @apply absolute w-full h-4 rounded-4 bg-gradient-to-r from-main-dark via-main to-main-light;
+  }
+
+  > div {
+    @apply pb-4 flex justify-between;
+  }
+}

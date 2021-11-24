@@ -1,0 +1,10 @@
+.root {
+  input {
+    @apply px-0 py-12 #{!important};
+    @apply disabled:bg-default;
+  }
+
+  > div > div {
+    @apply py-0 px-16 #{!important};
+  }
+}

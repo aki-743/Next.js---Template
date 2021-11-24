@@ -1,8 +1,8 @@
-import { Checkbox, FormControlLabel } from '@mui/material';
-import { BaseCheckboxProps } from '../../types/Checkbox/props';
+import { Checkbox } from '@mui/material';
+import { BaseCheckboxProps } from '.';
 
-const PrimaryCheckbox: React.FC<BaseCheckboxProps> = ({ label, checked, onChange }) => {
-  return <FormControlLabel control={<Checkbox checked={checked} onChange={onChange} name="checkedB" color="primary" />} label={label} />;
+const PrimaryCheckbox: React.FC<BaseCheckboxProps> = (props) => {
+  return <Checkbox {...props} />;
 };
 
 export default PrimaryCheckbox;

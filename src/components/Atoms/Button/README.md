@@ -14,6 +14,7 @@ Material-uiのボタンのコンポーネントをカスタマイズ。
 |SecondaryButton|メインカラーに次ぎ使用するボタン|
 |DefaultButton|背景色がグレーのボタン。戻るボタンなどに使用|
 |DangerButton|警告色を使ったボタン。削除などの操作で使用|
+|FileInputButton|FileInputの中で使用されるボタン。|
 
 # Props
 

@@ -6,7 +6,7 @@ declare module '@mui/material/styles' {
     sm: true;
     md: true;
     lg: true;
-    xl: true;
+    xl: false;
     tablet: true;
   }
 }
@@ -14,12 +14,7 @@ declare module '@mui/material/styles' {
 const MaterialTheme = createTheme({
   palette: {
     primary: {
-      main: '#2196f3',
-    },
-    secondary: {
-      main: '#ffe0b2',
-      light: '#ffff4',
-      dark: '#cbae82',
+      main: '#26c6da',
     },
   },
   breakpoints: {
@@ -28,7 +23,6 @@ const MaterialTheme = createTheme({
       sm: 600,
       md: 960,
       lg: 1280,
-      xl: 1920,
       tablet: 1024,
     },
   },

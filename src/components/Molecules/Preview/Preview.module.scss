@@ -1,0 +1,10 @@
+.root {
+  @apply relative;
+
+  > button {
+    @apply absolute;
+    @apply -top-5;
+    @apply -left-5;
+    @apply z-10;
+  }
+}
