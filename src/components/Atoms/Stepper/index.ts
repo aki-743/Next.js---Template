@@ -1,3 +1,5 @@
+import { BaseComponentProps } from '../../types';
+
 export declare type BaseStepperProps = {
   /** activeStep */
   activeStep: number;
@@ -9,6 +11,7 @@ export declare type BaseStepperProps = {
   handleStep?: (step: number) => void;
   /** completedを操作する関数 */
   handleCompleted?: (step: number) => void;
-};
+} & BaseComponentProps;
 
+export { default as DefaultStepper } from './DefaultStepper';
 export { default as ButtonStepper } from './ButtonStepper';

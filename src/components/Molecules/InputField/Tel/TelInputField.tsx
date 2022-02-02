@@ -1,23 +1,59 @@
 import { InputValidateError } from '../../../Atoms/Error';
 import { FormInputLabel } from '../../../Atoms/Label';
 import { HelperText } from '../../../Atoms/Text';
-import { TelInput, TelInputProps } from '../../../Atoms/Input';
+import { BaseInputProps, TelInput } from '../../../Atoms/Input';
 import { ExplainUITooltip } from '../../Tooltip';
+import { forwardRef } from 'react';
 
-const FORM_INPUT_LABEL = '電話番号（ハイフン無しで入力）';
-
-const TelInputField = (props: TelInputProps) => {
+const TelInputField = forwardRef<HTMLDivElement, BaseInputProps>(function render(
+  {
+    id,
+    className,
+    inputRef,
+    name,
+    label,
+    value,
+    placeholder,
+    fullWidth,
+    autoComplete,
+    disabled,
+    inputProps,
+    maxLength,
+    InputProps,
+    startAdornment,
+    InputLabelProps,
+    tooltipTitle,
+    helperText,
+    errors,
+    onChange,
+  },
+  ref,
+) {
   return (
-    <div>
+    <div id={id} className={className} ref={ref}>
       <div>
-        <FormInputLabel htmlFor={props.name} label={props.label} />
-        {props.tooltipTitle && <ExplainUITooltip title={props.tooltipTitle} />}
+        <FormInputLabel htmlFor={name} label={label} />
+        {tooltipTitle && <ExplainUITooltip title={tooltipTitle} />}
       </div>
-      <TelInput {...props} />
-      <InputValidateError errors={props.errors} />
-      {props.helperText && <HelperText text={props.helperText} />}
+      <TelInput
+        name={name}
+        inputRef={inputRef}
+        value={value}
+        autoComplete={autoComplete}
+        placeholder={placeholder}
+        maxLength={maxLength}
+        InputProps={InputProps}
+        startAdornment={startAdornment}
+        InputLabelProps={InputLabelProps}
+        fullWidth={fullWidth}
+        inputProps={inputProps}
+        disabled={disabled}
+        onChange={onChange}
+      />
+      <InputValidateError errors={errors} />
+      {helperText && <HelperText text={helperText} />}
     </div>
   );
-};
+});
 
 export default TelInputField;

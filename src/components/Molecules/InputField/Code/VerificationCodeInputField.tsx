@@ -1,39 +1,37 @@
 import { FormInputLabel } from '../../../Atoms/Label';
 import { ExplainUITooltip } from '../../Tooltip';
-import { BaseCodeInputProps, BaseInputProps, CodeInput, HiddenInput } from '../../../Atoms/Input';
+import { CodeInput, HiddenInput } from '../../../Atoms/Input';
 import { InputValidateError } from '../../../Atoms/Error';
 import { HelperText } from '../../../Atoms/Text';
+import { forwardRef } from 'react';
+import { BaseCodeInputFieldProps } from '..';
 
 const VERIFICATION_CODE_INPUT_AUTOCOMPLETE = 'one-time-code';
 const VERIFICATION_CODE_INPUT_MAX_LENGTH = 6;
 
-type Props = BaseCodeInputProps & BaseInputProps;
-
-const VerificationCodeInputField = (props: Props) => {
+const VerificationCodeInputField = forwardRef<HTMLDivElement, BaseCodeInputFieldProps>(function render(
+  { id, className, name, label, value, inputRef, fields, disabled, tooltipTitle, helperText, errors, onComplete, onChange },
+  ref,
+) {
   return (
-    <div>
+    <div id={id} className={className} ref={ref}>
       <div>
-        <FormInputLabel htmlFor={props.name} label={props.label} />
-        {props.tooltipTitle && <ExplainUITooltip title={props.tooltipTitle} />}
+        <FormInputLabel htmlFor={name} label={label} />
+        {tooltipTitle && <ExplainUITooltip title={tooltipTitle} />}
       </div>
       <HiddenInput
-        name={props.name}
-        label={props.label}
-        value={props.value}
+        name={name}
+        label={label}
+        value={value}
+        inputRef={inputRef}
         maxLength={VERIFICATION_CODE_INPUT_MAX_LENGTH}
         autoComplete={VERIFICATION_CODE_INPUT_AUTOCOMPLETE}
       />
-      <CodeInput
-        fields={props.fields}
-        loading={props.disabled}
-        value={props.value}
-        onChange={props.onChange}
-        onComplete={props.onComplete}
-      />
-      <InputValidateError errors={props.errors} />
-      {props.helperText && <HelperText text={props.helperText} />}
+      <CodeInput fields={fields} loading={disabled} value={value} onChange={onChange} onComplete={onComplete} />
+      <InputValidateError errors={errors} />
+      {helperText && <HelperText text={helperText} />}
     </div>
   );
-};
+});
 
 export default VerificationCodeInputField;

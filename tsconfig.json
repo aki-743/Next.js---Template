@@ -15,7 +15,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "sourceRoot": ".next"
   },
   "include": ["next-env.d.ts", "src"],
   "exclude": ["node_modules", ".next", "out"]

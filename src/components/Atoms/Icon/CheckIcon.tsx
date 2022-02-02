@@ -1,9 +1,9 @@
+import classNames from 'classnames';
 import { AiFillCheckCircle } from 'react-icons/ai';
 import { BaseIconProps } from '.';
-import styles from './Icon.module.scss';
 
-const CheckIcon: React.FC<BaseIconProps> = ({ size }) => {
-  return <AiFillCheckCircle className={styles.root} size={size} />;
+const CheckIcon: React.VFC<BaseIconProps> = ({ className, size }) => {
+  return <AiFillCheckCircle className={classNames('text-center', className)} size={size} />;
 };
 
 export default CheckIcon;

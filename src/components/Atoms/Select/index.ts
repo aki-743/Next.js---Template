@@ -1,11 +1,10 @@
 import { AutocompleteRenderInputParams } from '@mui/material';
 import { ChangeEvent } from 'react';
 import { FieldErrors } from 'react-hook-form';
+import { BaseComponentProps } from '../../types';
 import { AutocompleteOption, BaseAutocompleteProps } from '../Input';
 
 export declare type BaseSelectProps = {
-  /** id */
-  id?: string;
   /** name */
   name?: string;
   /** openの状態 */
@@ -16,8 +15,6 @@ export declare type BaseSelectProps = {
   onClose?: () => void;
   /** ラベル */
   label?: string;
-  /** ラベルのid */
-  labelId?: string;
   /** selectのバリュー */
   value: string | number;
   /** selectの要素 */
@@ -32,9 +29,11 @@ export declare type BaseSelectProps = {
   helperText?: React.ReactNode;
   /** バリデーションのエラー状態 */
   errors?: FieldErrors;
+  /** 編集モードの切替 */
+  isEditing?: boolean;
   /** バリューが変更されたときの関数 */
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-};
+  onChange?: (e: ChangeEvent<HTMLInputElement>, data?: any) => void;
+} & BaseComponentProps;
 
 export declare type SelectWithAutocompleteProps = {
   /** id */
@@ -68,37 +67,12 @@ export declare type SelectWithAutocompleteProps = {
   helperText?: React.ReactNode;
   /** バリデーションのエラー状態 */
   errors?: FieldErrors;
+  /** 編集モードの切替 */
+  isEditing?: boolean;
   /** inputが変更されたときの関数 */
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   /** Autocompleteが変更されたときの関数 */
   autocompleteChange: BaseAutocompleteProps['onChange'];
-};
-
-export declare type AsyncSelectProps = {
-  /** id */
-  id?: string;
-  /** name */
-  name?: string;
-  /** ラベル */
-  label?: string;
-  /** ラベルのid */
-  labelId?: string;
-  /** selectのバリュー */
-  value: string | number;
-  /** selectの要素 */
-  elements: { [key: string | number]: string | number };
-  /** Widthをフルにするか */
-  fullWidth?: boolean;
-  /** disabled */
-  disabled?: boolean;
-  /** ツールチップに表示するテキスト */
-  tooltipTitle?: string;
-  /** ヘルパーテキスト */
-  helperText?: React.ReactNode;
-  /** バリデーションのエラー状態 */
-  errors?: FieldErrors;
-  /** バリューが変更されたときの関数 */
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export { default as DefaultSelect } from './DefaultSelect';

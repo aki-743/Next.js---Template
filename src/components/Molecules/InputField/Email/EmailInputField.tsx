@@ -3,21 +3,57 @@ import { BaseInputProps, EmailInput } from '../../../Atoms/Input';
 import { InputValidateError } from '../../../Atoms/Error';
 import { HelperText } from '../../../Atoms/Text';
 import { ExplainUITooltip } from '../../Tooltip';
+import { forwardRef } from 'react';
 
-const FORM_INPUT_LABEL = 'メールアドレス';
-
-const SignUpAndSignInEmailInputField = (props: BaseInputProps) => {
+const EmailInputField = forwardRef<HTMLDivElement, BaseInputProps>(function render(
+  {
+    id,
+    className,
+    inputRef,
+    name,
+    label,
+    value,
+    placeholder,
+    fullWidth,
+    autoComplete,
+    disabled,
+    inputProps,
+    maxLength,
+    InputProps,
+    startAdornment,
+    InputLabelProps,
+    tooltipTitle,
+    helperText,
+    errors,
+    onChange,
+  },
+  ref,
+) {
   return (
-    <div>
+    <div id={id} className={className} ref={ref}>
       <div>
-        <FormInputLabel htmlFor={props.name} label={FORM_INPUT_LABEL} />
-        {props.tooltipTitle && <ExplainUITooltip title={props.tooltipTitle} />}
+        <FormInputLabel htmlFor={name} label={label} />
+        {tooltipTitle && <ExplainUITooltip title={tooltipTitle} />}
       </div>
-      <EmailInput {...props} />
-      <InputValidateError errors={props.errors} />
-      {props.helperText && <HelperText text={props.helperText} />}
+      <EmailInput
+        name={name}
+        inputRef={inputRef}
+        value={value}
+        autoComplete={autoComplete}
+        placeholder={placeholder}
+        maxLength={maxLength}
+        InputProps={InputProps}
+        startAdornment={startAdornment}
+        InputLabelProps={InputLabelProps}
+        fullWidth={fullWidth}
+        inputProps={inputProps}
+        disabled={disabled}
+        onChange={onChange}
+      />
+      <InputValidateError errors={errors} />
+      {helperText && <HelperText text={helperText} />}
     </div>
   );
-};
+});
 
-export default SignUpAndSignInEmailInputField;
+export default EmailInputField;

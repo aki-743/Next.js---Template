@@ -1,8 +1,13 @@
 import { Divider } from '@mui/material';
+import { forwardRef } from 'react';
 import { DividerWithTextProps } from '.';
 
-const DividerWithText: React.FC<DividerWithTextProps> = ({ text, align = 'center' }) => {
-  return <Divider textAlign={align}>{text}</Divider>;
-};
+const DividerWithText = forwardRef<HTMLHRElement, DividerWithTextProps>(function render({ className, text, align = 'center' }, ref) {
+  return (
+    <Divider className={className} ref={ref} textAlign={align}>
+      {text}
+    </Divider>
+  );
+});
 
 export default DividerWithText;

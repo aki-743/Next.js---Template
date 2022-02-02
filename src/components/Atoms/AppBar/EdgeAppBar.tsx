@@ -1,13 +1,17 @@
 import { AppBar, Toolbar } from '@mui/material';
+import classNames from 'classnames';
+import { forwardRef, PropsWithChildren } from 'react';
 import { BaseAppBarProps } from '.';
-import styles from './EdgeAppBar.module.scss';
 
-const EdgeAppBar: React.FC<BaseAppBarProps> = ({ children, position = 'static' }) => {
+const EdgeAppBar = forwardRef<HTMLDivElement, PropsWithChildren<BaseAppBarProps>>(function render(
+  { children, className, position = 'static' },
+  ref,
+) {
   return (
-    <AppBar className={styles.root} position={position}>
-      <Toolbar className={styles.toolbar}>{children}</Toolbar>
+    <AppBar className={classNames('w-full', className)} ref={ref} position={position}>
+      <Toolbar className="flex justify-between text-white">{children}</Toolbar>
     </AppBar>
   );
-};
+});
 
 export default EdgeAppBar;

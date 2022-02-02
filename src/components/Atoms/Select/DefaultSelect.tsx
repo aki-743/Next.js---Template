@@ -1,26 +1,31 @@
 import { FormControl, Select, MenuItem } from '@mui/material';
-import classNames from 'classnames/bind';
+import classNames from 'classnames';
+import { forwardRef } from 'react';
 import { BaseSelectProps } from '.';
 import styles from './Select.module.scss';
 
-const cx = classNames.bind(styles);
-
-const DefaultSelect = ({ id, name, open, onOpen, onClose, labelId, value, elements, fullWidth, disabled, onChange }: BaseSelectProps) => {
-  const className = cx({
-    disabled: disabled,
-  });
-
+const DefaultSelect = forwardRef<HTMLDivElement, BaseSelectProps>(function render(
+  { id, className, name, open, onOpen, onClose, value, elements, fullWidth, disabled, errors, onChange },
+  ref,
+) {
   return (
-    <FormControl className={className} fullWidth={fullWidth} disabled={disabled}>
+    <FormControl
+      className={classNames(className, {
+        'bg-default': disabled,
+      })}
+      ref={ref}
+      fullWidth={fullWidth}
+      disabled={disabled}
+    >
       <Select
         className={styles.select}
-        labelId={labelId}
         id={id || name}
         open={open}
         onOpen={onOpen}
         onClose={onClose}
         name={name}
         value={value}
+        error={Boolean(errors)}
         onChange={onChange}
       >
         {elements &&
@@ -32,6 +37,6 @@ const DefaultSelect = ({ id, name, open, onOpen, onClose, labelId, value, elemen
       </Select>
     </FormControl>
   );
-};
+});
 
 export default DefaultSelect;

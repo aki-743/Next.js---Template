@@ -3,19 +3,57 @@ import { BaseInputProps, DateInput } from '../../../Atoms/Input';
 import { InputValidateError } from '../../../Atoms/Error';
 import { HelperText } from '../../../Atoms/Text';
 import { ExplainUITooltip } from '../../Tooltip';
+import { forwardRef } from 'react';
 
-const DateInputField = (props: BaseInputProps) => {
+const DateInputField = forwardRef<HTMLDivElement, BaseInputProps>(function render(
+  {
+    id,
+    className,
+    inputRef,
+    name,
+    label,
+    value,
+    placeholder,
+    fullWidth,
+    autoComplete,
+    disabled,
+    inputProps,
+    maxLength,
+    InputProps,
+    startAdornment,
+    InputLabelProps,
+    tooltipTitle,
+    helperText,
+    errors,
+    onChange,
+  },
+  ref,
+) {
   return (
-    <div>
+    <div id={id} className={className} ref={ref}>
       <div>
-        <FormInputLabel htmlFor={props.name} label={props.label} />
-        {props.tooltipTitle && <ExplainUITooltip title={props.tooltipTitle} />}
+        <FormInputLabel htmlFor={name} label={label} />
+        {tooltipTitle && <ExplainUITooltip title={tooltipTitle} />}
       </div>
-      <DateInput {...props} />
-      <InputValidateError errors={props.errors} />
-      {props.helperText && <HelperText text={props.helperText} />}
+      <DateInput
+        name={name}
+        inputRef={inputRef}
+        value={value}
+        autoComplete={autoComplete}
+        placeholder={placeholder}
+        maxLength={maxLength}
+        InputProps={InputProps}
+        startAdornment={startAdornment}
+        InputLabelProps={InputLabelProps}
+        fullWidth={fullWidth}
+        inputProps={inputProps}
+        disabled={disabled}
+        onChange={onChange}
+      />
+      <InputValidateError errors={errors} />
+      {helperText && <HelperText text={helperText} />}
     </div>
   );
-};
+});
 
 export default DateInputField;

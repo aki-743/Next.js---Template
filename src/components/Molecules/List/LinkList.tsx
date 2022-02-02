@@ -1,10 +1,10 @@
 import { List } from '@mui/material';
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 import { ButtonListItem, LinkListItem, BaseListProps, RenderListItemProps } from '.';
 import { DefaultCollapse } from '../../Atoms/Collapse';
 import { DefaultDivider } from '../../Atoms/Divider';
 
-const RenderListItem: React.FC<RenderListItemProps> = ({ item }) => {
+const RenderListItem: React.VFC<RenderListItemProps> = ({ item }) => {
   const children = item.children;
   const [collapseOpen, setCollapseOpen] = useState(false);
 
@@ -29,14 +29,16 @@ const RenderListItem: React.FC<RenderListItemProps> = ({ item }) => {
   );
 };
 
-const LinkList: React.FC<BaseListProps> = ({ items }) => {
+const LinkList = forwardRef<HTMLDivElement, BaseListProps>(function render({ id, className, items }, ref) {
   return (
-    <List>
-      {items.map((item) => (
-        <RenderListItem key={item.text} item={item} />
-      ))}
-    </List>
+    <div id={id} className={className} ref={ref}>
+      <List>
+        {items.map((item) => (
+          <RenderListItem key={item.text} item={item} />
+        ))}
+      </List>
+    </div>
   );
-};
+});
 
 export default LinkList;

@@ -15,18 +15,34 @@
 
   .primary {
     @apply bg-main #{!important};
+
+    &.transparent {
+      @apply bg-transparent text-main #{!important};
+    }
   }
 
   .secondary {
     @apply bg-main-light #{!important};
+
+    &.transparent {
+      @apply bg-transparent text-main-light #{!important};
+    }
   }
 
   .danger {
     @apply bg-warn #{!important};
+
+    &.transparent {
+      @apply bg-transparent text-red #{!important};
+    }
   }
 
   .default {
     @apply text-black bg-default #{!important};
+
+    &.transparent {
+      @apply bg-transparent text-black #{!important};
+    }
   }
 
   .loading {

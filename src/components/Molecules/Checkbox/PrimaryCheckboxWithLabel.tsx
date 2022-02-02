@@ -1,22 +1,23 @@
 import { FormControlLabel } from '@mui/material';
-import { PrimaryCheckbox, CheckboxWithLabelProps } from '../../Atoms/Checkbox';
+import { PrimaryCheckbox } from '../../Atoms/Checkbox';
 import { InputValidateError } from '../../Atoms/Error';
-import classNames from 'classnames/bind';
-import styles from './Checkbox.module.scss';
+import { forwardRef } from 'react';
+import { CheckboxWithLabelProps } from '.';
 
-const cx = classNames.bind(styles);
-
-const PrimaryCheckboxWithLable: React.FC<CheckboxWithLabelProps> = ({ label, checked, disabled, name, errors, onChange }) => {
-  const className = cx({
-    disabled: disabled,
-  });
-
+const PrimaryCheckboxWithLabel = forwardRef<HTMLDivElement, CheckboxWithLabelProps>(function render(
+  { id, className, label, checkboxRef, checked, disabled, name, errors, onChange },
+  ref,
+) {
   return (
-    <div className={className}>
-      <FormControlLabel control={<PrimaryCheckbox checked={checked} onChange={onChange} name={name} />} disabled={disabled} label={label} />
+    <div id={id} className={className} ref={ref}>
+      <FormControlLabel
+        control={<PrimaryCheckbox ref={checkboxRef} checked={checked} onChange={onChange} name={name} />}
+        disabled={disabled}
+        label={label}
+      />
       <InputValidateError errors={errors} />
     </div>
   );
-};
+});
 
-export default PrimaryCheckboxWithLable;
+export default PrimaryCheckboxWithLabel;

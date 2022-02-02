@@ -1,10 +1,22 @@
 .root {
-  @apply relative;
+  @apply relative w-150 h-150 hover:cursor-pointer;
+
+  .box_wrapper {
+    @apply p-0 flex items-center justify-center;
+
+    > div {
+      @apply w-inherit;
+    }
+
+    > span {
+      @apply p-16 text-center text-main font-bold;
+    }
+  }
 
   > button {
     @apply absolute;
-    @apply -top-5;
-    @apply -left-5;
+    @apply -top-15;
+    @apply -right-15;
     @apply z-10;
   }
 }

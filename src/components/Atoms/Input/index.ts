@@ -1,18 +1,17 @@
 import { AutocompleteRenderInputParams, InputBaseComponentProps, InputLabelProps, OutlinedInputProps } from '@mui/material';
 import { ChangeEvent, MouseEvent } from 'react';
 import { FieldErrors } from 'react-hook-form';
-import { PhoneInputProps } from 'react-phone-input-2';
+import { BaseComponentProps } from '../../types';
 import { ButtonSize } from '../Button';
+import { BaseChipProps } from '../Chip';
 
 export declare type BaseInputProps = {
   /** id */
   id?: string;
   /** ref */
-  inputRef?: React.Ref<any>;
+  inputRef?: React.Ref<HTMLInputElement>;
   /** name */
   name?: string;
-  /** クラス名 */
-  className?: string;
   /** ラベル */
   label?: string;
   /** inputのバリュー */
@@ -49,20 +48,24 @@ export declare type BaseInputProps = {
   helperText?: React.ReactNode;
   /** バリデーションのエラー状態 */
   errors?: FieldErrors;
+  /** 編集モードの切替 */
+  isEditing?: boolean;
   /** バリューが変更されたときの関数 */
-  onChange?: (e: ChangeEvent<HTMLInputElement>, data?: any) => void;
-};
+  onChange?: (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement> | string, data?: any) => void;
+} & BaseComponentProps;
 
 /** optionのオブジェクト */
 export declare type AutocompleteOption = {
-  title: string;
-  label: string;
-  [key: string]: string | number;
+  title?: string;
+  label?: string;
+  [key: string]: string;
 };
 
 export declare type BaseAutocompleteProps = {
   /** 候補 */
   options: ReadonlyArray<AutocompleteOption>;
+  /** グループ化 */
+  groupBy?: (option: AutocompleteOption) => string;
   /** */
   value?: string;
   /** inputのバリュー */
@@ -79,11 +82,6 @@ export declare type BaseAutocompleteProps = {
   noOptionsText?: React.ReactNode;
 } & BaseInputProps;
 
-export declare type TelInputProps = {
-  /** バリューが変更されたときの関数 */
-  onChange?: PhoneInputProps['onChange'];
-} & BaseInputProps;
-
 export declare type BaseCodeInputProps = {
   /** バリュー */
   value?: string;
@@ -97,13 +95,17 @@ export declare type BaseCodeInputProps = {
   onChange?: (value: string) => void;
   /** 認証コードの確認を行う関数 */
   onComplete?: (value?: string) => Promise<void> | void;
-};
+} & BaseComponentProps;
 
 export declare type BaseFileInputProps = {
   /** id */
   id?: string;
   /** name */
   name?: string;
+  /** ref */
+  inputRef?: React.Ref<HTMLInputElement>;
+  /** ファイル形式 */
+  accept?: string;
   /** value */
   value?: string;
   /** ラベル */
@@ -129,22 +131,23 @@ export declare type BaseFileInputProps = {
   /** チップのラベル */
   chipLabel?: string;
   /** チップの色 */
-  chipColor?: string;
+  chipColor?: BaseChipProps['color'];
   /** ヘルパーテキスト */
   helperText?: React.ReactNode;
   /** バリデーションのエラー状態 */
   errors?: FieldErrors;
   /** バリューが変更されたときの関数 */
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement> | string, data?: any) => void;
   /** プレビューに付属するアイコンがクリックされたときの関数 */
   onClick?: (e: MouseEvent<HTMLElement>) => void;
-};
+} & BaseComponentProps;
 
 export { default as TextAutocomplete } from './Autocomplete/TextAutocomplete';
 export { default as CodeInput } from './Code/CodeInput';
+export { default as ColorInput } from './Color/ColorInput';
 export { default as DateInput } from './Date/DateInput';
 export { default as EmailInput } from './Email/EmailInput';
-export { default as ImageInput } from './File/ImageInput';
+export { default as FileInput } from './File/FileInput';
 export { default as HiddenInput } from './Hidden/HiddenInput';
 export { default as PasswordInput } from './Password/PasswordInput';
 export { default as TelInput } from './Tel/TelInput';

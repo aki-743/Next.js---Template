@@ -1,13 +1,15 @@
 import { DefaultImage } from '../../Atoms/Image';
 import Logo from '../../../assets/logo/db-RegisterAndLoginLogo.png';
-import styles from './SignUpAndSignInLogo.module.scss';
+import { forwardRef } from 'react';
+import classNames from 'classnames';
+import { BaseLogoProps } from '.';
 
-const SignUpAndSignInLogo: React.FC = () => {
+const SignUpAndSignInLogo = forwardRef<HTMLDivElement, BaseLogoProps>(function render({ id, className }, ref) {
   return (
-    <div className={styles.root}>
+    <div id={id} className={classNames('pl-24 pb-40', className)} ref={ref}>
       <DefaultImage src={Logo} alt="SFSPロゴ" />
     </div>
   );
-};
+});
 
 export default SignUpAndSignInLogo;

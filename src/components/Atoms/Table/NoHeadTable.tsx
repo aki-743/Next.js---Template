@@ -1,26 +1,24 @@
 import { NoHeadTableProps } from '.';
 import { Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
-import styles from './NoHeadTable.module.scss';
+import { forwardRef } from 'react';
 
-const NoHeadTable: React.FC<NoHeadTableProps> = ({ rows }) => {
+const NoHeadTable = forwardRef<HTMLDivElement, NoHeadTableProps>(function render({ id, className, rows }, ref) {
   return (
-    <>
-      <TableContainer component={Paper}>
-        <Table aria-label="confirm table">
-          <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.label}>
-                <TableCell className={styles['left-cell']} align="left" component="th">
-                  {row.label}
-                </TableCell>
-                <TableCell align="left">{row.value}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </>
+    <TableContainer id={id} className={className} component={Paper} ref={ref}>
+      <Table aria-label="confirm table">
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow key={row.label}>
+              <TableCell className="font-bold text-white bg-main w-1/2" align="left" component="th">
+                {row.label}
+              </TableCell>
+              <TableCell align="left">{row.value}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
-};
+});
 
 export default NoHeadTable;

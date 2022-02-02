@@ -1,9 +1,9 @@
+import classNames from 'classnames';
 import { MdCancel } from 'react-icons/md';
 import { BaseIconProps } from '.';
-import styles from './Icon.module.scss';
 
-const CancelIcon: React.FC<BaseIconProps> = ({ size }) => {
-  return <MdCancel className={styles.root} size={size} />;
+const CancelIcon: React.VFC<BaseIconProps> = ({ className, size }) => {
+  return <MdCancel className={classNames('text-center', className)} size={size} />;
 };
 
 export default CancelIcon;

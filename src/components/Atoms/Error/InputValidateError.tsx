@@ -1,12 +1,8 @@
-import { useEffect, useState } from 'react';
-import { FieldErrors } from '../../../../node_modules/react-hook-form/dist';
-import styles from './InputValidateError.module.scss';
+import classNames from 'classnames';
+import { forwardRef, useEffect, useState } from 'react';
+import { InputValidateErrorProps } from '.';
 
-type Props = {
-  errors?: FieldErrors;
-};
-
-const InputValidateError = ({ errors }: Props) => {
+const InputValidateError = forwardRef<HTMLDivElement, InputValidateErrorProps>(function render({ className, errors }, ref) {
   /** エラーが発生しているオブジェクトのキー名 */
   const [errorKey, setErrorKey] = useState('');
 
@@ -22,11 +18,11 @@ const InputValidateError = ({ errors }: Props) => {
 
   return (
     Boolean(errors) && (
-      <div className={styles.root}>
-        <span className={styles.message}>{errors.message || errors[errorKey]?.message}</span>
+      <div className={classNames('flex justify-between', className)} ref={ref}>
+        <span className="mt-4 ml-4 text-12 text-red">{errors.message || errors[errorKey]?.message}</span>
       </div>
     )
   );
-};
+});
 
 export default InputValidateError;

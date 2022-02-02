@@ -1,14 +1,15 @@
+import classNames from 'classnames';
+import { forwardRef } from 'react';
 import { BaseLabelProps } from '.';
-import styles from './FormInputLabel.module.scss';
 
-const FormInputLabel = (props: BaseLabelProps) => {
+const FormInputLabel = forwardRef<HTMLDivElement, BaseLabelProps>(function render({ id, className, htmlFor, label }, ref) {
   return (
-    <div className={styles.root}>
-      <label htmlFor={props.htmlFor}>
-        <span>{props.label}</span>
+    <div id={id} className={classNames('inline-block mb-4', className)} ref={ref}>
+      <label htmlFor={htmlFor}>
+        <span className="font-bold">{label}</span>
       </label>
     </div>
   );
-};
+});
 
 export default FormInputLabel;

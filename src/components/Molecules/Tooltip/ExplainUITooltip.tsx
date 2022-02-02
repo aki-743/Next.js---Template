@@ -1,15 +1,16 @@
-import { DefaultTooltip, ExplainUITooltipProps } from '../../Atoms/Tooltip';
+import { BaseTooltipProps, DefaultTooltip } from '../../Atoms/Tooltip';
 import { InformationIcon } from '../../Atoms/Icon';
-import styles from './ExplainUITooltip.module.scss';
+import classNames from 'classnames';
+import { forwardRef } from 'react';
 
-const ExplainUITooltip = (props: ExplainUITooltipProps) => {
+const ExplainUITooltip = forwardRef<HTMLDivElement, BaseTooltipProps>(function render({ id, className, title }, ref) {
   return (
-    <div className={styles.root}>
-      <DefaultTooltip title={props.title} arrow={true}>
+    <div id={id} className={classNames('inline-block align-top', className)} ref={ref}>
+      <DefaultTooltip title={title} arrow={true}>
         <InformationIcon size={20} />
       </DefaultTooltip>
     </div>
   );
-};
+});
 
 export default ExplainUITooltip;

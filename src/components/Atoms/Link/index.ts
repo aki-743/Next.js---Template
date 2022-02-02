@@ -1,4 +1,5 @@
 import { LinkProps } from 'next/link';
+import { BaseComponentProps } from '../../types';
 
 export declare type BaseLinkProps = {
   /** ラベル */
@@ -9,7 +10,7 @@ export declare type BaseLinkProps = {
   replace?: boolean;
   /** 子コンポーネントにpropsでhrefを渡すか */
   passHref?: boolean;
-};
+} & BaseComponentProps;
 
 export declare type AnchorLinkProps = {
   /** 遷移先のURL */

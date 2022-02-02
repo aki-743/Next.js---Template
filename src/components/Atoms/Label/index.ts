@@ -1,8 +1,10 @@
+import { BaseComponentProps } from '../../types';
+
 export declare type BaseLabelProps = {
   /** inputとの紐付け */
-  htmlFor: string;
+  htmlFor?: string;
   /** inputのラベル */
-  label: string;
-};
+  label?: string;
+} & BaseComponentProps;
 
 export { default as FormInputLabel } from './FormInputLabel';

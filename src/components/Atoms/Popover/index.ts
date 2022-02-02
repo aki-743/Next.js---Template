@@ -1,3 +1,5 @@
+import { BaseComponentProps } from '../../types';
+
 export declare type BasePopoverProps = {
   /** 表示・非表示状態 */
   open: boolean;
@@ -7,6 +9,6 @@ export declare type BasePopoverProps = {
   width?: number;
   /** 非表示にするコールバック関数 */
   onClose: () => void;
-};
+} & BaseComponentProps;
 
 export { default as BottomPopover } from './BottomPopover';

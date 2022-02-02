@@ -1,10 +1,15 @@
 import { Step, StepButton, Stepper } from '@mui/material';
-import { ButtonStepperProps } from '.';
+import classNames from 'classnames';
+import { forwardRef } from 'react';
+import { BaseStepperProps } from '.';
 import styles from './Stepper.module.scss';
 
-const ButtonStepper = ({ activeStep, steps, completed, handleStep }: ButtonStepperProps) => {
+const ButtonStepper = forwardRef<HTMLDivElement, BaseStepperProps>(function render(
+  { id, className, activeStep, steps, completed, handleStep },
+  ref,
+) {
   return (
-    <Stepper className={styles.root} nonLinear alternativeLabel activeStep={activeStep}>
+    <Stepper id={id} className={classNames(styles.root, className)} ref={ref} nonLinear alternativeLabel activeStep={activeStep}>
       {steps.map((label, index) => (
         <Step key={label} completed={completed[index]}>
           <StepButton color="inherit" onClick={() => handleStep(index)}>
@@ -14,6 +19,6 @@ const ButtonStepper = ({ activeStep, steps, completed, handleStep }: ButtonStepp
       ))}
     </Stepper>
   );
-};
+});
 
 export default ButtonStepper;

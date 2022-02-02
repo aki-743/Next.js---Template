@@ -1,32 +1,39 @@
 import { InputAdornment, TextField } from '@mui/material';
 import styles from '../Input.module.scss';
 import { BaseInputProps } from '..';
+import classNames from 'classnames';
+import { forwardRef } from 'react';
 
-const TextInput = ({
-  id,
-  inputRef,
-  name,
-  value,
-  placeholder,
-  fullWidth,
-  autoComplete,
-  multiline,
-  rows,
-  disabled,
-  inputProps,
-  maxLength,
-  InputProps,
-  startAdornment,
-  endAdornment,
-  InputLabelProps,
-  errors,
-  onChange,
-}: BaseInputProps) => {
+const TextInput = forwardRef<HTMLDivElement, BaseInputProps>(function render(
+  {
+    id,
+    className,
+    inputRef,
+    name,
+    value,
+    placeholder,
+    fullWidth,
+    autoComplete,
+    multiline,
+    rows,
+    disabled,
+    inputProps,
+    maxLength,
+    InputProps,
+    startAdornment,
+    endAdornment,
+    InputLabelProps,
+    errors,
+    onChange,
+  },
+  ref,
+) {
   return (
     <TextField
       id={id || name}
+      className={classNames(styles.root, className)}
+      ref={ref}
       inputRef={inputRef}
-      className={styles.root}
       name={name}
       value={value}
       placeholder={placeholder}
@@ -53,6 +60,6 @@ const TextInput = ({
       onChange={onChange}
     />
   );
-};
+});
 
 export default TextInput;

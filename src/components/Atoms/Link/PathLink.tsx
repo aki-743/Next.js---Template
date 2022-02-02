@@ -1,13 +1,16 @@
 import { BaseLinkProps } from '.';
 import Link from 'next/link';
-import styles from './Link.module.scss';
+import classNames from 'classnames';
+import { forwardRef } from 'react';
 
-const PathLink: React.FC<BaseLinkProps> = ({ label, href = '#', replace, passHref }) => {
+const PathLink = forwardRef<HTMLAnchorElement, BaseLinkProps>(function render({ className, label, href = '#', replace, passHref }, ref) {
   return (
     <Link href={href} replace={replace} passHref={passHref}>
-      <a className={styles.root}>{label}</a>
+      <a className={classNames('text-link cursor-pointer hover:underline', className)} ref={ref}>
+        {label}
+      </a>
     </Link>
   );
-};
+});
 
 export default PathLink;

@@ -1,11 +1,11 @@
-import { forwardRef } from 'react';
+import classNames from 'classnames';
+import { forwardRef, PropsWithChildren } from 'react';
 import { BaseDivProps } from '.';
-import styles from './BlockDiv.module.scss';
 
-const BlockDiv = forwardRef<HTMLDivElement, BaseDivProps>(function RenderBlockDiv(props, ref) {
+const BlockDiv = forwardRef<HTMLDivElement, PropsWithChildren<BaseDivProps>>(function render({ children, className, onClick }, ref) {
   return (
-    <div className={styles.root} ref={ref} {...props}>
-      {props.children}
+    <div className={classNames('block', className)} ref={ref} onClick={onClick}>
+      {children}
     </div>
   );
 });

@@ -1,17 +1,10 @@
-import { ReactNode } from 'react';
+import { BaseComponentProps } from '../../types';
 
 export declare type BaseTooltipProps = {
-  /** ツールチップを表示させるUI */
-  children: ReactNode;
   /** ツールチップ中のテキスト */
   title: string;
   /** ツールチップの矢印 */
-  arrow: boolean;
-};
-
-export declare type ExplainUITooltipProps = {
-  /** ツールチップ中のテキスト */
-  title: string;
-};
+  arrow?: boolean;
+} & BaseComponentProps;
 
 export { default as DefaultTooltip } from './DefaultTooltip';

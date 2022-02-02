@@ -1,9 +1,12 @@
-import { useEffect, useRef } from 'react';
+import classNames from 'classnames/bind';
+import { forwardRef, useEffect, useRef } from 'react';
 import ReactInputVerificationCode from 'react-verification-code-input';
 import { BaseCodeInputProps } from '..';
-import styles from './CodeInput.module.scss';
 
-const CodeInput = ({ fields, value, loading, onChange, onComplete }: BaseCodeInputProps) => {
+const CodeInput = forwardRef<HTMLDivElement, BaseCodeInputProps>(function render(
+  { className, fields, value, loading, onChange, onComplete },
+  ref,
+) {
   const inputsRef = useRef(null);
 
   const handleComplete = async () => {
@@ -16,7 +19,7 @@ const CodeInput = ({ fields, value, loading, onChange, onComplete }: BaseCodeInp
   }, []);
 
   return (
-    <div className={styles['code-input']}>
+    <div className={classNames('flex justify-center', className)} ref={ref}>
       <ReactInputVerificationCode
         ref={inputsRef}
         values={value.split('')}
@@ -29,6 +32,6 @@ const CodeInput = ({ fields, value, loading, onChange, onComplete }: BaseCodeInp
       />
     </div>
   );
-};
+});
 
 export default CodeInput;

@@ -1,9 +1,9 @@
+import classNames from 'classnames/bind';
 import { IoIosAddCircle } from 'react-icons/io';
 import { BaseIconProps } from '.';
-import styles from './Icon.module.scss';
 
-const CancelIcon = ({ size }: BaseIconProps) => {
-  return <IoIosAddCircle className={styles.root} size={size} />;
+const CancelIcon: React.VFC<BaseIconProps> = ({ className, size }) => {
+  return <IoIosAddCircle className={classNames('text-center', className)} size={size} />;
 };
 
 export default CancelIcon;

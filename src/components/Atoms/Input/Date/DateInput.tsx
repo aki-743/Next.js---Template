@@ -1,12 +1,19 @@
 import { BaseInputProps } from '..';
 import { TextField } from '@mui/material';
 import styles from '../Input.module.scss';
+import classNames from 'classnames';
+import { forwardRef } from 'react';
 
-const DateInput = ({ id, name, value, fullWidth, disabled, errors, onChange }: BaseInputProps) => {
+const DateInput = forwardRef<HTMLDivElement, BaseInputProps>(function render(
+  { id, className, inputRef, name, value, fullWidth, disabled, errors, onChange },
+  ref,
+) {
   return (
     <TextField
       id={id || name}
-      className={styles.root}
+      className={classNames(styles.root, className)}
+      ref={ref}
+      inputRef={inputRef}
       name={name}
       value={value}
       fullWidth={fullWidth}
@@ -17,6 +24,6 @@ const DateInput = ({ id, name, value, fullWidth, disabled, errors, onChange }: B
       onChange={onChange}
     />
   );
-};
+});
 
 export default DateInput;

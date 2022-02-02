@@ -1,4 +1,5 @@
 import React from 'react';
+import { BaseComponentProps } from '../../types';
 
 export type Menu = {
   label: React.ReactNode;
@@ -14,6 +15,6 @@ export declare type BaseMenuProps = {
   handleClose: () => void;
   /** 表示するメニューの配列 */
   menus: Menus;
-};
+} & BaseComponentProps;
 
 export { default as DefaultMenu } from './DefaultMenu';

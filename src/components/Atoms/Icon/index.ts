@@ -1,7 +1,9 @@
+import { BaseComponentProps } from '../../types';
+
 export declare type BaseIconProps = {
   /** サイズ */
   size?: number;
-};
+} & BaseComponentProps;
 
 export { default as AddIcon } from './AddIcon';
 export { default as CancelIcon } from './CancelIcon';

@@ -1,12 +1,16 @@
 import { Tooltip } from '@mui/material';
+import { forwardRef, PropsWithChildren } from 'react';
 import { BaseTooltipProps } from '.';
 
-const DefaultTooltip: React.FC<BaseTooltipProps> = ({ children, title, arrow }) => {
+const DefaultTooltip = forwardRef<HTMLDivElement, PropsWithChildren<BaseTooltipProps>>(function render(
+  { children, id, className, title, arrow },
+  ref,
+) {
   return (
-    <Tooltip title={title} arrow={arrow}>
+    <Tooltip id={id} className={className} ref={ref} title={title} arrow={arrow}>
       <div>{children}</div>
     </Tooltip>
   );
-};
+});
 
 export default DefaultTooltip;
