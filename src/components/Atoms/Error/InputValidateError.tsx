@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { forwardRef, useEffect, useState } from 'react';
 import { InputValidateErrorProps } from '.';
 
-const InputValidateError = forwardRef<HTMLDivElement, InputValidateErrorProps>(function render({ className, errors }, ref) {
+const InputValidateError = forwardRef<HTMLDivElement, InputValidateErrorProps>(function render({ id, className, errors }, ref) {
   /** エラーが発生しているオブジェクトのキー名 */
   const [errorKey, setErrorKey] = useState('');
 
@@ -18,7 +18,7 @@ const InputValidateError = forwardRef<HTMLDivElement, InputValidateErrorProps>(f
 
   return (
     Boolean(errors) && (
-      <div className={classNames('flex justify-between', className)} ref={ref}>
+      <div id={id} className={classNames('flex justify-between', className)} ref={ref}>
         <span className="mt-4 ml-4 text-12 text-red">{errors.message || errors[errorKey]?.message}</span>
       </div>
     )

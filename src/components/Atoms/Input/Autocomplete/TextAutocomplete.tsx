@@ -6,6 +6,7 @@ import styles from './Autocomplete.module.scss';
 
 const TextAutocomplete = forwardRef<unknown, BaseAutocompleteProps>(function render(
   {
+    id,
     className,
     options,
     groupBy,
@@ -23,6 +24,7 @@ const TextAutocomplete = forwardRef<unknown, BaseAutocompleteProps>(function ren
 ) {
   return (
     <Autocomplete
+      id={id}
       className={classNames(styles.root, className)}
       ref={ref}
       options={options}

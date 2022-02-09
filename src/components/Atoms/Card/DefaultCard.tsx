@@ -2,9 +2,9 @@ import { Card, CardContent } from '@mui/material';
 import { forwardRef, PropsWithChildren } from 'react';
 import { BaseCardProps } from '.';
 
-const DefaultCard = forwardRef<HTMLDivElement, PropsWithChildren<BaseCardProps>>(function render({ children, className }, ref) {
+const DefaultCard = forwardRef<HTMLDivElement, PropsWithChildren<BaseCardProps>>(function render({ children, id, className }, ref) {
   return (
-    <Card className={className} ref={ref}>
+    <Card id={id} className={className} ref={ref}>
       <CardContent>{children}</CardContent>
     </Card>
   );

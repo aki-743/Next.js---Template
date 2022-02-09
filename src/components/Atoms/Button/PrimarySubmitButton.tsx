@@ -5,7 +5,7 @@ import { BaseButtonProps } from '.';
 import { forwardRef } from 'react';
 
 const PrimarySubmitButton = forwardRef<HTMLDivElement, BaseButtonProps>(function render(
-  { label, bgTransparent, disabled, fullWidth, variant, size = 'md', loading, startIcon },
+  { id, className, label, bgTransparent, disabled, fullWidth, variant, size = 'md', loading, startIcon },
   ref,
 ) {
   const sizeClassName = classNames({
@@ -17,7 +17,7 @@ const PrimarySubmitButton = forwardRef<HTMLDivElement, BaseButtonProps>(function
   });
 
   return (
-    <div className={styles.root} ref={ref}>
+    <div id={id} className={classNames(styles.root, className)} ref={ref}>
       <LoadingButton
         className={classNames(styles.primary, sizeClassName)}
         fullWidth={fullWidth}

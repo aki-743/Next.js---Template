@@ -5,7 +5,7 @@ import { LoadingButton } from '@mui/lab';
 import { forwardRef } from 'react';
 
 const DefaultSubmitButton = forwardRef<HTMLDivElement, BaseButtonProps>(function render(
-  { label, bgTransparent, disabled, fullWidth, variant, size = 'md', loading, startIcon },
+  { id, className, label, bgTransparent, disabled, fullWidth, variant, size = 'md', loading, startIcon },
   ref,
 ) {
   const sizeClassName = classNames({
@@ -17,7 +17,7 @@ const DefaultSubmitButton = forwardRef<HTMLDivElement, BaseButtonProps>(function
   });
 
   return (
-    <div className={styles.root} ref={ref}>
+    <div id={id} className={classNames(styles.root, className)} ref={ref}>
       <LoadingButton
         className={classNames(styles.default, sizeClassName)}
         fullWidth={fullWidth}

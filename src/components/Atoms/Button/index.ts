@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { BaseComponentProps } from '../../types';
 
 /**
  * ボタンのサイズ
@@ -32,7 +33,7 @@ export declare type BaseButtonProps = {
   className?: string;
   /** ボタンがクリックされたときに実行する関数 */
   onClick?: () => void | Promise<any>;
-};
+} & BaseComponentProps;
 
 export { default as DangerButton } from './DangerButton';
 export { default as DangerSubmitButton } from './DangerSubmitButton';

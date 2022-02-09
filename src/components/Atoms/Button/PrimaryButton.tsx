@@ -5,7 +5,7 @@ import { BaseButtonProps } from '.';
 import { forwardRef } from 'react';
 
 const PrimaryLoadingButton = forwardRef<HTMLDivElement, BaseButtonProps>(function render(
-  { label, type, loading, bgTransparent, disabled, fullWidth, variant, size = 'md', startIcon, className, onClick },
+  { id, className, label, type, loading, bgTransparent, disabled, fullWidth, variant, size = 'md', startIcon, onClick },
   ref,
 ) {
   const sizeClassName = classNames({
@@ -17,7 +17,7 @@ const PrimaryLoadingButton = forwardRef<HTMLDivElement, BaseButtonProps>(functio
   });
 
   return (
-    <div className={styles.root} ref={ref}>
+    <div id={id} className={classNames(styles.root, className)} ref={ref}>
       <LoadingButton
         className={classNames(styles.primary, sizeClassName, className)}
         fullWidth={fullWidth}

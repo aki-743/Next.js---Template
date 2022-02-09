@@ -4,7 +4,7 @@ import ReactInputVerificationCode from 'react-verification-code-input';
 import { BaseCodeInputProps } from '..';
 
 const CodeInput = forwardRef<HTMLDivElement, BaseCodeInputProps>(function render(
-  { className, fields, value, loading, onChange, onComplete },
+  { id, className, fields, value, loading, onChange, onComplete },
   ref,
 ) {
   const inputsRef = useRef(null);
@@ -19,7 +19,7 @@ const CodeInput = forwardRef<HTMLDivElement, BaseCodeInputProps>(function render
   }, []);
 
   return (
-    <div className={classNames('flex justify-center', className)} ref={ref}>
+    <div id={id} className={classNames('flex justify-center', className)} ref={ref}>
       <ReactInputVerificationCode
         ref={inputsRef}
         values={value.split('')}
