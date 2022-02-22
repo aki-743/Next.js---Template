@@ -2,6 +2,8 @@ import React from 'react';
 import { BaseComponentProps } from '../../types';
 
 export declare type BaseAccordionProps = {
+  /** 開閉状態 */
+  expanded?: boolean;
   /** 要約 */
   primarySummary?: React.ReactNode;
   /** 要約 */

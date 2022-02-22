@@ -9,7 +9,7 @@ const NoHeadTable = forwardRef<HTMLDivElement, NoHeadTableProps>(function render
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.label}>
-              <TableCell className="font-bold text-white bg-main w-1/2" align="left" component="th">
+              <TableCell className="w-1/2 font-bold text-white bg-main" align="left" component="th">
                 {row.label}
               </TableCell>
               <TableCell align="left">{row.value}</TableCell>
