@@ -10,4 +10,6 @@ export declare type BaseAccordionProps = {
   details?: React.ReactNode;
   /** disabled */
   disabled?: boolean;
+  /** onChange */
+  onChange?: (event: React.SyntheticEvent, expanded: boolean) => void;
 } & BaseComponentProps;

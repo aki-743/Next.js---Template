@@ -5,11 +5,11 @@ import { ExpandMoreIcon } from '../../Atoms/Icon';
 import { DefaultTypography } from '../../Atoms/Typography';
 
 const DefaultAccordion = forwardRef<HTMLDivElement, BaseAccordionProps>(function render(
-  { id, className, primarySummary, secondarySummary, details, disabled },
+  { id, className, primarySummary, secondarySummary, details, disabled, onChange },
   ref,
 ) {
   return (
-    <Accordion id={id} className={className} ref={ref} disabled={disabled}>
+    <Accordion id={id} className={className} ref={ref} disabled={disabled} onChange={onChange}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <DefaultTypography className="w-1/3">{primarySummary}</DefaultTypography>
         <DefaultTypography className="text-gray-400">{secondarySummary}</DefaultTypography>

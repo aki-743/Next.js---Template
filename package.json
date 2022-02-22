@@ -95,7 +95,7 @@
       "prettier --write --parser scss"
     ],
     "*.@(ts|tsx)": [
-      "yarn lint",
+      "yarn lint:fix",
       "yarn format"
     ]
   },
