@@ -15,3 +15,5 @@ export declare type BaseAccordionProps = {
   /** onChange */
   onChange?: (event: React.SyntheticEvent, expanded: boolean) => void;
 } & BaseComponentProps;
+
+export { default as DefaultAccordion } from './DefaultAccordion';
