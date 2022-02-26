@@ -6,16 +6,35 @@ import { HelperText } from '../../Atoms/Text';
 import { forwardRef } from 'react';
 
 const SelectField = forwardRef<HTMLDivElement, BaseSelectProps>(function render(
-  { id, className, name, label, open, onOpen, onClose, value, elements, fullWidth, disabled, tooltipTitle, helperText, errors, onChange },
+  {
+    id,
+    className,
+    selectRef,
+    name,
+    label,
+    open,
+    onOpen,
+    onClose,
+    value,
+    elements,
+    fullWidth,
+    disabled,
+    isRequired = true,
+    tooltipTitle,
+    helperText,
+    errors,
+    onChange,
+  },
   ref,
 ) {
   return (
     <div id={id} className={className} ref={ref}>
       <div>
-        <FormInputLabel htmlFor={name} label={label} />
+        <FormInputLabel htmlFor={name} label={label} isRequired={isRequired} />
         {tooltipTitle && <ExplainUITooltip title={tooltipTitle} />}
       </div>
       <DefaultSelect
+        ref={selectRef}
         name={name}
         open={open}
         onOpen={onOpen}
